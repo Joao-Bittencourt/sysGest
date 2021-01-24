@@ -1,15 +1,16 @@
-<?php
+<!doctype html>
 
-/* include "app/view/header.php";
-  include "app/view/menu.php";
-  include "app/view/right.php";
-  include "app/view/$file.php";
-  include "app/view/footer.php";
- */
+<html class="no-js" lang="en">
+    <?php echo $this->element('header'); ?>
+    <body>
+        <?php echo $this->element('menu'); ?>
 
-echo $this->element('header');
-echo $this->element('menu');
-echo $this->element('right');
-echo $this->Flash->render();
-echo $this->fetch('content');
+        <?php
+            echo $this->Flash->render();
+            echo $this->fetch('content');
+        ?>
 
+        <?php echo $this->element('footer'); ?>
+        </div>
+    </body>
+</html>
