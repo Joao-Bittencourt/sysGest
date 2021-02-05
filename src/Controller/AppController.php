@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /**
@@ -14,6 +15,7 @@ declare(strict_types=1);
  * @since     0.2.9
  * @license   https://opensource.org/licenses/mit-license.php MIT License
  */
+
 namespace App\Controller;
 
 use Cake\Controller\Controller;
@@ -26,8 +28,8 @@ use Cake\Controller\Controller;
  *
  * @link https://book.cakephp.org/4/en/controllers.html#the-app-controller
  */
-class AppController extends Controller
-{
+class AppController extends Controller {
+
     /**
      * Initialization hook method.
      *
@@ -37,8 +39,7 @@ class AppController extends Controller
      *
      * @return void
      */
-    public function initialize(): void
-    {
+    public function initialize(): void {
         parent::initialize();
 
         $this->loadComponent('RequestHandler');
@@ -50,4 +51,14 @@ class AppController extends Controller
          */
         //$this->loadComponent('FormProtection');
     }
+
+//    public function beforeRender(\Cake\Event\EventInterface $event) {
+//        parent::beforeRender($event);
+//        debug($event->getResult());
+//        debug();
+//        if(!empty($dados)){
+//            $this->set('dados', json_decode(json_encode($dados, true)));
+//            die('passo no tratamento');
+//        }
+//    }
 }

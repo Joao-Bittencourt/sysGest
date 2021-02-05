@@ -1,5 +1,5 @@
 <?php
 
-echo 'teste fetch content';
+debug($dados);
 
 ?>

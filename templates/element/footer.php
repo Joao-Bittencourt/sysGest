@@ -4,10 +4,10 @@ echo $this->Html->script([
     'popper.min',
     'bootstrap.min',
     'main',
-//    'Chart.bundle.min',
+    'Chart.bundle.min',
     'dashboard',
-//    'widgets',
-//    'jquery.vmap.min',
+    'widgets',
+    'jquery.vmap.min',
     'jquery.vmap.sampledata',
     'jquery.vmap.world'
 ]);
