@@ -1,10 +1,10 @@
-<?php
-?><!-- Left Panel -->
+<?php ?>
+
 <div class="main-header">
     <div class="logo-header" data-background-color="blue">
         <a href="/" class="logo">
             <!--@ToDo verificar logo-->
-         <?='';// $this->Html->image('sysGest01.png', ['alt' => 'navbar brand', 'class' => 'navbar-brand']); ?> 
+            <?= ''; // $this->Html->image('sysGest01.png', ['alt' => 'navbar brand', 'class' => 'navbar-brand']);  ?> 
         </a>
         <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
@@ -72,7 +72,7 @@
                         <p>Planos</p>
                     </a>
                 </li>
-                
+
                 <li class="nav-item">
                     <a href="/invoices" class="collapsed">
                         <i class="fas fa-file-invoice-dollar"></i>
@@ -85,6 +85,23 @@
                         <i class="fas fa-chart-line"></i>
                         <p>Despesas</p>
                     </a>
+                </li>
+
+                <li class="nav-item info">
+                    <a data-toggle="collapse" href="#collapseExample" >
+                        <i class="fas fa-wrench"></i>
+                        <p>Config</p>
+                    </a>
+                    <div class="collapse in" id="collapseExample">
+                        <ul>
+                            <li>
+                                <a href="#profile">
+                                    <i class="fas fa-wrench"></i>
+                                    <p>Config1.1</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
         </div>
