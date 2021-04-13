@@ -1,5 +1,3 @@
 <?php
-
-debug($dados);
-
+//debug($dados);
 ?>

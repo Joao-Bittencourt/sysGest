@@ -1,65 +1,92 @@
-<?php 
+<?php
 ?><!-- Left Panel -->
-
-<aside id="left-panel" class="left-panel">
-    <nav class="navbar navbar-expand-sm navbar-default">
-
-        <div class="navbar-header">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
+<div class="main-header">
+    <div class="logo-header" data-background-color="blue">
+        <a href="/" class="logo">
+            <!--@ToDo verificar logo-->
+         <?='';// $this->Html->image('sysGest01.png', ['alt' => 'navbar brand', 'class' => 'navbar-brand']); ?> 
+        </a>
+        <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+                <i class="icon-menu"></i>
+            </span>
+        </button>
+        <button class="topbar-toggler more"><i class="icon-options-vertical"></i></button>
+        <div class="nav-toggle">
+            <button class="btn btn-toggle toggle-sidebar">
+                <i class="icon-menu"></i>
             </button>
-            <a class="navbar-brand" href="./"><img src="images/logo.png" alt="Logo"></a>
-            <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
         </div>
+    </div>
 
-        <div id="main-menu" class="main-menu collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="/"> <i class="menu-icon fa fa-dashboard"></i>Inicio </a>
-                </li>
-                <!--                    <h3 class="menu-title">Produtos</h3> /.menu-title -->
-                <li class="menu-item-has-children dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
-                        <i class="menu-icon fa fa-laptop"></i>
-                        Produtos
+    <!-- Navbar Header -->
+    <nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue2">
+
+        <div class="container-fluid">
+            <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+                <li class="nav-item dropdown hidden-caret">
+                    <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <div class="avatar-sm">
+                            <?= $this->Html->image('admin.png', ['alt' => 'image profile', 'class' => 'avatar-img rounded-circle']); ?> 
+                        </div>
                     </a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">listar</a></li>
-                        <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">cadastrar</a></li>
+                    <ul class="dropdown-menu dropdown-user">
+                        <div class="dropdown-user-scroll scrollbar-outer">
+                            <li>
+                                <div class="user-box">
+                                    <div class="u-text ml-auto mr-auto">
+                                        <a href="/logout" class="btn btn-xs btn-danger">Sair</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </div>
                     </ul>
                 </li>
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Estoque</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-table"></i><a href="tables-basic.html">listar</a></li>
-                        <li><i class="fa fa-table"></i><a href="tables-data.html">Movimentar</a></li>
-                    </ul>
-                </li>
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Venda</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">listar</a></li>
-                        <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">cadastrar</a></li>
-                    </ul>
-                </li>               
             </ul>
         </div>
     </nav>
-</aside>
+    <!-- End Navbar -->
+</div>
 
+<!-- Sidebar -->
+<div class="sidebar sidebar-style-2">
+    <div class="sidebar-wrapper scrollbar scrollbar-inner">
+        <div class="sidebar-content">
+            <ul class="nav nav-primary">
+                <li class="nav-item active">
+                    <a href="/" class="collapsed">
+                        <i class="fas fa-home"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a href="/customers" class="collapsed">
+                        <i class="fas fa-users"></i>
+                        <p>Clientes</p>
+                    </a>
+                </li>
 
+                <li class="nav-item">
+                    <a href="/plans" class="collapsed">
+                        <i class="fas fa-cart-plus"></i>
+                        <p>Planos</p>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="/invoices" class="collapsed">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        <p>Faturas</p>
+                    </a>
+                </li>
 
-<div id="right-panel" class="right-panel">
-
-    <!-- Header-->
-    <header id="header" class="header">
-
-        <div class="header-menu">
-        <!--nav bar-->
+                <li class="nav-item">
+                    <a href="#" class="collapsed">
+                        <i class="fas fa-chart-line"></i>
+                        <p>Despesas</p>
+                    </a>
+                </li>
+            </ul>
         </div>
-    </header>
-    <!-- /header -->
-    <!-- Header-->
-
-  
-
+    </div>
+</div>
