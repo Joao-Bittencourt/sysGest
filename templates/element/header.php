@@ -6,9 +6,9 @@
 
     <?php
         echo $this->Html->css([
-            'atlantis.min',
-            'bootstrap.min',
-            'fonts.min'
+            'style4',
+            'bootstrap.min'
         ]);
     ?>
+
 </head>

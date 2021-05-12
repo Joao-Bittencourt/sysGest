@@ -12,7 +12,7 @@ class PessoasController extends AppController {
         
 //        $this->set(compact('dados'));
         $this->set('dados', $dados);
-        $this->viewBuilder()->setOption('serialize', ['dados']);
+//        $this->viewBuilder()->setOption('serialize', ['dados']);;
     }
     
     public function teste(){
@@ -20,6 +20,6 @@ class PessoasController extends AppController {
           $pessoas = $this->paginate($this->Pessoas);
           
         $this->set(compact('pessoas'));
-//       $this->layout = 'vue';
+       $this->layout = 'vue';
     }
 }
