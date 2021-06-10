@@ -1,4 +1,4 @@
-name: CakePHP App CI
+name: CI
 
 on:
   push:
@@ -8,81 +8,48 @@ on:
   pull_request:
     branches:
       - '*'
-
+env:
+      DB_DATABASE: cakephp
+      DB_USER: root
+      DB_PASSWORD: root
 jobs:
   testsuite:
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false
       matrix:
-        php-version: ['7.4', '8.0']
-    name: PHP ${{ matrix.php-version }}
-
+        php-version: ['7.2', '7.4']
+        db-type: [mysql]
+        include:
+          - php-version: '7.2'
+            db-type: 'mysql'
+        
     steps:
-    - uses: actions/checkout@v1
-      with:
-        fetch-depth: 1
-
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: ${{ matrix.php-version }}
-        extensions: mbstring, intl, pdo_sqlite, pdo_mysql
-        coverage: none
-
-    - name: composer install
+    - uses: actions/checkout@v2
+ 
+    - name: Set up MySQL
       run: |
-        if [[ ${{ matrix.php-version }} == '8.0' ]]; then
-          composer install --ignore-platform-reqs
-        else
+          sudo /etc/init.d/mysql start
+          mysql -e 'CREATE DATABASE ${{ env.DB_DATABASE }};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
+    
+    - name: Composer install
+      run: | 
+          composer update 
           composer install
-        fi
-        composer run-script post-install-cmd --no-interaction
-
-    - name: Run PHPUnit
+    
+    - name: arquivos
       run: |
+         cp config/.env.example config/.env
+         cp config/app_local.example.php config/app_local.php
+       
+    - name: Run PHPUnit
+      run: |       
+       if [[ ${{ matrix.php-version }} == '7.4' ]]; then
+          export CODECOVERAGE=1 && vendor/bin/phpunit --verbose --coverage-clover=coverage.xml
+        else
           vendor/bin/phpunit
-
-  coding-standard:
-    name: Coding Standard
-    runs-on: ubuntu-18.04
-
-    steps:
-    - uses: actions/checkout@v1
-      with:
-        fetch-depth: 1
-
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '7.2'
-        extensions: mbstring, intl
-        coverage: none
-
-    - name: composer install
-      run: composer install
-      
-    - name: Run PHP CodeSniffer
-      run: composer cs-check
-
-  static-analysis:
-    name: Static Analysis
-    runs-on: ubuntu-18.04
-
-    steps:
-    - uses: actions/checkout@v1
-      with:
-        fetch-depth: 1
-
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '7.2'
-        extensions: mbstring, intl
-        coverage: none
-
-    - name: composer install
-      run: composer require --dev phpstan/phpstan:^0.12
-
-    - name: Run phpstan
-      run: vendor/bin/phpstan.phar analyse
+        fi
+   
+    - name: Code Coverage Report
+      if: success() && matrix.php-version == '7.4' && matrix.db-type == 'mysql'
+      uses: codecov/codecov-action@v1
