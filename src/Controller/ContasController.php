@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-class BancosController extends AppController {
+class ContasController extends AppController {
 
     public function listar() {
-        $bancos = $this->paginate($this->Bancos);
-        $this->set('submenu', 'bancos');
-        $this->set('bancos', $bancos);
+        $contas = $this->paginate($this->Contas);
+        $this->set('submenu', 'contas');
+        $this->set('contas', $contas);
+        
     }
 
     public function detalhar($id = null) {
@@ -19,16 +20,16 @@ class BancosController extends AppController {
 
     public function cadastrar($id = null) {
 
-        $bancos = $this->Bancos->newEmptyEntity();
+        $contas = $this->Contas->newEmptyEntity();
         if (!empty($id)) {
-            $bancos = $this->Bancos->get($id, [
+            $contas = $this->Contas->get($id, [
                 'contain' => [],
             ]);
         }
 
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $bancos = $this->Bancos->patchEntity($bancos, $this->request->getData());
-            if ($this->Bancos->save($bancos)) {
+            $contas = $this->Contas->patchEntity($contas, $this->request->getData());
+            if ($this->Contas->save($contas)) {
                 $this->Flash->success(__('Dados salvos com sucesso!'));
 
                 return $this->redirect(['action' => 'listar']);
@@ -36,7 +37,7 @@ class BancosController extends AppController {
             $this->Flash->error(__('Não foi possivel realizar a operaçao.'));
         }
 
-        $this->set(compact('bancos'));
+        $this->set(compact('pagamentos'));
     }
 
     public function delete($id = null) {

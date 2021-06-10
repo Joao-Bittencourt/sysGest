@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Migrations\AbstractMigration;
 
-class CreateBancos extends AbstractMigration {
+class CreateParcelas extends AbstractMigration {
 
     /**
      * Change Method.
@@ -14,17 +14,13 @@ class CreateBancos extends AbstractMigration {
      * @return void
      */
     public function change() {
-        $table = $this->table('bancos');
-        $table->addColumn('nome', 'string', [
-            'default' => null,
-            'limit' => 255,
-            'null' => false,
-        ]);
-        $table->addColumn('codigo_banco', 'integer', [
-            'default' => null,
-            'limit' => 11,
-            'null' => false,
-        ]);
+        $table = $this->table('parcelas');
+//        $table->addColumn('id', 'integer', [
+//            'default' => null,
+//            'limit' => 11,
+//            'null' => false,
+//        ]);
+
         $table->addColumn('created', 'datetime', [
             'default' => null,
             'null' => false,
@@ -48,6 +44,7 @@ class CreateBancos extends AbstractMigration {
             'limit' => 1,
             'null' => false,
         ]);
+
         $table->create();
     }
 

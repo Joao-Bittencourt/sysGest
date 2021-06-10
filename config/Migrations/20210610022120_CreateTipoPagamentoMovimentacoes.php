@@ -1,11 +1,10 @@
 <?php
-
 declare(strict_types=1);
 
 use Migrations\AbstractMigration;
 
-class CreateBancos extends AbstractMigration {
-
+class CreateTipoPagamentoMovimentacoes extends AbstractMigration
+{
     /**
      * Change Method.
      *
@@ -13,19 +12,10 @@ class CreateBancos extends AbstractMigration {
      * https://book.cakephp.org/phinx/0/en/migrations.html#the-change-method
      * @return void
      */
-    public function change() {
-        $table = $this->table('bancos');
-        $table->addColumn('nome', 'string', [
-            'default' => null,
-            'limit' => 255,
-            'null' => false,
-        ]);
-        $table->addColumn('codigo_banco', 'integer', [
-            'default' => null,
-            'limit' => 11,
-            'null' => false,
-        ]);
-        $table->addColumn('created', 'datetime', [
+    public function change()
+    {
+        $table = $this->table('tipo_pagamento_movimentacoes');
+         $table->addColumn('created', 'datetime', [
             'default' => null,
             'null' => false,
         ]);
@@ -50,5 +40,4 @@ class CreateBancos extends AbstractMigration {
         ]);
         $table->create();
     }
-
 }

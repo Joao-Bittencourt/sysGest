@@ -56,6 +56,8 @@ $routes->scope('/', function (RouteBuilder $builder) {
      * ...and connect the rest of 'Pages' controller's URLs.
      */
     $builder->connect('/pages/*', 'Pages::display');
+    
+    $builder->connect('/Bancos/editar/*', ['controller' => 'Bancos', 'action' => 'cadastrar']);
 
     /*
      * Connect catchall routes for all controllers.

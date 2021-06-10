@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Table;
@@ -29,16 +30,15 @@ use Cake\Validation\Validator;
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
-class UsersTable extends Table
-{
+class UsersTable extends Table {
+
     /**
      * Initialize method
      *
      * @param array $config The configuration for the Table.
      * @return void
      */
-    public function initialize(array $config): void
-    {
+    public function initialize(array $config): void {
         parent::initialize($config);
 
         $this->setTable('users');
@@ -58,27 +58,26 @@ class UsersTable extends Table
      * @param \Cake\Validation\Validator $validator Validator instance.
      * @return \Cake\Validation\Validator
      */
-    public function validationDefault(Validator $validator): Validator
-    {
+    public function validationDefault(Validator $validator): Validator {
         $validator
-            ->integer('id')
-            ->allowEmptyString('id', null, 'create');
+                ->integer('id')
+                ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->scalar('login')
-            ->maxLength('login', 255)
-            ->requirePresence('login', 'create')
-            ->notEmptyString('login');
+                ->scalar('login')
+                ->maxLength('login', 255)
+                ->requirePresence('login', 'create')
+                ->notEmptyString('login');
 
         $validator
-            ->scalar('password')
-            ->maxLength('password', 255)
-            ->requirePresence('password', 'create')
-            ->notEmptyString('password');
+                ->scalar('password')
+                ->maxLength('password', 255)
+                ->requirePresence('password', 'create')
+                ->notEmptyString('password');
 
         $validator
-            ->integer('status')
-            ->notEmptyString('status');
+                ->integer('status')
+                ->notEmptyString('status');
 
         return $validator;
     }
@@ -90,10 +89,10 @@ class UsersTable extends Table
      * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
      * @return \Cake\ORM\RulesChecker
      */
-    public function buildRules(RulesChecker $rules): RulesChecker
-    {
+    public function buildRules(RulesChecker $rules): RulesChecker {
         $rules->add($rules->isUnique(['login']), ['errorField' => 'login']);
 
         return $rules;
     }
+
 }

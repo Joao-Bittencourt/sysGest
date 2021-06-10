@@ -51,14 +51,4 @@ class AppController extends Controller {
          */
         //$this->loadComponent('FormProtection');
     }
-
-//    public function beforeRender(\Cake\Event\EventInterface $event) {
-//        parent::beforeRender($event);
-//        debug($event->getResult());
-//        debug();
-//        if(!empty($dados)){
-//            $this->set('dados', json_decode(json_encode($dados, true)));
-//            die('passo no tratamento');
-//        }
-//    }
 }

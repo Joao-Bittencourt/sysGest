@@ -9,12 +9,12 @@ use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
-class BancosTable extends Table {
+class TipoPagamentoMovimentacoesTable extends Table {
 
     public function initialize(array $config): void {
         parent::initialize($config);
 
-        $this->setTable('bancos');
+        $this->setTable('tipo_pagamento_movimentacoes');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
@@ -25,12 +25,6 @@ class BancosTable extends Table {
         $validator
                 ->integer('id')
                 ->allowEmptyString('id', null, 'create');
-
-        $validator
-                ->scalar('nome')
-                ->maxLength('nome', 255)
-                ->requirePresence('nome', 'create')
-                ->notEmptyString('nome');
 
         $validator
                 ->integer('status')

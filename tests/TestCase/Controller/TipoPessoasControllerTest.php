@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Test\TestCase\Controller;
@@ -12,8 +13,8 @@ use Cake\TestSuite\TestCase;
  *
  * @uses \App\Controller\TipoPessoasController
  */
-class TipoPessoasControllerTest extends TestCase
-{
+class TipoPessoasControllerTest extends TestCase {
+
     use IntegrationTestTrait;
 
     /**
@@ -31,8 +32,7 @@ class TipoPessoasControllerTest extends TestCase
      *
      * @return void
      */
-    public function testIndex(): void
-    {
+    public function testIndex(): void {
         $this->markTestIncomplete('Not implemented yet.');
     }
 
@@ -41,8 +41,7 @@ class TipoPessoasControllerTest extends TestCase
      *
      * @return void
      */
-    public function testView(): void
-    {
+    public function testView(): void {
         $this->markTestIncomplete('Not implemented yet.');
     }
 
@@ -51,8 +50,7 @@ class TipoPessoasControllerTest extends TestCase
      *
      * @return void
      */
-    public function testAdd(): void
-    {
+    public function testAdd(): void {
         $this->markTestIncomplete('Not implemented yet.');
     }
 
@@ -61,8 +59,7 @@ class TipoPessoasControllerTest extends TestCase
      *
      * @return void
      */
-    public function testEdit(): void
-    {
+    public function testEdit(): void {
         $this->markTestIncomplete('Not implemented yet.');
     }
 
@@ -71,8 +68,8 @@ class TipoPessoasControllerTest extends TestCase
      *
      * @return void
      */
-    public function testDelete(): void
-    {
+    public function testDelete(): void {
         $this->markTestIncomplete('Not implemented yet.');
     }
+
 }
