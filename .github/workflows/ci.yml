@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: ['7.2', '7.4', '8.0']
+        php-version: ['7.4', '8.0']
     name: PHP ${{ matrix.php-version }}
 
     steps:
@@ -62,9 +62,6 @@ jobs:
     - name: composer install
       run: composer install
       
-    - name: composer update
-      run: composer update
-
     - name: Run PHP CodeSniffer
       run: composer cs-check
 
