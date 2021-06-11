@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-class PagamentosController extends AppController {
+class ParcelasController extends AppController {
 
     public function listar() {
         $parcelas = $this->paginate($this->Parcelas);

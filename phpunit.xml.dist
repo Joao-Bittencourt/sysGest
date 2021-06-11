@@ -28,5 +28,8 @@
       </arguments>
     </listener>
   </listeners>
+  <logging>
+       <log type="coverage-clover" target="clover.xml"/>
+   </logging>
   <!-- Ignore vendor tests in code coverage reports -->
 </phpunit>

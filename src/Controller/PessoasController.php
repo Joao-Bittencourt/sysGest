@@ -6,7 +6,7 @@ namespace App\Controller;
 
 class PessoasController extends AppController {
 
-    public function index() {
+    public function listar() {
 
         $dados = $this->paginate($this->Pessoas);
         $this->set('dados', $dados);

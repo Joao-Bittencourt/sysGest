@@ -16,8 +16,6 @@ use Cake\Routing\Router;
                 <i class="fas fa-home"></i>
                 Home
             </a>
-
-
             <ul class="collapse list-unstyled" id="homeSubmenu">
                 <li>
                     <a href="#">Home 3</a>
@@ -33,6 +31,28 @@ use Cake\Routing\Router;
             <ul class="collapse list-unstyled" id="pageSubmenuFinanceiro">
 
                 <li>
+                    <a href = <?= Router::url(['controller' => 'TipoPagamentoMovimentacoes', 'action' => 'listar_entradas']); ?>>                    
+                       <i class="fas fa-dollar-sign"></i> 
+                        Entradas
+                    </a>
+                </li>
+                <li>
+                    <a href = <?= Router::url(['controller' => 'TipoPagamentoMovimentacoes', 'action' => 'listar_saidas']); ?>>                    
+                        <i class="fas fa-donate"></i>
+                        Saidas
+                    </a>
+                </li>
+               
+            </ul>
+        </li>
+        
+        <li>
+            <a href="#pageSubmenuConfiguracoes" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <i class="fas fa-cog"></i>
+                Configurações
+            </a>
+            <ul class="collapse list-unstyled" id="pageSubmenuConfiguracoes">
+                <li>
                     <a href = <?= Router::url(['controller' => 'Bancos', 'action' => 'listar']); ?>>                    
                         <i class="fas fa-university"></i>
                         Bancos
@@ -44,30 +64,12 @@ use Cake\Routing\Router;
                         Contas
                     </a>
                 </li>
-
-            </ul>
-        </li>
-        
-        <li>
-            <a href="#pageSubmenuConfiguracoes" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                <i class="fas fa-cog"></i>
-                Configurações
-            </a>
-            <ul class="collapse list-unstyled" id="pageSubmenuConfiguracoes">
-
-               <li>
-                    <a href = <?php //echo Router::url(['controller' => 'Bancos', 'action' => 'listar']); ?>>                    
-                        <!--<i class="fas fa-university"></i>-->
-
+                 <li>
+                    <a href = <?= Router::url(['controller' => 'Pessoas', 'action' => 'listar']); ?>>                    
+                        <i class="fas fa-user-alt"></i>
+                        Pessoas
                     </a>
                 </li>
-                <!-- 
-                <li>
-                    <a href = <?php //echo  Router::url(['controller' => 'Contas', 'action' => 'listar']); ?>>                    
-                        <i class="fas fa-id-card"></i>
-
-                    </a>
-                </li>-->
             </ul>
         </li>
     </ul>
