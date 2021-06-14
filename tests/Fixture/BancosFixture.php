@@ -10,8 +10,6 @@ class BancosFixture extends TestFixture {
 
     public $import = ['table' => 'bancos'];
     
-    
-
     /**
      * Init method
      *

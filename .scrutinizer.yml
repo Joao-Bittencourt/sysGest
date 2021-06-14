@@ -1,0 +1,27 @@
+build:
+    environment:
+        php: '7.2.0'
+        php: '7.4.0'
+
+before_commands:
+    - "composer install --prefer-source"
+
+tools:
+    external_code_coverage:
+        enabled: false
+        timeout: 300
+        filter:
+            excluded_paths:
+                - 'config/*'
+                - 'tests/*'
+                - 'vendor/*'
+
+    php_code_coverage:
+        enabled: true
+        filter:
+            excluded_paths:
+                - 'config/*'
+                - 'tests/*'
+                - 'vendor/*'
+
+    
