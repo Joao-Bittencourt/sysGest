@@ -9,8 +9,7 @@ use Cake\ORM\Entity;
 class Pagamento extends Entity {
 
     protected $_accessible = [
-        'id' => true,
-//        '' => true,
+       'id' => true,
         'created' => true,
         'created_by' => true,
         'modified' => true,

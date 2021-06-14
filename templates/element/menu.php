@@ -31,13 +31,13 @@ use Cake\Routing\Router;
             <ul class="collapse list-unstyled" id="pageSubmenuFinanceiro">
 
                 <li>
-                    <a href = <?= Router::url(['controller' => 'TipoPagamentoMovimentacoes', 'action' => 'listar_entradas']); ?>>                    
+                    <a href = <?= Router::url(['controller' => 'PagamentoMovimentacoes', 'action' => 'listar_entradas']); ?>>                    
                        <i class="fas fa-dollar-sign"></i> 
                         Entradas
                     </a>
                 </li>
                 <li>
-                    <a href = <?= Router::url(['controller' => 'TipoPagamentoMovimentacoes', 'action' => 'listar_saidas']); ?>>                    
+                    <a href = <?= Router::url(['controller' => 'PagamentoMovimentacoes', 'action' => 'listar_saidas']); ?>>                    
                         <i class="fas fa-donate"></i>
                         Saidas
                     </a>

@@ -39,7 +39,7 @@
                     <td><?= h($tipoPessoa->created) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Modified') ?></th>
+                    <th><?= __('modified') ?></th>
                     <td><?= h($tipoPessoa->modified) ?></td>
                 </tr>
             </table>

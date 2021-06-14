@@ -18,7 +18,9 @@ class BancosControllerTest extends TestCase {
      *
      * @var array
      */
-    protected $fixtures = [];
+    protected $fixtures = [
+        'app.Bancos'
+    ];
 
     /**
      * Test listar method
@@ -26,7 +28,18 @@ class BancosControllerTest extends TestCase {
      * @return void
      */
     public function testListar(): void {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('/bancos/listar');
+        $this->assertResponseOk();
+    }
+    
+    /**
+     * Test cadastrar method
+     *
+     * @return void
+     */
+    public function testGetCadastrar(): void {
+        $this->get('/bancos/cadastrar');
+        $this->assertResponseOk();
     }
     
     /**
@@ -35,7 +48,20 @@ class BancosControllerTest extends TestCase {
      * @return void
      */
     public function testCadastrar(): void {
-        $this->markTestIncomplete('Not implemented yet.');
+        $data = [
+            'nome' => 'lala',
+            'codigo_banco' => '999',
+            'status' => '1'
+            ];
+        
+        $this->enableCsrfToken();
+        $this->enableSecurityToken();
+        
+        $this->post('/Bancos/cadastrar', $data);
+        $this->assertResponseSuccess();
+        $bancos = $this->getTableLocator()->get('Bancos');
+        $query = $bancos->find()->where(['nome' => $data['nome'], 'codigo_banco' => $data['codigo_banco']]);
+        $this->assertEquals(1, $query->count());
     }
 
     /**

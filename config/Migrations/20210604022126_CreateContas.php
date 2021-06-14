@@ -30,7 +30,7 @@ class CreateContas extends AbstractMigration {
         ]);
         $table->addColumn('modified_by', 'datetime', [
             'default' => null,
-            'null' => false,
+            'null' => true,
         ]);
 
         $table->addColumn('status', 'integer', [

@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\TipoPagamentoMovimentacoesController;
+use App\Controller\PagamentoMovimentacoesController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
-class TipoPagamentoMovimentacoesControllerTest extends TestCase {
+class PagamentoMovimentacoesControllerTest extends TestCase {
 
     use IntegrationTestTrait;
 

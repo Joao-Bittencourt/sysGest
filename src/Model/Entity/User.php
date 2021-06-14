@@ -33,7 +33,9 @@ class User extends Entity {
         'login' => true,
         'password' => true,
         'created' => true,
+        'created_by' => true,
         'modified' => true,
+        'modified_by' => true,
         'status' => true,
         'pessoas' => true,
     ];

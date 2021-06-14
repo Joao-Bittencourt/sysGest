@@ -15,12 +15,6 @@ class CreateParcelas extends AbstractMigration {
      */
     public function change() {
         $table = $this->table('parcelas');
-//        $table->addColumn('id', 'integer', [
-//            'default' => null,
-//            'limit' => 11,
-//            'null' => false,
-//        ]);
-
         $table->addColumn('created', 'datetime', [
             'default' => null,
             'null' => false,
@@ -36,7 +30,7 @@ class CreateParcelas extends AbstractMigration {
         ]);
         $table->addColumn('modified_by', 'datetime', [
             'default' => null,
-            'null' => false,
+            'null' => true,
         ]);
 
         $table->addColumn('status', 'integer', [

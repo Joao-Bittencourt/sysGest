@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Test\Fixture;
@@ -8,8 +9,8 @@ use Cake\TestSuite\Fixture\TestFixture;
 /**
  * UsersFixture
  */
-class UsersFixture extends TestFixture
-{
+class UsersFixture extends TestFixture {
+
     /**
      * Fields
      *
@@ -31,14 +32,15 @@ class UsersFixture extends TestFixture
             'collation' => 'latin1_swedish_ci'
         ],
     ];
+
     // phpcs:enable
+
     /**
      * Init method
      *
      * @return void
      */
-    public function init(): void
-    {
+    public function init(): void {
         $this->records = [
             [
                 'id' => 1,
@@ -51,4 +53,5 @@ class UsersFixture extends TestFixture
         ];
         parent::init();
     }
+
 }

@@ -29,11 +29,13 @@ class TipoPessoa extends Entity {
      * @var array
      */
     protected $_accessible = [
+        'id' => true,
         'tipo' => true,
         'created' => true,
+        'created_by' => true,
         'modified' => true,
+        'modified_by' => true,
         'status' => true,
-        'pessoas' => true,
     ];
 
 }

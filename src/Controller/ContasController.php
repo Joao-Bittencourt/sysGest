@@ -9,8 +9,7 @@ class ContasController extends AppController {
     public function listar() {
         $contas = $this->paginate($this->Contas);
         $this->set('submenu', 'contas');
-        $this->set('contas', $contas);
-        
+        $this->set('dados', $contas);
     }
 
     public function detalhar($id = null) {
@@ -37,7 +36,7 @@ class ContasController extends AppController {
             $this->Flash->error(__('Não foi possivel realizar a operaçao.'));
         }
 
-        $this->set(compact('pagamentos'));
+        $this->set(compact('contas'));
     }
 
     public function delete($id = null) {

@@ -12,7 +12,9 @@ class Banco extends Entity {
         'nome' => true,
         'codigo_banco' => true,
         'created' => true,
+        'created_by' => true,
         'modified' => true,
+        'modified_by' => true,
         'status' => true,
     ];
 
