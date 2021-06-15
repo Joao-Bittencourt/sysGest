@@ -11,7 +11,7 @@ on:
 env:
       DB_DATABASE: cakephp
       DB_USER: root
-      DB_PASSWORD: root
+      
 jobs:
   testsuite:
     runs-on: ubuntu-18.04
