@@ -38,7 +38,7 @@ class BancosController extends AppController {
         $this->set(compact('bancos'));
     }
 
-    public function delete($id = null) {
+    public function deletar($id = null) {
         throw new Exception('Not implemented yet');
     }
 

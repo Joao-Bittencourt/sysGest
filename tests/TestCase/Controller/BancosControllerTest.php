@@ -51,7 +51,10 @@ class BancosControllerTest extends TestCase {
         $data = [
             'nome' => 'lala',
             'codigo_banco' => '999',
-            'status' => '1'
+            'status' => '1',
+            'created' => date('Y-m-d H:i:s'),
+            'created_by' => '1',
+            'modified' => date('Y-m-d H:i:s')
             ];
         
         $this->enableCsrfToken();
@@ -70,7 +73,9 @@ class BancosControllerTest extends TestCase {
      * @return void
      */
     public function testDetalhar(): void {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('/bancos/detalhar/1');
+        $this->assertResponseFailure();
+//        $this->assertResponseOk();
     }
 
     /**
@@ -79,7 +84,8 @@ class BancosControllerTest extends TestCase {
      * @return void
      */
     public function testDeletar(): void {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('/bancos/deletar/1');
+        $this->assertResponseFailure();
     }
 
 }

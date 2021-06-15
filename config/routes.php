@@ -57,6 +57,7 @@ $routes->scope('/', function (RouteBuilder $builder) {
      */
     $builder->connect('/pages/*', 'Pages::display');
     
+    $builder->connect('/Bancos/cadastrar/*', ['controller' => 'Bancos', 'action' => 'cadastrar']);
     $builder->connect('/Bancos/editar/*', ['controller' => 'Bancos', 'action' => 'cadastrar']);
 
     /*
