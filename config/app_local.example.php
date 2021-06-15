@@ -45,7 +45,7 @@ return [
             //'port' => 'non_standard_port_number',
 
             'username' => 'root',
-            'password' => '',
+            'password' => 'root',
 
             'database' => 'cakephp',
             /*
@@ -67,7 +67,7 @@ return [
             'host' => 'localhost',
             //'port' => 'non_standard_port_number',
             'username' => 'root',
-            'password' => '',
+            'password' => 'root',
             'database' => 'cakephp',
             //'schema' => 'myapp',
             'url' => env('DATABASE_TEST_URL', null),
