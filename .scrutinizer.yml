@@ -2,6 +2,8 @@ build:
     environment:
         php: '7.3.0'
         php: '7.4.0'
+        variables:
+            DBUSERNAME: root
 
 before_commands:
     - "composer install --prefer-source"

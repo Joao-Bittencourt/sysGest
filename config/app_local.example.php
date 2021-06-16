@@ -66,9 +66,9 @@ return [
         'test' => [
             'host' => 'localhost',
             //'port' => 'non_standard_port_number',
-            'username' => 'root',
-            'password' => 'root',
-            'database' => 'cakephp',
+            'username' => env('DBUSERNAME', 'root'),
+            'password' => env('DBPASSWORD', null),
+            'database' => env('DBDATABASE', 'cakephp'),
             //'schema' => 'myapp',
             'url' => env('DATABASE_TEST_URL', null),
         ],
