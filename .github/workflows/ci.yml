@@ -53,4 +53,6 @@ jobs:
     - name: Code Coverage Report
       if: matrix.php-version == '7.4' 
       uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
      
