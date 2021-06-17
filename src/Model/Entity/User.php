@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Entity;
@@ -17,8 +18,8 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\Pessoa[] $pessoas
  */
-class User extends Entity
-{
+class User extends Entity {
+
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
      *
@@ -32,7 +33,9 @@ class User extends Entity
         'login' => true,
         'password' => true,
         'created' => true,
+        'created_by' => true,
         'modified' => true,
+        'modified_by' => true,
         'status' => true,
         'pessoas' => true,
     ];
@@ -45,4 +48,5 @@ class User extends Entity
     protected $_hidden = [
         'password',
     ];
+
 }

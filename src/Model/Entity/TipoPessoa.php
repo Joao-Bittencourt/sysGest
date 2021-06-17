@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Entity;
@@ -16,8 +17,8 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\Pessoa[] $pessoas
  */
-class TipoPessoa extends Entity
-{
+class TipoPessoa extends Entity {
+
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
      *
@@ -28,10 +29,13 @@ class TipoPessoa extends Entity
      * @var array
      */
     protected $_accessible = [
+        'id' => true,
         'tipo' => true,
         'created' => true,
+        'created_by' => true,
         'modified' => true,
+        'modified_by' => true,
         'status' => true,
-        'pessoas' => true,
     ];
+
 }

@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt_BR">
-    <div class="wrapper">
-        <?= $this->element('header'); ?>
-        <?= $this->element('menu'); ?>
-        <div class="main-panel">
-            <div class="content">
-            <?php
-                echo $this->Flash->render();
-                echo $this->fetch('content');
-            ?>
+    <?= $this->element('header'); ?>
+    <body>
+        <div class="wrapper">
+            <?= $this->element('menu'); ?>
+                <div id="content">
+                    <?php
+                        echo $this->Flash->render();
+                        echo $this->fetch('content');
+                    ?>
+
             </div>
+            <?= $this->element('footer'); ?>
         </div>
-        
-        <?= $this->element('footer'); ?>
-    </div>
+    </body>
 </html>

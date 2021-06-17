@@ -1,0 +1,30 @@
+build:
+    environment:
+        php: '7.3.0'
+        php: '7.4.0'
+        variables:
+            DBUSERNAME: root
+
+before_commands:
+    - "composer install --prefer-source"
+    - "mysql -e 'CREATE DATABASE ${{ env.DB_DATABASE }};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}"
+
+tools:
+    external_code_coverage:
+        enabled: false
+        timeout: 300
+        filter:
+            excluded_paths:
+                - 'config/*'
+                - 'tests/*'
+                - 'vendor/*'
+
+    php_code_coverage:
+        enabled: true
+        filter:
+            excluded_paths:
+                - 'config/*'
+                - 'tests/*'
+                - 'vendor/*'
+
+    

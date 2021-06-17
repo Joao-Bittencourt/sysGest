@@ -1,109 +1,76 @@
-<?php ?>
+<?php
 
-<div class="main-header">
-    <div class="logo-header" data-background-color="blue">
-        <a href="/" class="logo">
-            <!--@ToDo verificar logo-->
-            <?= ''; // $this->Html->image('sysGest01.png', ['alt' => 'navbar brand', 'class' => 'navbar-brand']);  ?> 
-        </a>
-        <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon">
-                <i class="icon-menu"></i>
-            </span>
+use Cake\Routing\Router;
+?><!-- Sidebar  -->
+<nav id="sidebar">
+    <div>
+        <button type="button" id="sidebarCollapse" class="btn btn-info btn-sm float-right">
+            <i class="fas fa-align-left"></i>
         </button>
-        <button class="topbar-toggler more"><i class="icon-options-vertical"></i></button>
-        <div class="nav-toggle">
-            <button class="btn btn-toggle toggle-sidebar">
-                <i class="icon-menu"></i>
-            </button>
-        </div>
     </div>
-
-    <!-- Navbar Header -->
-    <nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue2">
-
-        <div class="container-fluid">
-            <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
-                <li class="nav-item dropdown hidden-caret">
-                    <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
-                        <div class="avatar-sm">
-                            <?= $this->Html->image('admin.png', ['alt' => 'image profile', 'class' => 'avatar-img rounded-circle']); ?> 
-                        </div>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <div class="dropdown-user-scroll scrollbar-outer">
-                            <li>
-                                <div class="user-box">
-                                    <div class="u-text ml-auto mr-auto">
-                                        <a href="/logout" class="btn btn-xs btn-danger">Sair</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </div>
-                    </ul>
+    <br>
+    
+    <ul class="list-unstyled components">
+        <li>
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <i class="fas fa-home"></i>
+                Home
+            </a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li>
+                    <a href="#">Home 3</a>
                 </li>
             </ul>
-        </div>
-    </nav>
-    <!-- End Navbar -->
-</div>
+        </li>
 
-<!-- Sidebar -->
-<div class="sidebar sidebar-style-2">
-    <div class="sidebar-wrapper scrollbar scrollbar-inner">
-        <div class="sidebar-content">
-            <ul class="nav nav-primary">
-                <li class="nav-item active">
-                    <a href="/" class="collapsed">
-                        <i class="fas fa-home"></i>
-                        <p>Dashboard</p>
+        <li>
+            <a href="#pageSubmenuFinanceiro" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <i class="fas fa-dollar-sign"></i>
+                Financeiro
+            </a>
+            <ul class="collapse list-unstyled" id="pageSubmenuFinanceiro">
+
+                <li>
+                    <a href = <?= Router::url(['controller' => 'PagamentoMovimentacoes', 'action' => 'listar_entradas']); ?>>                    
+                       <i class="fas fa-dollar-sign"></i> 
+                        Entradas
                     </a>
                 </li>
-                <li class="nav-item ">
-                    <a href="/customers" class="collapsed">
-                        <i class="fas fa-users"></i>
-                        <p>Clientes</p>
+                <li>
+                    <a href = <?= Router::url(['controller' => 'PagamentoMovimentacoes', 'action' => 'listar_saidas']); ?>>                    
+                        <i class="fas fa-donate"></i>
+                        Saidas
                     </a>
                 </li>
-
-                <li class="nav-item">
-                    <a href="/plans" class="collapsed">
-                        <i class="fas fa-cart-plus"></i>
-                        <p>Planos</p>
+               
+            </ul>
+        </li>
+        
+        <li>
+            <a href="#pageSubmenuConfiguracoes" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <i class="fas fa-cog"></i>
+                Configurações
+            </a>
+            <ul class="collapse list-unstyled" id="pageSubmenuConfiguracoes">
+                <li>
+                    <a href = <?= Router::url(['controller' => 'Bancos', 'action' => 'listar']); ?>>                    
+                        <i class="fas fa-university"></i>
+                        Bancos
                     </a>
                 </li>
-
-                <li class="nav-item">
-                    <a href="/invoices" class="collapsed">
-                        <i class="fas fa-file-invoice-dollar"></i>
-                        <p>Faturas</p>
+                <li>
+                    <a href = <?= Router::url(['controller' => 'Contas', 'action' => 'listar']); ?>>                    
+                        <i class="fas fa-id-card"></i>
+                        Contas
                     </a>
                 </li>
-
-                <li class="nav-item">
-                    <a href="#" class="collapsed">
-                        <i class="fas fa-chart-line"></i>
-                        <p>Despesas</p>
+                 <li>
+                    <a href = <?= Router::url(['controller' => 'Pessoas', 'action' => 'listar']); ?>>                    
+                        <i class="fas fa-user-alt"></i>
+                        Pessoas
                     </a>
-                </li>
-
-                <li class="nav-item info">
-                    <a data-toggle="collapse" href="#collapseExample" >
-                        <i class="fas fa-wrench"></i>
-                        <p>Config</p>
-                    </a>
-                    <div class="collapse in" id="collapseExample">
-                        <ul>
-                            <li>
-                                <a href="#profile">
-                                    <i class="fas fa-wrench"></i>
-                                    <p>Config1.1</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </li>
             </ul>
-        </div>
-    </div>
-</div>
+        </li>
+    </ul>
+</nav>

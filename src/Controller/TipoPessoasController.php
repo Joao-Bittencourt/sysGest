@@ -4,32 +4,14 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-/**
- * TipoPessoas Controller
- *
- * @property \App\Model\Table\TipoPessoasTable $TipoPessoas
- * @method \App\Model\Entity\TipoPessoa[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
- */
 class TipoPessoasController extends AppController {
 
-    /**
-     * Index method
-     *
-     * @return \Cake\Http\Response|null|void Renders view
-     */
     public function index() {
         $tipoPessoas = $this->paginate($this->TipoPessoas);
 
         $this->set(compact('tipoPessoas'));
     }
 
-    /**
-     * View method
-     *
-     * @param string|null $id Tipo Pessoa id.
-     * @return \Cake\Http\Response|null|void Renders view
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
     public function view($id = null) {
         $tipoPessoa = $this->TipoPessoas->get($id, [
             'contain' => ['Pessoas'],
@@ -38,11 +20,6 @@ class TipoPessoasController extends AppController {
         $this->set(compact('tipoPessoa'));
     }
 
-    /**
-     * Add method
-     *
-     * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
-     */
     public function add() {
         $tipoPessoa = $this->TipoPessoas->newEmptyEntity();
         if ($this->request->is('post')) {
@@ -57,13 +34,6 @@ class TipoPessoasController extends AppController {
         $this->set(compact('tipoPessoa'));
     }
 
-    /**
-     * Edit method
-     *
-     * @param string|null $id Tipo Pessoa id.
-     * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
     public function edit($id = null) {
         $tipoPessoa = $this->TipoPessoas->get($id, [
             'contain' => [],
@@ -80,13 +50,6 @@ class TipoPessoasController extends AppController {
         $this->set(compact('tipoPessoa'));
     }
 
-    /**
-     * Delete method
-     *
-     * @param string|null $id Tipo Pessoa id.
-     * @return \Cake\Http\Response|null|void Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
     public function delete($id = null) {
         $this->request->allowMethod(['post', 'delete']);
         $tipoPessoa = $this->TipoPessoas->get($id);

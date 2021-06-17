@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Table;
@@ -29,16 +30,15 @@ use Cake\Validation\Validator;
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
-class TipoPessoasTable extends Table
-{
+class TipoPessoasTable extends Table {
+
     /**
      * Initialize method
      *
      * @param array $config The configuration for the Table.
      * @return void
      */
-    public function initialize(array $config): void
-    {
+    public function initialize(array $config): void {
         parent::initialize($config);
 
         $this->setTable('tipo_pessoas');
@@ -58,22 +58,22 @@ class TipoPessoasTable extends Table
      * @param \Cake\Validation\Validator $validator Validator instance.
      * @return \Cake\Validation\Validator
      */
-    public function validationDefault(Validator $validator): Validator
-    {
+    public function validationDefault(Validator $validator): Validator {
         $validator
-            ->integer('id')
-            ->allowEmptyString('id', null, 'create');
+                ->integer('id')
+                ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->scalar('tipo')
-            ->maxLength('tipo', 255)
-            ->requirePresence('tipo', 'create')
-            ->notEmptyString('tipo');
+                ->scalar('tipo')
+                ->maxLength('tipo', 255)
+                ->requirePresence('tipo', 'create')
+                ->notEmptyString('tipo');
 
         $validator
-            ->integer('status')
-            ->notEmptyString('status');
+                ->integer('status')
+                ->notEmptyString('status');
 
         return $validator;
     }
+
 }

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Entity;
@@ -22,7 +23,7 @@ use Cake\ORM\Entity;
  * @property int|null $ddd
  * @property int|null $telefone
  * @property \Cake\I18n\FrozenTime $created
- * @property \Cake\I18n\FrozenTime $updated
+ * @property \Cake\I18n\FrozenTime $modified
  * @property int $user_id
  * @property int $status
  * @property int $tipo_pessoa_id
@@ -30,8 +31,8 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\TipoPessoa $tipo_pessoa
  */
-class Pessoa extends Entity
-{
+class Pessoa extends Entity {
+
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
      *
@@ -55,11 +56,14 @@ class Pessoa extends Entity
         'ddd' => true,
         'telefone' => true,
         'created' => true,
-        'updated' => true,
+        'created_by' => true,
+        'modified' => true,
+        'modified_by' => true,
         'user_id' => true,
         'status' => true,
         'tipo_pessoa_id' => true,
         'user' => true,
         'tipo_pessoa' => true,
     ];
+
 }

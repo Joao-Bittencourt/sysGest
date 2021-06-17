@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Table;
@@ -30,16 +31,15 @@ use Cake\Validation\Validator;
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
-class PessoasTable extends Table
-{
+class PessoasTable extends Table {
+
     /**
      * Initialize method
      *
      * @param array $config The configuration for the Table.
      * @return void
      */
-    public function initialize(array $config): void
-    {
+    public function initialize(array $config): void {
         parent::initialize($config);
 
         $this->setTable('pessoas');
@@ -64,73 +64,72 @@ class PessoasTable extends Table
      * @param \Cake\Validation\Validator $validator Validator instance.
      * @return \Cake\Validation\Validator
      */
-    public function validationDefault(Validator $validator): Validator
-    {
+    public function validationDefault(Validator $validator): Validator {
         $validator
-            ->integer('id')
-            ->allowEmptyString('id', null, 'create');
+                ->integer('id')
+                ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->scalar('nome')
-            ->maxLength('nome', 255)
-            ->requirePresence('nome', 'create')
-            ->notEmptyString('nome');
+                ->scalar('nome')
+                ->maxLength('nome', 255)
+                ->requirePresence('nome', 'create')
+                ->notEmptyString('nome');
 
         $validator
-            ->email('email')
-            ->allowEmptyString('email');
+                ->email('email')
+                ->allowEmptyString('email');
 
         $validator
-            ->scalar('cpf')
-            ->maxLength('cpf', 12)
-            ->allowEmptyString('cpf');
+                ->scalar('cpf')
+                ->maxLength('cpf', 12)
+                ->allowEmptyString('cpf');
 
         $validator
-            ->scalar('datanascimento')
-            ->maxLength('datanascimento', 12)
-            ->allowEmptyString('datanascimento');
+                ->scalar('datanascimento')
+                ->maxLength('datanascimento', 12)
+                ->allowEmptyString('datanascimento');
 
         $validator
-            ->scalar('cep')
-            ->maxLength('cep', 12)
-            ->allowEmptyString('cep');
+                ->scalar('cep')
+                ->maxLength('cep', 12)
+                ->allowEmptyString('cep');
 
         $validator
-            ->scalar('uf')
-            ->maxLength('uf', 2)
-            ->allowEmptyString('uf');
+                ->scalar('uf')
+                ->maxLength('uf', 2)
+                ->allowEmptyString('uf');
 
         $validator
-            ->scalar('pais')
-            ->maxLength('pais', 75)
-            ->allowEmptyString('pais');
+                ->scalar('pais')
+                ->maxLength('pais', 75)
+                ->allowEmptyString('pais');
 
         $validator
-            ->scalar('endereco')
-            ->maxLength('endereco', 255)
-            ->allowEmptyString('endereco');
+                ->scalar('endereco')
+                ->maxLength('endereco', 255)
+                ->allowEmptyString('endereco');
 
         $validator
-            ->scalar('numero')
-            ->maxLength('numero', 25)
-            ->allowEmptyString('numero');
+                ->scalar('numero')
+                ->maxLength('numero', 25)
+                ->allowEmptyString('numero');
 
         $validator
-            ->scalar('cidade')
-            ->maxLength('cidade', 255)
-            ->allowEmptyString('cidade');
+                ->scalar('cidade')
+                ->maxLength('cidade', 255)
+                ->allowEmptyString('cidade');
 
         $validator
-            ->integer('ddd')
-            ->allowEmptyString('ddd');
+                ->integer('ddd')
+                ->allowEmptyString('ddd');
 
         $validator
-            ->integer('telefone')
-            ->allowEmptyString('telefone');
+                ->integer('telefone')
+                ->allowEmptyString('telefone');
 
         $validator
-            ->integer('status')
-            ->notEmptyString('status');
+                ->integer('status')
+                ->notEmptyString('status');
 
         return $validator;
     }
@@ -142,8 +141,7 @@ class PessoasTable extends Table
      * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
      * @return \Cake\ORM\RulesChecker
      */
-    public function buildRules(RulesChecker $rules): RulesChecker
-    {
+    public function buildRules(RulesChecker $rules): RulesChecker {
         $rules->add($rules->existsIn(['user_id'], 'Users'), ['errorField' => 'user_id']);
         $rules->add($rules->existsIn(['tipo_pessoa_id'], 'TipoPessoas'), ['errorField' => 'tipo_pessoa_id']);
 
