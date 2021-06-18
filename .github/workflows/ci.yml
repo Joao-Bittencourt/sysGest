@@ -27,6 +27,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
  
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-version }}
+        extensions: mbstring, intl, apcu, memcached, redis, pdo_${{ matrix.db-type }}
+        ini-values: apc.enable_cli = 1
+        coverage: pcov
+        
     - name: Set up MySQL
       run: |
           sudo /etc/init.d/mysql start
@@ -53,6 +61,4 @@ jobs:
     - name: Code Coverage Report
       if: matrix.php-version == '7.4' 
       uses: codecov/codecov-action@v1
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
      
