@@ -39,7 +39,7 @@ class ContasController extends AppController {
         $this->set(compact('contas'));
     }
 
-    public function delete($id = null) {
+    public function deletar($id = null) {
         throw new Exception('Not implemented yet');
     }
 

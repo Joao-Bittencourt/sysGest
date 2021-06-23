@@ -66,7 +66,17 @@ class BancosControllerTest extends TestCase {
         $query = $bancos->find()->where(['nome' => $data['nome'], 'codigo_banco' => $data['codigo_banco']]);
         $this->assertEquals(1, $query->count());
     }
-
+    
+      /**
+     * Test editar method
+     *
+     * @return void
+     */
+    public function testGetEditar(): void {
+        $this->get('/Bancos/editar/1');
+        $this->assertResponseOk();
+    }
+    
     /**
      * Test detalhar method
      *

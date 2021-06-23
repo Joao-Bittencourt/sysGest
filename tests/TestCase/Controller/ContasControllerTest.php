@@ -17,7 +17,9 @@ class ContasControllerTest extends TestCase {
      *
      * @var array
      */
-    protected $fixtures = [];
+    protected $fixtures = [
+        'app.contas'
+    ];
 
     /**
      * Test listar method
@@ -25,7 +27,8 @@ class ContasControllerTest extends TestCase {
      * @return void
      */
     public function testListar(): void {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('/contas/listar');
+        $this->assertResponseOk();
     }
     
     /**
@@ -34,7 +37,8 @@ class ContasControllerTest extends TestCase {
      * @return void
      */
     public function testCadastrar(): void {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('/contas/cadastrar');
+        $this->assertResponseOk();
     }
 
     /**
@@ -43,7 +47,9 @@ class ContasControllerTest extends TestCase {
      * @return void
      */
     public function testDetalhar(): void {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('/contas/detalhar/1');
+        $this->assertResponseFailure();
+       
     }
 
     /**
@@ -52,7 +58,8 @@ class ContasControllerTest extends TestCase {
      * @return void
      */
     public function testDeletar(): void {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('/contas/deletar/1');
+        $this->assertResponseFailure();
     }
 
 }

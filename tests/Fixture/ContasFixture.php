@@ -10,8 +10,6 @@ class ContasFixture extends TestFixture {
 
     public $import = ['table' => 'contas'];
     
-    
-
     /**
      * Init method
      *
@@ -24,7 +22,7 @@ class ContasFixture extends TestFixture {
                 'created' => '2021-01-17 22:20:29',
                 'created_by' => 1,
                 'modified' => '2021-01-17 22:20:29',
-                'modified_by' => null,
+                'modified_by' => 1,
                 'status' => 1,
                 
             ],
