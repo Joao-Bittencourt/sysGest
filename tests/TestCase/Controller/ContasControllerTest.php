@@ -18,7 +18,7 @@ class ContasControllerTest extends TestCase {
      * @var array
      */
     protected $fixtures = [
-        'app.contas'
+        'app.Contas'
     ];
 
     /**
