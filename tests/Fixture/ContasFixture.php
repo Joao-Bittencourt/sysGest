@@ -8,8 +8,22 @@ use Cake\TestSuite\Fixture\TestFixture;
 
 class ContasFixture extends TestFixture {
 
-    public $import = ['table' => 'contas'];
-    
+//    public $import = ['table' => 'contas'];
+    public $fields = [
+        'id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
+        'created' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => false, 'default' => null, 'comment' => ''],
+        'created_by' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null],
+        'modified' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => false, 'default' => null, 'comment' => ''],
+        'modified_by' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null],
+        'status' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => '1', 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        '_constraints' => [
+            'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
+        ],
+        '_options' => [
+            'engine' => 'InnoDB',
+            'collation' => 'latin1_swedish_ci'
+        ],
+    ];
     /**
      * Init method
      *
