@@ -24,8 +24,23 @@ class ContasTable extends Table {
     public function validationDefault(Validator $validator): Validator {
         $validator
                 ->integer('id')
-                ->allowEmptyString('id', null, 'create');
+                ->notBlank('id', null, 'create');
 
+        $validator
+                ->integer('pessoa_id')
+                ->notBlank('status', 'Selecione a Pessoa');
+        $validator
+                ->integer('banco_id')
+                ->notBlank('banco_id', 'Selecione o Banco');
+        $validator
+                ->integer('agencia')
+                ->notBlank('agencia', 'Selecione a Agencia');
+        $validator
+                ->integer('conta')
+                ->notBlank('conta', 'Selecione a Conta');
+        $validator
+                ->integer('banco_id')
+                ->notBlank('banco_id', 'Selecione o Banco');
         $validator
                 ->integer('status')
                 ->notEmptyString('status');
