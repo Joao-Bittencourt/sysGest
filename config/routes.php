@@ -60,6 +60,9 @@ $routes->scope('/', function (RouteBuilder $builder) {
     $builder->connect('/Bancos/cadastrar/*', ['controller' => 'Bancos', 'action' => 'cadastrar']);
     $builder->connect('/Bancos/editar/*', ['controller' => 'Bancos', 'action' => 'cadastrar']);
 
+    $builder->connect('/contas/cadastrar/*', ['controller' => 'contas', 'action' => 'cadastrar']);
+    $builder->connect('/contas/editar/*', ['controller' => 'contas', 'action' => 'cadastrar']);
+
     /*
      * Connect catchall routes for all controllers.
      *

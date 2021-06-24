@@ -15,7 +15,16 @@ class CreatePagamentos extends AbstractMigration {
      */
     public function change() {
         $table = $this->table('pagamentos');
-
+        $table->addColumn('pessoa_id', 'integer', [
+            'default' => null,
+            'limit' => 11,
+            'null' => false,
+        ]);
+        $table->addColumn('conta_id', 'integer', [
+            'default' => null,
+            'limit' => 11,
+            'null' => false,
+        ]);
         $table->addColumn('created', 'datetime', [
             'default' => null,
             'null' => false,

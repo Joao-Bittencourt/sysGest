@@ -32,6 +32,16 @@ class ContasControllerTest extends TestCase {
     }
     
     /**
+     * Test editar method
+     *
+     * @return void
+     */
+    public function testGetEditar(): void {
+        $this->get('/contas/editar/1');
+        $this->assertResponseOk();
+    }
+    
+    /**
      * Test cadastrar method
      *
      * @return void
