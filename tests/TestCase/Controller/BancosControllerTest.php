@@ -85,7 +85,6 @@ class BancosControllerTest extends TestCase {
     public function testDetalhar(): void {
         $this->get('/bancos/detalhar/1');
         $this->assertResponseFailure();
-//        $this->assertResponseOk();
     }
 
     /**

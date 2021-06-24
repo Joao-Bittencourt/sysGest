@@ -15,6 +15,54 @@ class CreateParcelas extends AbstractMigration {
      */
     public function change() {
         $table = $this->table('parcelas');
+        $table->addColumn('pagamento_id', 'integer', [
+            'default' => null,
+            'limit' => 11,
+            'null' => false,
+        ]);
+        $table->addColumn('n_parcela', 'integer', [
+            'default' => 1,
+            'limit' => 11,
+            'null' => false,
+        ]);
+        $table->addColumn('vl_bruto', 'decimal', [
+            'default' => 0,
+            'limit' => '15,2',
+            'null' => false,
+        ]);
+        $table->addColumn('vl_liquido', 'decimal', [
+            'default' => 0,
+            'limit' => '15,2',
+            'null' => false,
+        ]);
+        $table->addColumn('vl_desc', 'decimal', [
+            'default' => 0,
+            'limit' => '15,2',
+            'null' => true,
+        ]);
+        $table->addColumn('p_desc', 'decimal', [
+            'default' => 0,
+            'limit' => '15,2',
+            'null' => true,
+        ]);
+        $table->addColumn('vl_acrescimo', 'decimal', [
+            'default' => 0,
+            'limit' => '15,2',
+            'null' => true,
+        ]);
+        $table->addColumn('p_acrescimo', 'decimal', [
+            'default' => 0,
+            'limit' => '15,2',
+            'null' => true,
+        ]);
+        $table->addColumn('dt_vencimento', 'datetime', [
+            'default' => null,
+            'null' => false,
+        ]);
+        $table->addColumn('dt_pagamento', 'datetime', [
+            'default' => null,
+            'null' => false,
+        ]);
         $table->addColumn('created', 'datetime', [
             'default' => null,
             'null' => false,
