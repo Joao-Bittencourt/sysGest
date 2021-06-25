@@ -58,6 +58,16 @@ class PessoasTable extends Table {
         ]);
     }
 
+    public function beforeSave($event) {
+        $entity = $event->getData('entity');
+        if(empty($entity->pessoa['created_by'])){
+           
+         $entity->Pessoa['created_by'] = '1';
+         debug($entity);
+        }
+        
+        return true;
+    }
     /**
      * Default validation rules.
      *
