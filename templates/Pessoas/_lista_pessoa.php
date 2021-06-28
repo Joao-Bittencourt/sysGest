@@ -14,7 +14,7 @@
             $dadoCell[] = $dado->id;
             $dadoCell[] = $dado->nome;
             $dadoCell[] = $dado->email;
-            $dadoCell[] = $dado->datanascimento;
+            $dadoCell[] = $dado->dt_nascimento;
 
             $tableCells[] = $dadoCell;
         }

@@ -58,15 +58,10 @@ class PessoasTable extends Table {
         ]);
     }
 
-    public function beforeSave($event) {
-        $entity = $event->getData('entity');
-        if(empty($entity->pessoa['created_by'])){
-           
-         $entity->Pessoa['created_by'] = '1';
-         debug($entity);
+    public function beforeSave($event, $entity, $options) {
+        if (empty($entity->created_by)) {
+            $entity->created_by =  1;
         }
-        
-        return true;
     }
     /**
      * Default validation rules.
@@ -78,6 +73,9 @@ class PessoasTable extends Table {
         $validator
                 ->integer('id')
                 ->allowEmptyString('id', null, 'create');
+        $validator
+                ->integer('tipo_pessoa_id')
+                ->notBlank('tipo_pessoa_id', 'Informe o tipo de pessoa.');
 
         $validator
                 ->scalar('nome')
@@ -87,17 +85,17 @@ class PessoasTable extends Table {
 
         $validator
                 ->email('email')
-                ->allowEmptyString('email');
+                ->notEmptyString('email');
 
         $validator
                 ->scalar('cpf')
                 ->maxLength('cpf', 12)
-                ->allowEmptyString('cpf');
+                ->notEmptyString('cpf');
 
-        $validator
-                ->scalar('datanascimento')
-                ->maxLength('datanascimento', 12)
-                ->allowEmptyString('datanascimento');
+//        $validator
+//                ->scalar('dt_nascimento')
+//                ->maxLength('dt_nascimento', 12)
+//                ->notEmptyString('dt_nascimento');
 
         $validator
                 ->scalar('cep')
@@ -157,4 +155,5 @@ class PessoasTable extends Table {
 
         return $rules;
     }
+
 }

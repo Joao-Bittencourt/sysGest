@@ -7,7 +7,8 @@
     <?php
         echo $this->Html->css([
             'style4',
-            'bootstrap.min'
+            'bootstrap.min',
+            'cake',
         ]);
     ?>
 

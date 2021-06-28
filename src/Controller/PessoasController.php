@@ -19,11 +19,7 @@ class PessoasController extends AppController {
     
     public function cadastrar($id = null) {
        $pessoas = $this->Pessoas->newEmptyEntity();
-//       $tipoPessoas = $this->Pessoas->TipoPessoas->find()->select(['id', 'tipo']);
-       $tipoPessoas = $this
-            ->Pessoas
-            ->TipoPessoas
-            ->find('list', [
+       $tipoPessoas = $this->Pessoas->TipoPessoas->find('list', [
                 'keyField' => 'id',
                 'valueField' => 'tipo'
            ])
@@ -31,16 +27,15 @@ class PessoasController extends AppController {
      
        
         if (!empty($id)) {
-            $pessoas = $this->Pessoas->get($id, [
+            $pessoas = $this->Pessoas->get($id, [            
                 'contain' => [],
             ]);
         }
 
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $bancos = $this->Pessoas->patchEntity($pessoas, $this->request->getData());
-            if ($this->Pessoas->save($bancos)) {
+            $pessoasFullEntity = $this->Pessoas->patchEntity($pessoas, $this->request->getData());
+            if ($this->Pessoas->save($pessoasFullEntity)) {
                 $this->Flash->success(__('Dados salvos com sucesso!'));
-
                 return $this->redirect(['action' => 'listar']);
             }
             $this->Flash->error(__('Não foi possivel realizar a operaçao.'));

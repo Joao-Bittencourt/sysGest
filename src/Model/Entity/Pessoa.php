@@ -13,7 +13,7 @@ use Cake\ORM\Entity;
  * @property string $nome
  * @property string|null $email
  * @property string|null $cpf
- * @property string|null $datanascimento
+ * @property string|null $dt_nascimento
  * @property string|null $cep
  * @property string|null $uf
  * @property string|null $pais
@@ -46,7 +46,7 @@ class Pessoa extends Entity {
         'nome' => true,
         'email' => true,
         'cpf' => true,
-        'datanascimento' => true,
+        'dt_nascimento' => true,
         'cep' => true,
         'uf' => true,
         'pais' => true,

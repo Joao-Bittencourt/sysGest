@@ -29,7 +29,7 @@ use Cake\Routing\Router;
                 <?= $this->Form->control('cpf', ['label' => 'CPF', 'class' => 'form-control']); ?>
             </div>
             <div class="col-md-4">
-                <?= $this->Form->control('datanascimento', ['label' => 'DT. Nascimento', 'class' => 'form-control']); ?>
+                <?= $this->Form->control('dt_nascimento', ['label' => 'DT. Nascimento', 'class' => 'form-control']); ?>
             </div>
         </div>
         <?php if (false) { ?>
