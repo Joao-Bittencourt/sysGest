@@ -14,7 +14,6 @@ class ContasController extends AppController {
 
     public function detalhar($id = null) {
         throw new Exception('Not implemented yet');
-        return;
     }
 
     public function cadastrar($id = null) {
