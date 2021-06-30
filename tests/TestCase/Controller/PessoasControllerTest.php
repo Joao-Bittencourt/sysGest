@@ -87,7 +87,7 @@ class PessoasControllerTest extends TestCase {
         $this->get('/pessoas/cadastrar');
         $this->assertResponseOk();
     }
-    
+        
      /**
      * Test get cadastrar method
      *

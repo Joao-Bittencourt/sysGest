@@ -12,21 +12,21 @@ use Cake\Routing\Router;
     <div class="card-body">
         <table class="table table-striped">
             <?php
-            debug($dados);
+
             $tableHeaders = [];
             $tableHeaders[] = ['COD' => ["scope" => "col"]];
-            $tableHeaders[] = ['BANCO' => ["scope" => "col"]];
-            $tableHeaders[] = ['COD BANCO' => ["scope" => "col"]];
+            $tableHeaders[] = ['AGENCIA' => ["scope" => "col"]];
+            $tableHeaders[] = ['CONTA' => ["scope" => "col"]];
 
             $tableCells = [];
-            foreach ($bancos as $banco) {
+            foreach ($dados as $dado) {
 
-                $dado = [];
-                $dado[] = $banco->id;
-                $dado[] = $banco->nome;
-                $dado[] = $banco->codigo_banco;
+                $dadoCell = [];
+                $dadoCell[] = $dado->id;
+                $dadoCell[] = $dado->agencia;
+                $dadoCell[] = $dado->conta;
 
-                $tableCells[] = $dado;
+                $tableCells[] = $dadoCell;
             }
 
             echo $this->Html->tableHeaders($tableHeaders);
