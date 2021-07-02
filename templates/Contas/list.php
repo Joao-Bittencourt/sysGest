@@ -19,12 +19,12 @@ use Cake\Routing\Router;
             $tableHeaders[] = ['CONTA' => ["scope" => "col"]];
 
             $tableCells = [];
-            foreach ($dados as $dado) {
+            foreach ($contas as $conta) {
 
                 $dadoCell = [];
-                $dadoCell[] = $dado->id;
-                $dadoCell[] = $dado->agencia;
-                $dadoCell[] = $dado->conta;
+                $dadoCell[] = $conta->id;
+                $dadoCell[] = $conta->agencia;
+                $dadoCell[] = $conta->conta;
 
                 $tableCells[] = $dadoCell;
             }

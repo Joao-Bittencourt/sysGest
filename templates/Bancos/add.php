@@ -12,7 +12,7 @@ use Cake\Routing\Router;
     <div class="card-body">
         
         <?php
-        echo $this->Form->create($bancos);?>
+        echo $this->Form->create($entity);?>
         <div class="row">
             <div class="col-md-10">
                 <?= $this->Form->control('nome', ['label' => 'Nome', 'class' => 'form-control']); ?>

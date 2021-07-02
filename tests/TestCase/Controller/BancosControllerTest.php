@@ -23,12 +23,22 @@ class BancosControllerTest extends TestCase {
     ];
 
     /**
+     * Test index method
+     *
+     * @return void
+     */
+    public function testIndex(): void {
+        $this->get('/bancos/');
+        $this->assertResponseOk();
+    }
+    
+    /**
      * Test listar method
      *
      * @return void
      */
-    public function testListar(): void {
-        $this->get('/bancos/listar');
+    public function testList(): void {
+        $this->get('/bancos/list');
         $this->assertResponseOk();
     }
     
@@ -37,8 +47,8 @@ class BancosControllerTest extends TestCase {
      *
      * @return void
      */
-    public function testGetCadastrar(): void {
-        $this->get('/bancos/cadastrar');
+    public function testGetAdd(): void {
+        $this->get('/bancos/add');
         $this->assertResponseOk();
     }
     
@@ -47,7 +57,7 @@ class BancosControllerTest extends TestCase {
      *
      * @return void
      */
-    public function testCadastrar(): void {
+    public function testAdd(): void {
         $data = [
             'nome' => 'lala',
             'codigo_banco' => '999',
@@ -60,7 +70,7 @@ class BancosControllerTest extends TestCase {
         $this->enableCsrfToken();
         $this->enableSecurityToken();
         
-        $this->post('/Bancos/cadastrar', $data);
+        $this->post('/Bancos/add', $data);
         $this->assertResponseSuccess();
         $bancos = $this->getTableLocator()->get('Bancos');
         $query = $bancos->find()->where(['nome' => $data['nome'], 'codigo_banco' => $data['codigo_banco']]);
@@ -72,8 +82,8 @@ class BancosControllerTest extends TestCase {
      *
      * @return void
      */
-    public function testGetEditar(): void {
-        $this->get('/Bancos/editar/1');
+    public function testGetEdit(): void {
+        $this->get('/bancos/editar/1');
         $this->assertResponseOk();
     }
     
@@ -82,8 +92,8 @@ class BancosControllerTest extends TestCase {
      *
      * @return void
      */
-    public function testDetalhar(): void {
-        $this->get('/bancos/detalhar/1');
+    public function testView(): void {
+        $this->get('/bancos/view/1');
         $this->assertResponseFailure();
     }
 
@@ -92,8 +102,8 @@ class BancosControllerTest extends TestCase {
      *
      * @return void
      */
-    public function testDeletar(): void {
-        $this->get('/bancos/deletar/1');
+    public function testDelet(): void {
+        $this->get('/bancos/delet/1');
         $this->assertResponseFailure();
     }
 

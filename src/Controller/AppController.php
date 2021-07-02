@@ -51,4 +51,72 @@ class AppController extends Controller {
          */
         //$this->loadComponent('FormProtection');
     }
+
+    public function index() {
+        $entity = $this->{$this->getModelName()}->newEmptyEntity();  
+        $this->set(compact('entity'));
+
+        try {
+            $this->set($this->getControllerName(), $this->paginate());
+        } catch (NotFoundException $e) {
+            $this->redirect('/' . $this->getControllerName());
+        }
+    }
+
+    public function add($id= null) {
+        $entity = $this->{$this->getModelName()}->newEmptyEntity();
+        
+        if (!empty($id)) {
+            $entity = $this->{$this->getModelName()}->get($id, []);
+        }
+        
+        if ($this->request->is('post')) {
+            $entity = $this->{$this->getModelName()}->patchEntity($entity, $this->request->getData());
+            if ($this->{$this->getModelName()}->save($entity)) {
+                $this->Flash->success(__('Dados salvos com sucesso!'));
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('Não foi possivel realizar a operaçao.'));
+        }
+        $this->set(compact('entity'));
+    }
+//
+//    public function edit($id = null) {
+//        $entity = $this->getEditEntity($id);
+
+//        if ($this->request->is(['patch', 'post', 'put'])) {
+//            $entity = $this->{$this->getModelName()}->patchEntity($entity, $this->request->getData());
+//            if ($this->{$this->getModelName()}->save($entity)) {
+//                $this->Flash->bootstrap(__('Alterado com sucesso!'), ['key' => 'success']);
+//                return $this->redirect(['action' => 'index']);
+//            }
+//        }
+//        $this->set(compact('entity'));
+//    }
+//
+//    public function view($id = null) {
+//        $entity = $this->getEditEntity($id);
+//        $this->set(compact('entity'));
+//    }
+
+//    public function delete($id) {
+//        $this->request->allowMethod(['post', 'delete']);
+//        $entity = $this->{$this->getModelName()}->get($id);
+//        if ($this->{$this->getModelName()}->excluir($id)) {
+//            $this->Flash->bootstrap(__('Excluído com sucesso!'), ['key' => 'warning']);
+//        } else {
+//            $this->Flash->bootstrap(__('Não foi possível excluir. Tente novamente!', ['key' => 'danger']));
+//        }
+//
+//        return $this->redirect(['action' => 'index']);
+//    }
+
+    public function getControllerName() {
+        return \Cake\Utility\Inflector::underscore($this->request->getParam('controller'));
+    }
+
+    public function getModelName() {
+        return $this->request->getParam('controller');
+    }
+
 }

@@ -26,8 +26,8 @@ class ContasControllerTest extends TestCase {
      *
      * @return void
      */
-    public function testListar(): void {
-        $this->get('/contas/listar');
+    public function testList(): void {
+        $this->get('/contas/list');
         $this->assertResponseOk();
     }
     
@@ -36,7 +36,7 @@ class ContasControllerTest extends TestCase {
      *
      * @return void
      */
-    public function testGetEditar(): void {
+    public function testGetEdit(): void {
         $this->get('/contas/editar/1');
         $this->assertResponseOk();
     }
@@ -46,8 +46,8 @@ class ContasControllerTest extends TestCase {
      *
      * @return void
      */
-    public function testGetCadastrar(): void {
-        $this->get('/contas/cadastrar');
+    public function testGetAdd(): void {
+        $this->get('/contas/add');
         $this->assertResponseOk();
     }
 
@@ -56,7 +56,7 @@ class ContasControllerTest extends TestCase {
      *
      * @return void
      */
-    public function testCadastrar(): void {        
+    public function testAdd(): void {        
         $data = [
             'pessoa_id' => '1',
             'banco_id' => '2',
@@ -73,7 +73,7 @@ class ContasControllerTest extends TestCase {
         $this->enableCsrfToken();
         $this->enableSecurityToken();
         
-        $this->post('/contas/cadastrar', $data);
+        $this->post('/contas/add', $data);
         $this->assertResponseSuccess();
         $contas = $this->getTableLocator()->get('Contas');
         $query = $contas->find()->where([
@@ -89,8 +89,8 @@ class ContasControllerTest extends TestCase {
      *
      * @return void
      */
-    public function testDetalhar(): void {
-        $this->get('/contas/detalhar/1');
+    public function testView(): void {
+        $this->get('/contas/view/1');
         $this->assertResponseFailure();
        
     }
@@ -101,7 +101,7 @@ class ContasControllerTest extends TestCase {
      * @return void
      */
     public function testDeletar(): void {
-        $this->get('/contas/deletar/1');
+        $this->get('/contas/delet/1');
         $this->assertResponseFailure();
     }
 

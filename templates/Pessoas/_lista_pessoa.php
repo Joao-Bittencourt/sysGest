@@ -8,13 +8,13 @@
         $tableHeaders[] = ['DATA NASCIMENTO' => ["scope" => "col"]];
 
         $tableCells = [];
-        foreach ($dados as $dado) {
+        foreach ($pessoas as $pessoa) {
                 
             $dadoCell = [];
-            $dadoCell[] = $dado->id;
-            $dadoCell[] = $dado->nome;
-            $dadoCell[] = $dado->email;
-            $dadoCell[] = $dado->dt_nascimento;
+            $dadoCell[] = $pessoa->id;
+            $dadoCell[] = $pessoa->nome;
+            $dadoCell[] = $pessoa->email;
+            $dadoCell[] = $pessoa->dt_nascimento;
 
             $tableCells[] = $dadoCell;
         }

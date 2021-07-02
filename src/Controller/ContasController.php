@@ -6,39 +6,19 @@ namespace App\Controller;
 
 class ContasController extends AppController {
 
-    public function listar() {
-        $contas = $this->paginate($this->Contas);
-        $this->set('submenu', 'contas');
-        $this->set('dados', $contas);
+     public function list() {
+        parent::index();
     }
 
-    public function detalhar($id = null) {
+    public function view($id = null) {
         throw new Exception('Not implemented yet');
     }
 
-    public function cadastrar($id = null) {
-
-        $contas = $this->Contas->newEmptyEntity();
-        if (!empty($id)) {
-            $contas = $this->Contas->get($id, [
-                'contain' => [],
-            ]);
-        }
-
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $contas = $this->Contas->patchEntity($contas, $this->request->getData());
-            if ($this->Contas->save($contas)) {
-                $this->Flash->success(__('Dados salvos com sucesso!'));
-
-                return $this->redirect(['action' => 'listar']);
-            }
-            $this->Flash->error(__('Não foi possivel realizar a operaçao.'));
-        }
-
-        $this->set(compact('contas'));
+    public function add($id = null) {
+          parent::add($id);
     }
 
-    public function deletar($id = null) {
+    public function delet($id = null) {
         throw new Exception('Not implemented yet');
     }
 

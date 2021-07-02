@@ -6,18 +6,19 @@ namespace App\Controller;
 
 class ParcelasController extends AppController {
 
-    public function listar() {
-        $parcelas = $this->paginate($this->Parcelas);
-        $this->set('submenu', 'parcelas');
-        $this->set('parcelas', $parcelas);
+    public function list() {
+        parent::index();
     }
 
-    public function detalhar($id = null) {
+    public function view($id = null) {
         throw new Exception('Not implemented yet');
-        return;
     }
 
-   public function delete($id = null) {
+    public function add($id = null) {
+          parent::add($id);
+    }
+
+    public function delet($id = null) {
         throw new Exception('Not implemented yet');
     }
 

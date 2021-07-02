@@ -57,14 +57,18 @@ $routes->scope('/', function (RouteBuilder $builder) {
      */
     $builder->connect('/pages/*', 'Pages::display');
     
-    $builder->connect('/Bancos/cadastrar/*', ['controller' => 'Bancos', 'action' => 'cadastrar']);
-    $builder->connect('/Bancos/editar/*', ['controller' => 'Bancos', 'action' => 'cadastrar']);
+    $builder->connect('/bancos/cadastrar/*', ['controller' => 'Bancos', 'action' => 'add']);
+    $builder->connect('/bancos/editar/*', ['controller' => 'Bancos', 'action' => 'add']);
+    $builder->connect('/bancos/edit/*', ['controller' => 'Bancos', 'action' => 'add']);
 
-    $builder->connect('/contas/cadastrar/*', ['controller' => 'contas', 'action' => 'cadastrar']);
-    $builder->connect('/contas/editar/*', ['controller' => 'contas', 'action' => 'cadastrar']);
+    $builder->connect('/contas/cadastrar/*', ['controller' => 'contas', 'action' => 'add']);
+    $builder->connect('/contas/editar/*', ['controller' => 'contas', 'action' => 'add']);
     
     $builder->connect('/pessoas/cadastrar/*', ['controller' => 'pessoas', 'action' => 'cadastrar']);
     $builder->connect('/pessoas/editar/*', ['controller' => 'pessoas', 'action' => 'cadastrar']);
+
+    $builder->connect('/parcelas/cadastrar/*', ['controller' => 'parcelas', 'action' => 'add']);
+    $builder->connect('/parcelas/editar/*', ['controller' => 'parcelas', 'action' => 'add']);
 
     /*
      * Connect catchall routes for all controllers.

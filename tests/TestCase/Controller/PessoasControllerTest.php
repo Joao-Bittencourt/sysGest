@@ -22,13 +22,23 @@ class PessoasControllerTest extends TestCase {
         'app.TipoPessoas'
     ];
 
+     /**
+     * Test index method
+     *
+     * @return void
+     */
+    public function testIndex(): void {
+        $this->get('/pessoas/');
+        $this->assertResponseOk();
+    }
+    
     /**
      * Test listar method
      *
      * @return void
      */
     public function testListar(): void {
-        $this->get('/pessoas/listar');
+        $this->get('/pessoas/list');
         $this->assertResponseOk();
     }
 

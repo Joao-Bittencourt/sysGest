@@ -15,7 +15,7 @@ $actionName = $this->request->getParam('action');
     <div class="card-body">
         
         <?php
-        echo $this->Form->create($contas);?>
+        echo $this->Form->create($entity);?>
         <div class="row">
             <div class="col-md-6">
                 <?= $this->Form->control('banco_id', ['label' => 'Banco', 'class' => 'form-control']); ?>
