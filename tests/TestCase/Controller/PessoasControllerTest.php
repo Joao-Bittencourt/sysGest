@@ -17,15 +17,29 @@ class PessoasControllerTest extends TestCase {
      *
      * @var array
      */
-    protected $fixtures = [];
+    protected $fixtures = [
+        'app.Pessoas',
+        'app.TipoPessoas'
+    ];
 
+     /**
+     * Test index method
+     *
+     * @return void
+     */
+    public function testIndex(): void {
+        $this->get('/pessoas/');
+        $this->assertResponseOk();
+    }
+    
     /**
      * Test listar method
      *
      * @return void
      */
     public function testListar(): void {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('/pessoas/list');
+        $this->assertResponseOk();
     }
 
     /**
@@ -34,16 +48,65 @@ class PessoasControllerTest extends TestCase {
      * @return void
      */
     public function testDetalhar(): void {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('/pessoas/detalhar/1');
+        $this->assertResponseFailure();
     }
-      
+
     /**
      * Test cadastrar method
      *
      * @return void
      */
     public function testCadastrar(): void {
-        $this->markTestIncomplete('Not implemented yet.');
+        $data = [
+            'nome' => 'Lorem ipsum dolor sit amet',
+            'email' => 'Lorem ipsum dolor sit amet',
+            'cpf' => 'Lorem ipsu',
+            'dt_nascimento' => date('Y-m-d H:i:s'),
+            'cep' => 'Lorem ipsu',
+            'uf' => 'Lo',
+            'pais' => 'Lorem ipsum dolor sit amet',
+            'endereco' => 'Lorem ipsum dolor sit amet',
+            'numero' => 'Lorem ipsum dolor sit a',
+            'cidade' => 'Lorem ipsum dolor sit amet',
+            'ddd' => 1,
+            'telefone' => 1,
+            'created' => '2021-01-17 22:20:29',
+            'modified' => '2021-01-17 22:20:29',
+            'user_id' => 1,
+            'status' => 1,
+            'tipo_pessoa_id' => 1,
+        ];
+
+        $this->enableCsrfToken();
+        $this->enableSecurityToken();
+
+        $this->post('/pessoas/cadastrar', $data);
+        $this->assertResponseSuccess();
+        $pessoas = $this->getTableLocator()->get('pessoas');
+        $query = $pessoas->find()->where(['nome' => $data['nome'], 'email' => $data['email']]);
+        $this->assertEquals(1, $query->count());
     }
-      
+    
+     /**
+     * Test get cadastrar method
+     *
+     * @return void
+     */
+    public function testGetCadastrar(): void {
+        $this->get('/pessoas/cadastrar');
+        $this->assertResponseOk();
+    }
+        
+     /**
+     * Test get cadastrar method
+     *
+     * @return void
+     */
+    public function testGetEditar(): void {
+        $this->get('/pessoas/editar/1');
+        $this->assertResponseOk();
+    }
+    
+
 }

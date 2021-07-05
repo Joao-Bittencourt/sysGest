@@ -10,7 +10,6 @@ class Parcela extends Entity {
 
     protected $_accessible = [
         'id' => true,
-//        '' => true,
         'created' => true,
         'created_by' => true,
         'modified' => true,

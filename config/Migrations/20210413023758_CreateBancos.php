@@ -38,9 +38,9 @@ class CreateBancos extends AbstractMigration {
             'default' => null,
             'null' => false,
         ]);
-        $table->addColumn('modified_by', 'datetime', [
+        $table->addColumn('modified', 'datetime', [
             'default' => null,
-            'null' => false,
+            'null' => true,
         ]);
 
         $table->addColumn('status', 'integer', [

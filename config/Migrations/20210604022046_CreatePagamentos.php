@@ -15,13 +15,31 @@ class CreatePagamentos extends AbstractMigration {
      */
     public function change() {
         $table = $this->table('pagamentos');
-
-//        $table->addColumn('id', 'integer', [
-//            'default' => null,
-//            'limit' => 11,
-//            'null' => false,
-//        ]);
-
+        $table->addColumn('tipo_pagamento_id', 'integer', [
+            'default' => null,
+            'limit' => 11,
+            'null' => false,
+        ]);
+        $table->addColumn('pagador_pessoa_id', 'integer', [
+            'default' => null,
+            'limit' => 11,
+            'null' => false,
+        ]);
+        $table->addColumn('conta_id', 'integer', [
+            'default' => null,
+            'limit' => 11,
+            'null' => false,
+        ]);
+        $table->addColumn('n_total_parcelas', 'integer', [
+            'default' => 1,
+            'limit' => 11,
+            'null' => false,
+        ]);
+        $table->addColumn('vl_total', 'decimal', [
+            'default' => 0,
+            'limit' => '15,2',
+            'null' => false,
+        ]);
         $table->addColumn('created', 'datetime', [
             'default' => null,
             'null' => false,
@@ -37,9 +55,8 @@ class CreatePagamentos extends AbstractMigration {
         ]);
         $table->addColumn('modified_by', 'datetime', [
             'default' => null,
-            'null' => false,
+            'null' => true,
         ]);
-
         $table->addColumn('status', 'integer', [
             'default' => 1,
             'limit' => 1,

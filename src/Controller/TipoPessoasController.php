@@ -20,7 +20,7 @@ class TipoPessoasController extends AppController {
         $this->set(compact('tipoPessoa'));
     }
 
-    public function add() {
+    public function add($id = null) {
         $tipoPessoa = $this->TipoPessoas->newEmptyEntity();
         if ($this->request->is('post')) {
             $tipoPessoa = $this->TipoPessoas->patchEntity($tipoPessoa, $this->request->getData());

@@ -27,6 +27,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
  
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-version }}
+        extensions: mbstring, intl, apcu, memcached, redis, pdo_${{ matrix.db-type }}
+        ini-values: apc.enable_cli = 1
+        coverage: pcov
+        
     - name: Set up MySQL
       run: |
           sudo /etc/init.d/mysql start
@@ -45,11 +53,12 @@ jobs:
     - name: Run PHPUnit
       run: |       
        if [[ ${{ matrix.php-version }} == '7.4' ]]; then
-          export CODECOVERAGE=1 && vendor/bin/phpunit --verbose --coverage-clover=coverage.xml
+           export CODECOVERAGE=1 && vendor/bin/phpunit --verbose --coverage-clover=coverage.xml
         else
           vendor/bin/phpunit
         fi
    
     - name: Code Coverage Report
-      if: success() && matrix.php-version == '7.4' && matrix.db-type == 'mysql'
+      if: matrix.php-version == '7.4' 
       uses: codecov/codecov-action@v1
+     

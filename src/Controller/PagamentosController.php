@@ -6,40 +6,19 @@ namespace App\Controller;
 
 class PagamentosController extends AppController {
 
-    public function listar() {
-        $pagamentos = $this->paginate($this->Pagamentos);
-        $this->set('submenu', 'pagamentos');
-        $this->set('pagamentos', $pagamentos);
+    public function list() {
+        parent::index();
     }
 
-    public function detalhar($id = null) {
+    public function view($id = null) {
         throw new Exception('Not implemented yet');
-        return;
     }
 
-    public function cadastrar($id = null) {
-
-        $pagamentos = $this->Pagamentos->newEmptyEntity();
-        if (!empty($id)) {
-            $pagamentos = $this->Pagamentos->get($id, [
-                'contain' => [],
-            ]);
-        }
-
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $pagamentos = $this->Pagamentos->patchEntity($pagamentos, $this->request->getData());
-            if ($this->Pagamentos->save($pagamentos)) {
-                $this->Flash->success(__('Dados salvos com sucesso!'));
-
-                return $this->redirect(['action' => 'listar']);
-            }
-            $this->Flash->error(__('Não foi possivel realizar a operaçao.'));
-        }
-
-        $this->set(compact('pagamentos'));
+    public function add($id = null) {
+          parent::add($id);
     }
 
-    public function delete($id = null) {
+    public function delet($id = null) {
         throw new Exception('Not implemented yet');
     }
 

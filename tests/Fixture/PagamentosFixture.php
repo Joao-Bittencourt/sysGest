@@ -6,11 +6,9 @@ namespace App\Test\Fixture;
 
 use Cake\TestSuite\Fixture\TestFixture;
 
-/**
- * UsersFixture
- */
-class UsersFixture extends TestFixture {
+class PagamentosFixture extends TestFixture {
 
+//    public $import = ['table' => 'pagamentos'];;    
     /**
      * Fields
      *
@@ -19,8 +17,6 @@ class UsersFixture extends TestFixture {
     // phpcs:disable
     public $fields = [
         'id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
-        'login' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null],
-        'password' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null],
         'created' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => true, 'default' => null, 'comment' => ''],
         'modified' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => true, 'default' => null, 'comment' => ''],
         'status' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => '1', 'comment' => '', 'precision' => null, 'autoIncrement' => null],
@@ -32,8 +28,7 @@ class UsersFixture extends TestFixture {
             'collation' => 'latin1_swedish_ci'
         ],
     ];
-
-    // phpcs:enable
+    
 
     /**
      * Init method
@@ -44,11 +39,12 @@ class UsersFixture extends TestFixture {
         $this->records = [
             [
                 'id' => 1,
-                'login' => 'Lorem ipsum dolor sit amet',
-                'password' => 'Lorem ipsum dolor sit amet',
-                'created' => '2021-01-17 22:21:01',
-                'modified' => '2021-01-17 22:21:01',
+                'created' => '2021-01-17 22:20:29',
+                'created_by' => 1,
+                'modified' => '2021-01-17 22:20:29',
+                'modified_by' => null,
                 'status' => 1,
+                
             ],
         ];
         parent::init();

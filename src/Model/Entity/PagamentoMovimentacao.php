@@ -6,10 +6,10 @@ namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
 
-class TipoPagamentoMovimentacao extends Entity {
+class PagamentoMovimentacao extends Entity {
 
     protected $_accessible = [
-        'id' => true,
+       'id' => true,
         'created' => true,
         'created_by' => true,
         'modified' => true,

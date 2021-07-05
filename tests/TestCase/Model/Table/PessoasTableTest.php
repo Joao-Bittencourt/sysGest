@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
@@ -9,8 +10,8 @@ use Cake\TestSuite\TestCase;
 /**
  * App\Model\Table\PessoasTable Test Case
  */
-class PessoasTableTest extends TestCase
-{
+class PessoasTableTest extends TestCase {
+
     /**
      * Test subject
      *
@@ -34,8 +35,7 @@ class PessoasTableTest extends TestCase
      *
      * @return void
      */
-    public function setUp(): void
-    {
+    public function setUp(): void {
         parent::setUp();
         $config = $this->getTableLocator()->exists('Pessoas') ? [] : ['className' => PessoasTable::class];
         $this->Pessoas = $this->getTableLocator()->get('Pessoas', $config);
@@ -46,8 +46,7 @@ class PessoasTableTest extends TestCase
      *
      * @return void
      */
-    public function tearDown(): void
-    {
+    public function tearDown(): void {
         unset($this->Pessoas);
 
         parent::tearDown();
@@ -58,8 +57,7 @@ class PessoasTableTest extends TestCase
      *
      * @return void
      */
-    public function testValidationDefault(): void
-    {
+    public function testValidationDefault(): void {
         $this->markTestIncomplete('Not implemented yet.');
     }
 
@@ -68,8 +66,21 @@ class PessoasTableTest extends TestCase
      *
      * @return void
      */
-    public function testBuildRules(): void
-    {
+    public function testBuildRules(): void {
         $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    public function testNotUniqueCpf(){
+         $data = [
+            'nome' => 'Lorem ipsu',
+            'cpf' => 'Lorem ipsu',
+            'tipo_pessoa_id' => 1,
+        ];
+
+        $pessoa = $this->Pessoas->newEntity($data);
+        $this->Pessoas->save($pessoa);
+        $saved = $this->Pessoas->save($pessoa);
+        $this->assertNotEmpty($pessoa->getErrors()['cpf']);
+        
     }
 }

@@ -9,18 +9,23 @@ use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
-class TipoPagamentoMovimentacoesTable extends Table {
+class PagamentoMovimentacoesTable extends Table {
 
     public function initialize(array $config): void {
         parent::initialize($config);
 
-        $this->setTable('tipo_pagamento_movimentacoes');
+        $this->setTable('pagamento_movimentacoes');
         $this->setDisplayField('id');
-        $this->setPrimaryKey('id');
+        $this->setPrimaryKey('id'); 
 
         $this->addBehavior('Timestamp');
     }
 
+    public function beforeSave($event, $entity, $options) {
+        if (empty($entity->created_by)) {
+            $entity->created_by =  1;
+        }
+    }
     public function validationDefault(Validator $validator): Validator {
         $validator
                 ->integer('id')

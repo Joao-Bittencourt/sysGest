@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-class TipoPagamentoMovimentacoesController extends AppController {
+class PagamentoMovimentacoesController extends AppController {
 
     public function listarEntradas() {
         throw new Exception('Not implemented yet');

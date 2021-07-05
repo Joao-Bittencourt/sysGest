@@ -15,6 +15,36 @@ class CreateContas extends AbstractMigration {
      */
     public function change() {
         $table = $this->table('contas');
+        $table->addColumn('banco_id', 'integer', [
+            'default' => null,
+            'limit' => 11,
+            'null' => false,
+        ]);
+        $table->addColumn('pessoa_id', 'integer', [
+            'default' => null,
+            'limit' => 11,
+            'null' => false,
+        ]);
+        $table->addColumn('agencia', 'string', [
+            'default' => null,
+            'limit' => 5,
+            'null' => false,
+        ]);
+        $table->addColumn('agencia_dv', 'string', [
+            'default' => 0,
+            'limit' => 2,
+            'null' => true,
+        ]);
+        $table->addColumn('conta', 'string', [
+            'default' => 0,
+            'limit' => 12,
+            'null' => false,
+        ]);
+        $table->addColumn('conta_dv', 'string', [
+            'default' => 0,
+            'limit' => 2,
+            'null' => true,
+        ]);
         $table->addColumn('created', 'datetime', [
             'default' => null,
             'null' => false,
@@ -30,7 +60,7 @@ class CreateContas extends AbstractMigration {
         ]);
         $table->addColumn('modified_by', 'datetime', [
             'default' => null,
-            'null' => false,
+            'null' => true,
         ]);
 
         $table->addColumn('status', 'integer', [

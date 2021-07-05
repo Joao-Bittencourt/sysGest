@@ -25,7 +25,7 @@ return [
      *   You should treat it as extremely sensitive data.
      */
     'Security' => [
-        'salt' => env('SECURITY_SALT', '__SALT__'),
+        'salt' => env('SECURITY_SALT', 'e880t26957587b8c91fh36c6e1d02922637fc65c2f97a4308d24c2e9445b3a66'),
     ],
 
     /*
@@ -44,10 +44,10 @@ return [
              */
             //'port' => 'non_standard_port_number',
 
-            'username' => 'my_app',
-            'password' => 'secret',
+            'username' => 'root',
+            'password' => 'root',
 
-            'database' => 'my_app',
+            'database' => 'cakephp',
             /*
              * If not using the default 'public' schema with the PostgreSQL driver
              * set it here.
@@ -66,9 +66,9 @@ return [
         'test' => [
             'host' => 'localhost',
             //'port' => 'non_standard_port_number',
-            'username' => 'root',
-            'password' => 'root',
-            'database' => 'cakephp',
+            'username' => env('DB_USER', 'root'),
+            'password' => env('DB_PASSWORD', null),
+            'database' => env('DB_DATABASE', 'cakephp'),
             //'schema' => 'myapp',
             'url' => env('DATABASE_TEST_URL', null),
         ],

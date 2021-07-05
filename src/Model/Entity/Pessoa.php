@@ -13,7 +13,7 @@ use Cake\ORM\Entity;
  * @property string $nome
  * @property string|null $email
  * @property string|null $cpf
- * @property string|null $datanascimento
+ * @property string|null $dt_nascimento
  * @property string|null $cep
  * @property string|null $uf
  * @property string|null $pais
@@ -23,7 +23,7 @@ use Cake\ORM\Entity;
  * @property int|null $ddd
  * @property int|null $telefone
  * @property \Cake\I18n\FrozenTime $created
- * @property \Cake\I18n\FrozenTime $updated
+ * @property \Cake\I18n\FrozenTime $modified
  * @property int $user_id
  * @property int $status
  * @property int $tipo_pessoa_id
@@ -46,7 +46,7 @@ class Pessoa extends Entity {
         'nome' => true,
         'email' => true,
         'cpf' => true,
-        'datanascimento' => true,
+        'dt_nascimento' => true,
         'cep' => true,
         'uf' => true,
         'pais' => true,
@@ -56,7 +56,9 @@ class Pessoa extends Entity {
         'ddd' => true,
         'telefone' => true,
         'created' => true,
-        'updated' => true,
+        'created_by' => true,
+        'modified' => true,
+        'modified_by' => true,
         'user_id' => true,
         'status' => true,
         'tipo_pessoa_id' => true,

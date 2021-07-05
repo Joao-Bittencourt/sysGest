@@ -205,8 +205,10 @@ ServerRequest::addDetector('tablet', function ($request) {
 //    ->useMutable();
 // TypeFactory::build('timestamptimezone')
 //    ->useMutable();
-TypeFactory::build('date')->useLocaleParser()->setLocaleFormat('dd/mm/yyyy');
-TypeFactory::build('datetime')->useLocaleParser()->setLocaleFormat('dd/mm/yyyy hh:mm:ss');
+//TypeFactory::build('date')->useLocaleParser()->setLocaleFormat('dd/mm/yyyy');
+//TypeFactory::build('datetime')->useLocaleParser()->setLocaleFormat('dd/mm/yyyy');
+TypeFactory::build('date')->useLocaleParser()->setLocaleFormat('yyyy//MM/dd');
+TypeFactory::build('datetime')->useLocaleParser()->setLocaleFormat('yyyy/MM/dd');
 
 TypeFactory::build('float')->useLocaleParser();
 TypeFactory::build('decimal')->useLocaleParser();

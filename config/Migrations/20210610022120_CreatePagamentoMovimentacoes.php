@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 use Migrations\AbstractMigration;
 
-class CreateTipoPagamentoMovimentacoes extends AbstractMigration
+class CreatePagamentoMovimentacoes extends AbstractMigration
 {
     /**
      * Change Method.
@@ -14,11 +14,11 @@ class CreateTipoPagamentoMovimentacoes extends AbstractMigration
      */
     public function change()
     {
-        $table = $this->table('tipo_pagamento_movimentacoes');
+        $table = $this->table('pagamento_movimentacoes');
          $table->addColumn('created', 'datetime', [
             'default' => null,
             'null' => false,
-        ]);
+        ]); 
         $table->addColumn('created_by', 'integer', [
             'default' => null,
             'limit' => 11,
@@ -30,7 +30,7 @@ class CreateTipoPagamentoMovimentacoes extends AbstractMigration
         ]);
         $table->addColumn('modified_by', 'datetime', [
             'default' => null,
-            'null' => false,
+            'null' => true,
         ]);
 
         $table->addColumn('status', 'integer', [

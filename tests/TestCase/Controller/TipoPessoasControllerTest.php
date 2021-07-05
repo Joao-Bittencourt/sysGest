@@ -33,7 +33,8 @@ class TipoPessoasControllerTest extends TestCase {
      * @return void
      */
     public function testIndex(): void {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('/tipo-pessoas/');
+        $this->assertResponseOk();
     }
 
     /**
@@ -42,7 +43,8 @@ class TipoPessoasControllerTest extends TestCase {
      * @return void
      */
     public function testView(): void {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('/tipo-pessoas/view/1');
+        $this->assertResponseOk();
     }
 
     /**
@@ -51,7 +53,8 @@ class TipoPessoasControllerTest extends TestCase {
      * @return void
      */
     public function testAdd(): void {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('/tipo-pessoas/add');
+        $this->assertResponseOk();
     }
 
     /**
@@ -60,16 +63,58 @@ class TipoPessoasControllerTest extends TestCase {
      * @return void
      */
     public function testEdit(): void {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('/tipo-pessoas/edit/1');
+        $this->assertResponseOk();
+    }
+    
+    /**
+     * Test edit method
+     *
+     * @return void
+     */
+    public function testEditWhitoutId(): void {
+        $this->get('/tipo-pessoas/edit/');
+        $this->assertResponseFailure();
     }
 
+    /**
+     * Test get delete method
+     *
+     * @return void
+     */
+    public function testDelete(): void {       
+        $data = [];
+        
+        $this->enableCsrfToken();
+        $this->enableSecurityToken();
+        
+        $this->post('/tipo-pessoas/delete/1', $data);
+        $this->assertResponseSuccess();
+ 
+    }
+    /**
+     * Test get delete method
+     *
+     * @return void
+     */
+    public function testGetDelete(): void {
+        $this->get('/tipo-pessoas/delete/1');
+        $this->assertResponseError();
+    }
+    
     /**
      * Test delete method
      *
      * @return void
      */
-    public function testDelete(): void {
-        $this->markTestIncomplete('Not implemented yet.');
+    public function testDeleteWhitoutId(): void {
+        $data = [];
+        
+        $this->enableCsrfToken();
+        $this->enableSecurityToken();
+        
+        $this->post('/tipo-pessoas/delete/', $data);
+        $this->assertResponseFailure();
     }
 
 }

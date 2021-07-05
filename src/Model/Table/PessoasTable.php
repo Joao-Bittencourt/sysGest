@@ -58,6 +58,11 @@ class PessoasTable extends Table {
         ]);
     }
 
+    public function beforeSave($event, $entity, $options) {
+        if (empty($entity->created_by)) {
+            $entity->created_by =  1;
+        }
+    }
     /**
      * Default validation rules.
      *
@@ -68,6 +73,9 @@ class PessoasTable extends Table {
         $validator
                 ->integer('id')
                 ->allowEmptyString('id', null, 'create');
+        $validator
+                ->integer('tipo_pessoa_id')
+                ->notBlank('tipo_pessoa_id', 'Informe o tipo de pessoa.');
 
         $validator
                 ->scalar('nome')
@@ -77,17 +85,17 @@ class PessoasTable extends Table {
 
         $validator
                 ->email('email')
-                ->allowEmptyString('email');
+                ->notEmptyString('email');
 
         $validator
                 ->scalar('cpf')
                 ->maxLength('cpf', 12)
-                ->allowEmptyString('cpf');
+                ->notEmptyString('cpf');
 
-        $validator
-                ->scalar('datanascimento')
-                ->maxLength('datanascimento', 12)
-                ->allowEmptyString('datanascimento');
+//        $validator
+//                ->scalar('dt_nascimento')
+//                ->maxLength('dt_nascimento', 12)
+//                ->notEmptyString('dt_nascimento');
 
         $validator
                 ->scalar('cep')
@@ -142,9 +150,9 @@ class PessoasTable extends Table {
      * @return \Cake\ORM\RulesChecker
      */
     public function buildRules(RulesChecker $rules): RulesChecker {
-        $rules->add($rules->existsIn(['user_id'], 'Users'), ['errorField' => 'user_id']);
-        $rules->add($rules->existsIn(['tipo_pessoa_id'], 'TipoPessoas'), ['errorField' => 'tipo_pessoa_id']);
+        $rules->add($rules->isUnique(['cpf'], __('Cpf já consta na base de dados')));
 
         return $rules;
     }
+
 }
