@@ -8,8 +8,26 @@ use Cake\TestSuite\Fixture\TestFixture;
 
 class PagamentosFixture extends TestFixture {
 
-    public $import = ['table' => 'pagamentos'];
-    
+//    public $import = ['table' => 'pagamentos'];;    
+    /**
+     * Fields
+     *
+     * @var array
+     */
+    // phpcs:disable
+    public $fields = [
+        'id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
+        'created' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => true, 'default' => null, 'comment' => ''],
+        'modified' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => true, 'default' => null, 'comment' => ''],
+        'status' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => '1', 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        '_constraints' => [
+            'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
+        ],
+        '_options' => [
+            'engine' => 'MyISAM',
+            'collation' => 'latin1_swedish_ci'
+        ],
+    ];
     
 
     /**

@@ -6,7 +6,7 @@ namespace App\Controller;
 
 class PagamentosController extends AppController {
 
-     public function list() {
+    public function list() {
         parent::index();
     }
 
