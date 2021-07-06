@@ -15,19 +15,24 @@ class PagamentoMovimentacoesControllerTest extends TestCase {
     protected $fixtures = [];
 
     public function testlistarEntradas(): void {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('/pagamento-movimentacoes/list-entries');
+        $this->assertResponseFailure();
     }
     
-    public function testlistarsSaidas(): void {
-        $this->markTestIncomplete('Not implemented yet.');
+    public function testlistarSaidas(): void {
+        $this->get('/pagamento-movimentacoes/list-outputs');
+        $this->assertResponseFailure();
+
     }
 
     public function testDetalhar(): void {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('/pagamento-movimentacoes/detail');
+        $this->assertResponseFailure();
     }
       
     public function testCancelar(): void {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('/pagamento-movimentacoes/cancel');
+        $this->assertResponseFailure();
     }
       
 }

@@ -6,21 +6,19 @@ namespace App\Controller;
 
 class PagamentoMovimentacoesController extends AppController {
 
-    public function listarEntradas() {
+    public function listEntries() {
         throw new Exception('Not implemented yet');
-        return;
     }
-    public function listarSaidas() {
+    
+    public function listOutputs() {
         throw new Exception('Not implemented yet');
-        return;
-    }
-
-    public function detalhar($id = null) {
-        throw new Exception('Not implemented yet');
-        return;
     }
 
-   public function cancelar($id = null) {
+    public function detail($id = null) {
+        throw new Exception('Not implemented yet');
+    }
+
+   public function cancel($id = null) {
         throw new Exception('Not implemented yet');
     }
 

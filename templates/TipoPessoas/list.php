@@ -1,13 +1,7 @@
 <?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\TipoPessoa[]|\Cake\Collection\CollectionInterface $tipoPessoas
- */
 ?>
-<div class="tipoPessoas index content">
-    <?= $this->Html->link(__('New Tipo Pessoa'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Tipo Pessoas') ?></h3>
-    <div class="table-responsive">
+
+<div class="table-responsive">
         <table>
             <thead>
                 <tr>
@@ -37,14 +31,3 @@
             </tbody>
         </table>
     </div>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
-    </div>
-</div>

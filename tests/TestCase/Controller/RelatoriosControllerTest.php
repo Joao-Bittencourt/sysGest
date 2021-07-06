@@ -23,9 +23,11 @@ class RelatoriosControllerTest extends TestCase {
      * Test index method
      *
      * @return void
-     */
+     */   
     public function testIndex(): void {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('/relatorios/');
+        $this->assertResponseOk();
+   
     }
 
     

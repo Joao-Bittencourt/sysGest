@@ -13,7 +13,7 @@
     </aside>
     <div class="column-responsive column-80">
         <div class="tipoPessoas form content">
-            <?= $this->Form->create($tipoPessoa) ?>
+            <?= $this->Form->create($entity) ?>
             <fieldset>
                 <legend><?= __('Add Tipo Pessoa') ?></legend>
                 <?php

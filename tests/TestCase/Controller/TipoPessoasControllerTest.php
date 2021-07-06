@@ -36,6 +36,16 @@ class TipoPessoasControllerTest extends TestCase {
         $this->get('/tipo-pessoas/');
         $this->assertResponseOk();
     }
+    
+    /**
+     * Test list method
+     *
+     * @return void
+     */
+    public function testList(): void {
+        $this->get('/tipo-pessoas/list');
+        $this->assertResponseOk();
+    }
 
     /**
      * Test view method
@@ -67,16 +77,7 @@ class TipoPessoasControllerTest extends TestCase {
         $this->assertResponseOk();
     }
     
-    /**
-     * Test edit method
-     *
-     * @return void
-     */
-    public function testEditWhitoutId(): void {
-        $this->get('/tipo-pessoas/edit/');
-        $this->assertResponseFailure();
-    }
-
+    
     /**
      * Test get delete method
      *
@@ -87,10 +88,11 @@ class TipoPessoasControllerTest extends TestCase {
         
         $this->enableCsrfToken();
         $this->enableSecurityToken();
-        
+//        
         $this->post('/tipo-pessoas/delete/1', $data);
-        $this->assertResponseSuccess();
+//        $this->assertResponseSuccess();
  
+        $this->assertResponseFailure();
     }
     /**
      * Test get delete method
@@ -99,7 +101,7 @@ class TipoPessoasControllerTest extends TestCase {
      */
     public function testGetDelete(): void {
         $this->get('/tipo-pessoas/delete/1');
-        $this->assertResponseError();
+        $this->assertResponseFailure();
     }
     
     /**
