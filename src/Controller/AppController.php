@@ -80,24 +80,11 @@ class AppController extends Controller {
         }
         $this->set(compact('entity'));
     }
-//
-//    public function edit($id = null) {
-//        $entity = $this->getEditEntity($id);
 
-//        if ($this->request->is(['patch', 'post', 'put'])) {
-//            $entity = $this->{$this->getModelName()}->patchEntity($entity, $this->request->getData());
-//            if ($this->{$this->getModelName()}->save($entity)) {
-//                $this->Flash->bootstrap(__('Alterado com sucesso!'), ['key' => 'success']);
-//                return $this->redirect(['action' => 'index']);
-//            }
-//        }
-//        $this->set(compact('entity'));
-//    }
-//
-//    public function view($id = null) {
-//        $entity = $this->getEditEntity($id);
-//        $this->set(compact('entity'));
-//    }
+    public function view($id = null) {
+        $entity = $this->getEditEntity($id);
+        $this->set(compact('entity'));
+    }
 
 //    public function delete($id) {
 //        $this->request->allowMethod(['post', 'delete']);

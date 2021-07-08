@@ -84,7 +84,7 @@ class PessoasTable extends Table {
                 ->notEmptyString('nome');
 
         $validator
-                ->email('email')
+//                ->email('email');
                 ->notEmptyString('email');
 
         $validator
@@ -137,7 +137,8 @@ class PessoasTable extends Table {
 
         $validator
                 ->integer('status')
-                ->notEmptyString('status');
+                ->maxLength('status', 1)
+                ->notBlank('status');
 
         return $validator;
     }
