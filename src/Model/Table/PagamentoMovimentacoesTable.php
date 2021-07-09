@@ -33,6 +33,7 @@ class PagamentoMovimentacoesTable extends Table {
 
         $validator
                 ->integer('status')
+                ->maxLength('status', 1)
                 ->notEmptyString('status');
 
         return $validator;

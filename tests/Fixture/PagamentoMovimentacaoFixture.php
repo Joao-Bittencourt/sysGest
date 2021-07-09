@@ -6,7 +6,7 @@ namespace App\Test\Fixture;
 
 use Cake\TestSuite\Fixture\TestFixture;
 
-class PagamentoMovimentacoesFixture extends TestFixture {
+class PagamentoMovimentacaoFixture extends TestFixture {
 
     public $import = ['table' => 'pagamento_movimentacoes'];
     
