@@ -8,7 +8,7 @@ use App\Model\Table\PagamentoMovimentacoesTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\PagamentoMovimentacoesTable Test Case
+ * App\Model\Table\Pagamento Test Case
  */
 class PagamentoMovimentacoesTableTest extends TestCase {
 
@@ -18,7 +18,7 @@ class PagamentoMovimentacoesTableTest extends TestCase {
      * @var array
      */
     protected $fixtures = [
-        'app.PagamentoMovimentacao',
+        'app.PagamentoMovimentacoes',
     ];
 
     /**
