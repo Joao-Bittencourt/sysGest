@@ -83,7 +83,8 @@ class UsersTable extends Table {
 
         $validator
                 ->integer('status')
-                ->notEmptyString('status');
+                ->maxLength('status', 1)
+                ->notBlank('status');
 
         return $validator;
     }
@@ -96,8 +97,7 @@ class UsersTable extends Table {
      * @return \Cake\ORM\RulesChecker
      */
     public function buildRules(RulesChecker $rules): RulesChecker {
-        $rules->add($rules->isUnique(['login']), ['errorField' => 'login']);
-
+       $rules->add($rules->isUnique(['login'], ['message' => __('Login já existe')]));
         return $rules;
     }
 

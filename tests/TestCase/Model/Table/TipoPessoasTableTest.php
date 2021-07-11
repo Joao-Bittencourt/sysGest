@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
@@ -9,8 +10,8 @@ use Cake\TestSuite\TestCase;
 /**
  * App\Model\Table\TipoPessoasTable Test Case
  */
-class TipoPessoasTableTest extends TestCase
-{
+class TipoPessoasTableTest extends TestCase {
+
     /**
      * Test subject
      *
@@ -33,8 +34,7 @@ class TipoPessoasTableTest extends TestCase
      *
      * @return void
      */
-    public function setUp(): void
-    {
+    public function setUp(): void {
         parent::setUp();
         $config = $this->getTableLocator()->exists('TipoPessoas') ? [] : ['className' => TipoPessoasTable::class];
         $this->TipoPessoas = $this->getTableLocator()->get('TipoPessoas', $config);
@@ -45,20 +45,29 @@ class TipoPessoasTableTest extends TestCase
      *
      * @return void
      */
-    public function tearDown(): void
-    {
+    public function tearDown(): void {
         unset($this->TipoPessoas);
 
         parent::tearDown();
     }
 
     /**
-     * Test validationDefault method
+     * Test validation status
      *
      * @return void
      */
-    public function testValidationDefault(): void
-    {
-        $this->markTestIncomplete('Not implemented yet.');
+    public function testValidationStatus(): void {
+//        $data = [ 'status' => null ];
+//        $pessoa = $this->Pessoas->newEntity($data);
+//        $this->assertNotEmpty($pessoa->getErrors()['status']);
+
+        $data = ['status' => 'a'];
+        $tipoPessoa = $this->TipoPessoas->newEntity($data);
+        $this->assertNotEmpty($tipoPessoa->getErrors()['status']);
+
+        $data = ['status' => '123']; // tamanho 3
+        $tipoPessoa = $this->TipoPessoas->newEntity($data);
+        $this->assertNotEmpty($tipoPessoa->getErrors()['status']);
     }
+
 }
