@@ -63,7 +63,6 @@ class BancosControllerTest extends TestCase {
             'codigo_banco' => '999',
             'status' => '1',
             'created' => date('Y-m-d H:i:s'),
-            'created_by' => '1',
             'modified' => date('Y-m-d H:i:s')
             ];
         

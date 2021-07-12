@@ -63,7 +63,6 @@ class ParcelasControllerTest extends TestCase {
             'dt_pagamento' => '2021-01-17 22:20:29',
             'status' => '1',
             'created' => date('Y-m-d H:i:s'),
-            'created_by' => '1',
             'modified' => date('Y-m-d H:i:s')
             ];
         

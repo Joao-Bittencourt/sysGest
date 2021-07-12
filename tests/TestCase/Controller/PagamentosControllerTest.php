@@ -59,9 +59,7 @@ class PagamentosControllerTest extends TestCase {
     public function testAdd(): void {
         $data = [
             'created' => date('Y-m-d H:i:s'),
-            'created_by' => '1',
             'modified' => date('Y-m-d H:i:s'),
-            'modified_by' => null,
             'status' => 1,
             ];
         

@@ -66,7 +66,6 @@ class ContasControllerTest extends TestCase {
             'conta_dv' => '2',
             'status' => '1',
             'created' => date('Y-m-d H:i:s'),
-            'created_by' => '1',
             'modified' => date('Y-m-d H:i:s')
         ];
         

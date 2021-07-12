@@ -50,7 +50,7 @@ class UsersTableTest extends TestCase {
         parent::tearDown();
     }
 
-     /**
+    /**
      * Test validation login
      *
      * @return void
@@ -64,8 +64,8 @@ class UsersTableTest extends TestCase {
         $user = $this->Users->newEntity($data);
         $this->assertNotEmpty($user->getErrors()['login']);
     }
-    
-     /**
+
+    /**
      * Test validation password
      *
      * @return void
@@ -79,7 +79,7 @@ class UsersTableTest extends TestCase {
         $this->Users = $this->Users->newEntity($data);
         $this->assertNotEmpty($user->getErrors()['password']);
     }
-    
+
     /**
      * Test validation status
      *
@@ -98,13 +98,45 @@ class UsersTableTest extends TestCase {
         $user = $this->Users->newEntity($data);
         $this->assertNotEmpty($user->getErrors()['status']);
     }
+    
+      /**
+     * Test validation created_by
+     *
+     * @return void
+     * @todo Description revisar
+     */
+    public function testBeforeSaveCreatedBy(): void {
+        $data = [
+            'login' => 'login1',
+            'password' => 'password',
+            'created' => '2021-01-17 22:21:01',
+            'modified' => '2021-01-17 22:21:01',
+            'status' => 1,
+        ];
+
+        $user = $this->Users->newEmptyEntity();
+        $userFullEntity = $this->Users->patchEntity($user, $data);
+        $saved = $this->Users->save($userFullEntity);
+
+        $this->assertEmpty($userFullEntity->getErrors());
+        
+//        $pessoas = $this->Pessoas->find()->all()->toArray();
+//        foreach ($pessoas as $pessoaDado){
+//            debug($pessoaDado->created_by);
+//        }
+
+    }
 
     public function testNotUniqueLogin() {
-      
-        $usuario = $this->Users->newEntity(['login' => 'jose']);
-        $this->Users->save($usuario);
-        $saved = $this->Users->save($usuario);
-        $this->assertNotEmpty($usuario->getErrors());
+
+        $data = [
+            'login' => 'login',
+            'password' => 'password'
+        ];
+        $user = $this->Users->newEntity($data);
+        $saved = $this->Users->save($user);
+        $this->assertFalse($saved);
+        $this->assertNotEmpty($user->getErrors());
     }
 
 }
