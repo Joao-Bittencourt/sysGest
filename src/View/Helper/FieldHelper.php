@@ -6,7 +6,7 @@ use Cake\View\Helper\HtmlHelper;
 
 class FieldHelper extends HtmlHelper {
 
-    public $helpers = ['Html'];
+    public $helpers = ['Html', 'Form'];
 
     public function formCreate($entity, $params) {
 
