@@ -86,7 +86,8 @@ class AppController extends Controller {
         $this->set(compact('entity'));
     }
 
-//    public function delete($id) {
+    public function delete($id = null) {
+        throw new Exception('Not implemented yet');
 //        $this->request->allowMethod(['post', 'delete']);
 //        $entity = $this->{$this->getModelName()}->get($id);
 //        if ($this->{$this->getModelName()}->excluir($id)) {
@@ -96,7 +97,7 @@ class AppController extends Controller {
 //        }
 //
 //        return $this->redirect(['action' => 'index']);
-//    }
+    }
 
     public function getControllerName() {
         return \Cake\Utility\Inflector::underscore($this->request->getParam('controller'));

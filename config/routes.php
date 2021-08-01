@@ -51,29 +51,61 @@ $routes->scope('/', function (RouteBuilder $builder) {
      * to use (in this case, templates/Pages/home.php)...
      */
     $builder->connect('/', ['controller' => 'Relatorios', 'action' => 'index']);
-
+    
     /*
      * ...and connect the rest of 'Pages' controller's URLs.
      */
     $builder->connect('/pages/*', 'Pages::display');
     
-    $builder->connect('/bancos/cadastrar/*', ['controller' => 'Bancos', 'action' => 'add']);
-    $builder->connect('/bancos/editar/*', ['controller' => 'Bancos', 'action' => 'add']);
-    $builder->connect('/bancos/edit/*', ['controller' => 'Bancos', 'action' => 'add']);
+    $builder->connect('/bancos', ['controller' => 'banks', 'action' => 'index']);
+    $builder->connect('/bancos/cadastrar/*', ['controller' => 'banks', 'action' => 'add']);
+    $builder->connect('/bancos/listar/*', ['controller' => 'banks', 'action' => 'list']);
+    $builder->connect('/bancos/detalhar/*', ['controller' => 'banks', 'action' => 'view']);
+    $builder->connect('/bancos/editar/*', ['controller' => 'banks', 'action' => 'add']);
+    $builder->connect('/bancos/deletar/*', ['controller' => 'banks', 'action' => 'delete']);
 
-    $builder->connect('/contas/cadastrar/*', ['controller' => 'contas', 'action' => 'add']);
-    $builder->connect('/contas/editar/*', ['controller' => 'contas', 'action' => 'add']);
+    $builder->connect('/contas', ['controller' => 'Accounts', 'action' => 'index']);
+    $builder->connect('/contas/listar/*', ['controller' => 'Accounts', 'action' => 'list']);
+    $builder->connect('/contas/detalhar/*', ['controller' => 'Accounts', 'action' => 'view']);
+    $builder->connect('/contas/cadastrar/*', ['controller' => 'Accounts', 'action' => 'add']);
+    $builder->connect('/contas/editar/*', ['controller' => 'Accounts', 'action' => 'add']);
+    $builder->connect('/contas/deletar/*', ['controller' => 'Accounts', 'action' => 'delete']);
+
+    $builder->connect('/pagamento-movimentacoes', ['controller' => 'PaymentTransactions', 'action' => 'index']);
+    $builder->connect('/pagamento-movimentacoes/listar-entradas', ['controller' => 'PaymentTransactions', 'action' => 'listEntries']);
+    $builder->connect('/pagamento-movimentacoes/listar-saidas', ['controller' => 'PaymentTransactions', 'action' => 'listOutputs']);
+    $builder->connect('/pagamento-movimentacoes/cadastrar', ['controller' => 'PaymentTransactions', 'action' => 'add']);
+    $builder->connect('/pagamento-movimentacoes/editar/*', ['controller' => 'PaymentTransactions', 'action' => 'add']);
+    $builder->connect('/pagamento-movimentacoes/detalhar/*', ['controller' => 'PaymentTransactions', 'action' => 'view']);
+    $builder->connect('/pagamento-movimentacoes/cancelar/*', ['controller' => 'PaymentTransactions', 'action' => 'cancel']);
     
-    $builder->connect('/pessoas/cadastrar/*', ['controller' => 'pessoas', 'action' => 'cadastrar']);
-    $builder->connect('/pessoas/editar/*', ['controller' => 'pessoas', 'action' => 'cadastrar']);
+    $builder->connect('/pagamentos', ['controller' => 'Payments', 'action' => 'index']);
+    $builder->connect('/pagamentos/listar', ['controller' => 'Payments', 'action' => 'list']);
+    $builder->connect('/pagamentos/cadastrar/*', ['controller' => 'Payments', 'action' => 'add']);
+    $builder->connect('/pagamentos/editar/*', ['controller' => 'Payments', 'action' => 'add']);
+    $builder->connect('/pagamentos/detalhar/*', ['controller' => 'Payments', 'action' => 'view']);
+    $builder->connect('/pagamentos/deletar/*', ['controller' => 'Payments', 'action' => 'delete']);
+    
+    $builder->connect('/pessoas', ['controller' => 'Persons', 'action' => 'index']);
+    $builder->connect('/pessoas/listar/*', ['controller' => 'Persons', 'action' => 'list']);
+    $builder->connect('/pessoas/detalhar/*', ['controller' => 'Persons', 'action' => 'view']);
+    $builder->connect('/pessoas/cadastrar/*', ['controller' => 'Persons', 'action' => 'add']);
+    $builder->connect('/pessoas/editar/*', ['controller' => 'Persons', 'action' => 'add']);
 
-    $builder->connect('/parcelas/cadastrar/*', ['controller' => 'parcelas', 'action' => 'add']);
-    $builder->connect('/parcelas/editar/*', ['controller' => 'parcelas', 'action' => 'add']);
+    $builder->connect('/parcelas', ['controller' => 'Installments', 'action' => 'index']);
+    $builder->connect('/parcelas/listar/*', ['controller' => 'Installments', 'action' => 'list']);
+    $builder->connect('/parcelas/detalhar/*', ['controller' => 'Installments', 'action' => 'view']);
+    $builder->connect('/parcelas/editar/*', ['controller' => 'Installments', 'action' => 'add']);
+    $builder->connect('/parcelas/cadastrar/*', ['controller' => 'Installments', 'action' => 'add']);
+    $builder->connect('/parcelas/deletar/*', ['controller' => 'Installments', 'action' => 'delete']);
 
-    $builder->connect('/tipo-pessoas/cadastrar/*', ['controller' => 'tipoPessoas', 'action' => 'add']);
-    $builder->connect('/tipo-pessoas/editar/*', ['controller' => 'tipoPessoas', 'action' => 'add']);
-    $builder->connect('/tipo-pessoas/edit/*', ['controller' => 'tipoPessoas', 'action' => 'add']);
-
+    $builder->connect('/tipo-pessoas', ['controller' => 'PersonCategories', 'action' => 'index']);
+    $builder->connect('/tipo-pessoas/listar/*', ['controller' => 'PersonCategories', 'action' => 'list']);
+    $builder->connect('/tipo-pessoas/detalhar/*', ['controller' => 'PersonCategories', 'action' => 'view']);
+    $builder->connect('/tipo-pessoas/editar/*', ['controller' => 'PersonCategories', 'action' => 'add']);
+    $builder->connect('/tipo-pessoas/cadastrar/*', ['controller' => 'PersonCategories', 'action' => 'add']);
+    $builder->connect('/tipo-pessoas/deletar/*', ['controller' => 'PersonCategories', 'action' => 'delete']);
+  
     /*
      * Connect catchall routes for all controllers.
      *
