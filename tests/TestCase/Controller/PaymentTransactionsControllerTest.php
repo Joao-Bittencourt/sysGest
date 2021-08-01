@@ -14,7 +14,7 @@ class PaymentTransactionsControllerTest extends TestCase {
 
     protected $fixtures = [
 //        'app.paymentTransactions'
-        'app.pagamentoMovimentacoes'
+        'app.PagamentoMovimentacoes'
     ];
 
     public function testcadastrar(): void {
