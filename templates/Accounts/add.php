@@ -22,7 +22,7 @@ $actionName = $this->request->getParam('action');
             </div>
             <div class="col-md-6">
                 <?= $this->Form->control('pessoa_id', ['label' => 'Pessoa', 'class' => 'form-control']); ?>
-            </div>
+            </div> 
         </div>
         <div class="row">
             <div class="col-md-5">

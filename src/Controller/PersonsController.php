@@ -32,10 +32,10 @@ class PersonsController extends AppController {
         }
 
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $pessoasFullEntity = $this->Persons->patchEntity($pessoas, $this->request->getData());
+            $pessoasFullEntity = $this->Persons->patchEntity($pessoas, $this->request->getData());            
             if ($this->Persons->save($pessoasFullEntity)) {
                 $this->Flash->success(__('Dados salvos com sucesso!'));
-                return $this->redirect(['action' => 'listar']);
+                return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('Não foi possivel realizar a operaçao.'));
         }

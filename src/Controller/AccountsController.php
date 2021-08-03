@@ -6,7 +6,7 @@ namespace App\Controller;
 
 class AccountsController extends AppController {
 
-     public function list() {
+    public function list() {
         parent::index();
     }
 
@@ -15,10 +15,26 @@ class AccountsController extends AppController {
     }
 
     public function add($id = null) {
-          parent::add($id);
+        parent::add($id);
+
+        $persons = $this->Accounts->Persons->find('list', [
+                    'keyField' => 'id',
+                    'valueField' => 'nome'
+                ])
+                ->toArray();
+
+        $banks = $this->Accounts->Banks->find('list', [
+                    'keyField' => 'id',
+                    'valueField' => 'nome'
+                ])
+                ->toArray();
+
+        $this->set('pessoas',$persons);
+        $this->set('bancos', $banks);
     }
+
     public function delete($id = null) {
-          parent::delete($id);
+        parent::delete($id);
     }
 
 }
