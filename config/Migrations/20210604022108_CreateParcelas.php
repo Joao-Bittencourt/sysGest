@@ -5,7 +5,7 @@
 use Migrations\AbstractMigration;
 
 class CreateParcelas extends AbstractMigration {
-    
+
     public function change() {
         $table = $this->table('parcelas');
         $table->addColumn('pagamento_id', 'integer', [
@@ -18,34 +18,46 @@ class CreateParcelas extends AbstractMigration {
             'limit' => 11,
             'null' => false,
         ]);
-        $table->addColumn('vl_bruto', 'number', [
+        $table->addColumn('vl_bruto', 'decimal', [
             'default' => 0,
-            'limit' => '15,2',
+            'precision' => '15',
+            'scale' => '2',
+//            'limit' => '15,2',
             'null' => false,
         ]);
-        $table->addColumn('vl_liquido', 'number', [
+        $table->addColumn('vl_liquido', 'decimal', [
             'default' => 0,
-            'limit' => '15,2',
+            'precision' => '15',
+            'scale' => '2',
+//            'limit' => '15,2',
             'null' => false,
         ]);
-        $table->addColumn('vl_desc', 'number', [
+        $table->addColumn('vl_desc', 'decimal', [
             'default' => 0,
-            'limit' => '15,2',
+            'precision' => '15',
+            'scale' => '2',
+//            'limit' => '15,2',
             'null' => true,
         ]);
-        $table->addColumn('p_desc', 'number', [
+        $table->addColumn('p_desc', 'decimal', [
             'default' => 0,
-            'limit' => '15,2',
+            'precision' => '15',
+            'scale' => '2',
+//            'limit' => '15,2',
             'null' => true,
         ]);
-        $table->addColumn('vl_acrescimo', 'number', [
+        $table->addColumn('vl_acrescimo', 'decimal', [
             'default' => 0,
-            'limit' => '15,2',
+            'precision' => '15',
+            'scale' => '2',
+//            'limit' => '15,2',
             'null' => true,
         ]);
-        $table->addColumn('p_acrescimo', 'number', [
+        $table->addColumn('p_acrescimo', 'decimal', [
             'default' => 0,
-            'limit' => '15,2',
+            'precision' => '15',
+            'scale' => '2',
+//            'limit' => '15,2',
             'null' => true,
         ]);
         $table->addColumn('dt_vencimento', 'datetime', [

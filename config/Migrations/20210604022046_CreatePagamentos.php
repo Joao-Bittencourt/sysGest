@@ -28,9 +28,11 @@ class CreatePagamentos extends AbstractMigration {
             'limit' => 11,
             'null' => false,
         ]);
-        $table->addColumn('vl_total', 'number', [
+        $table->addColumn('vl_total', 'decimal', [
             'default' => 0,
-            'limit' => '15,2',
+            'precision' => '15',
+            'scale' => '2',
+//            'limit' => '15,2',
             'null' => false,
         ]);
         $table->addColumn('created', 'datetime', [
