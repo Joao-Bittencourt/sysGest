@@ -5,13 +5,7 @@ use Migrations\AbstractMigration;
 
 class CreatePagamentos extends AbstractMigration {
 
-    /**
-     * Change Method.
-     *
-     * More information on this method is available here:
-     * https://book.cakephp.org/phinx/0/en/migrations.html#the-change-method
-     * @return void
-     */
+   
     public function change() {
         $table = $this->table('pagamentos');
         $table->addColumn('tipo_pagamento_id', 'integer', [
@@ -34,7 +28,7 @@ class CreatePagamentos extends AbstractMigration {
             'limit' => 11,
             'null' => false,
         ]);
-        $table->addColumn('vl_total', 'decimal', [
+        $table->addColumn('vl_total', 'number', [
             'default' => 0,
             'limit' => '15,2',
             'null' => false,

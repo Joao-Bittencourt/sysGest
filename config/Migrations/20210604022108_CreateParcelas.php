@@ -5,14 +5,7 @@
 use Migrations\AbstractMigration;
 
 class CreateParcelas extends AbstractMigration {
-
-    /**
-     * Change Method.
-     *
-     * More information on this method is available here:
-     * https://book.cakephp.org/phinx/0/en/migrations.html#the-change-method
-     * @return void
-     */
+    
     public function change() {
         $table = $this->table('parcelas');
         $table->addColumn('pagamento_id', 'integer', [
@@ -25,32 +18,32 @@ class CreateParcelas extends AbstractMigration {
             'limit' => 11,
             'null' => false,
         ]);
-        $table->addColumn('vl_bruto', 'decimal', [
+        $table->addColumn('vl_bruto', 'number', [
             'default' => 0,
             'limit' => '15,2',
             'null' => false,
         ]);
-        $table->addColumn('vl_liquido', 'decimal', [
+        $table->addColumn('vl_liquido', 'number', [
             'default' => 0,
             'limit' => '15,2',
             'null' => false,
         ]);
-        $table->addColumn('vl_desc', 'decimal', [
+        $table->addColumn('vl_desc', 'number', [
             'default' => 0,
             'limit' => '15,2',
             'null' => true,
         ]);
-        $table->addColumn('p_desc', 'decimal', [
+        $table->addColumn('p_desc', 'number', [
             'default' => 0,
             'limit' => '15,2',
             'null' => true,
         ]);
-        $table->addColumn('vl_acrescimo', 'decimal', [
+        $table->addColumn('vl_acrescimo', 'number', [
             'default' => 0,
             'limit' => '15,2',
             'null' => true,
         ]);
-        $table->addColumn('p_acrescimo', 'decimal', [
+        $table->addColumn('p_acrescimo', 'number', [
             'default' => 0,
             'limit' => '15,2',
             'null' => true,
