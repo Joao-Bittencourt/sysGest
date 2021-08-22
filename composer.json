@@ -45,7 +45,11 @@
         "cs-check": "phpcs --colors -p  src/ tests/",
         "cs-fix": "phpcbf --colors -p src/ tests/",
         "stan": "phpstan analyse",
-        "test": "phpunit --colors=always"
+        "test": "phpunit --colors=always",
+        "compile": [
+            "chmod +x bin/cake",
+            "bin/cake migrations migrate --no-lock"            
+        ]
     },
     "prefer-stable": true,
     "config": {
