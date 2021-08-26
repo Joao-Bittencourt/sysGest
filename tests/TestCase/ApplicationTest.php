@@ -23,6 +23,7 @@ use Cake\Routing\Middleware\AssetMiddleware;
 use Cake\Routing\Middleware\RoutingMiddleware;
 use Cake\TestSuite\IntegrationTestCase;
 use InvalidArgumentException;
+use Cake\Core\Configure;
 
 /**
  * ApplicationTest class
@@ -40,9 +41,16 @@ class ApplicationTest extends IntegrationTestCase
         $app->bootstrap();
         $plugins = $app->getPlugins();
 
-        $this->assertCount(2, $plugins);
+        $rspectedCountPlugins = 3;
+        if (Configure::read('debug')) {
+            $rspectedCountPlugins = 4;
+            $this->assertSame('DebugKit', $plugins->get('DebugKit')->getName());
+        }
+        
+        $this->assertCount($rspectedCountPlugins, $plugins);
         $this->assertSame('Bake', $plugins->get('Bake')->getName());
         $this->assertSame('Migrations', $plugins->get('Migrations')->getName());
+        $this->assertSame('Authentication', $plugins->get('Authentication')->getName());
     }
 
     /**

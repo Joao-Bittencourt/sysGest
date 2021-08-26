@@ -19,6 +19,11 @@ class RelatoriosControllerTest extends TestCase {
      */
     protected $fixtures = [];
 
+    public function setUp(): void {
+        $this->session([
+            'Auth' => ['id' => 1]
+        ]);
+    }
     /**
      * Test index method
      *

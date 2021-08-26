@@ -28,11 +28,17 @@ class AccountsControllerTest extends TestCase {
      *
      * @return void
      */
+    public function setUp(): void {
+        $this->session([
+            'Auth' => ['id' => 1]
+        ]);
+    }
+
     public function testList(): void {
         $this->get('/contas/listar');
         $this->assertResponseOk();
     }
-    
+
     /**
      * Test editar method
      *
@@ -42,7 +48,7 @@ class AccountsControllerTest extends TestCase {
         $this->get('/contas/editar/1');
         $this->assertResponseOk();
     }
-    
+
     /**
      * Test cadastrar method
      *
@@ -58,7 +64,7 @@ class AccountsControllerTest extends TestCase {
      *
      * @return void
      */
-    public function testAdd(): void {        
+    public function testAdd(): void {
         $data = [
             'pessoa_id' => '1',
             'banco_id' => '2',
@@ -70,10 +76,10 @@ class AccountsControllerTest extends TestCase {
             'created' => date('Y-m-d H:i:s'),
             'modified' => date('Y-m-d H:i:s')
         ];
-        
+
         $this->enableCsrfToken();
         $this->enableSecurityToken();
-        
+
         $this->post('/contas/cadastrar', $data);
         $this->assertResponseSuccess();
         $contas = $this->getTableLocator()->get('Contas');
@@ -81,10 +87,10 @@ class AccountsControllerTest extends TestCase {
             'banco_id' => $data['banco_id'],
             'agencia' => $data['agencia'],
             'conta' => $data['conta']
-            ]);
+        ]);
         $this->assertEquals(1, $query->count());
     }
-        
+
     /**
      * Test detalhar method
      *
@@ -93,7 +99,6 @@ class AccountsControllerTest extends TestCase {
     public function testView(): void {
         $this->get('/contas/detalhar/1');
         $this->assertResponseFailure();
-       
     }
 
     /**

@@ -21,6 +21,12 @@ class BanksControllerTest extends TestCase {
     protected $fixtures = [
         'app.Bancos'
     ];
+    
+    public function setUp(): void {
+        $this->session([
+            'Auth' => ['id' => 1]
+        ]);
+    }
 
     /**
      * Test index method

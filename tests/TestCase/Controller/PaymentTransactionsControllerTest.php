@@ -17,6 +17,12 @@ class PaymentTransactionsControllerTest extends TestCase {
         'app.PagamentoMovimentacoes'
     ];
 
+    public function setUp(): void {
+        $this->session([
+            'Auth' => ['id' => 1]
+        ]);
+    }
+    
     public function testcadastrar(): void {
         $this->get('/pagamento-movimentacoes/cadastrar');
         $this->assertResponseFailure();

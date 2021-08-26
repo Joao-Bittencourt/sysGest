@@ -20,7 +20,12 @@ class InstallmentsControllerTest extends TestCase {
     protected $fixtures = [
         'app.Parcelas'
     ];
-
+ 
+    public function setUp(): void {
+        $this->session([
+            'Auth' => ['id' => 1]
+        ]);
+    }
     /**
      * Test listar method
      *

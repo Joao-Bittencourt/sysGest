@@ -43,6 +43,11 @@ class PagesControllerTest extends TestCase
 //        $this->assertResponseOk();
 //    }
 
+    public function setUp(): void {
+        $this->session([
+            'Auth' => ['id' => 1]
+        ]);
+    }
     /**
      * testDisplay method
      *

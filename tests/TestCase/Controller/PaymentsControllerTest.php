@@ -21,6 +21,11 @@ class PaymentsControllerTest extends TestCase {
         'app.Pagamentos'
     ];
 
+    public function setUp(): void {
+        $this->session([
+            'Auth' => ['id' => 1]
+        ]);
+    }
     /**
      * Test index method
      *

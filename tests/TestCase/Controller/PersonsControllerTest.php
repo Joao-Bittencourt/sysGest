@@ -21,7 +21,12 @@ class PessoasControllerTest extends TestCase {
         'app.Pessoas',
         'app.TipoPessoas'
     ];
-
+  
+    public function setUp(): void {
+        $this->session([
+            'Auth' => ['id' => 1]
+        ]);
+    }
      /**
      * Test index method
      *
