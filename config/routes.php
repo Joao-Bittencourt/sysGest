@@ -87,18 +87,18 @@ $routes->scope('/', function (RouteBuilder $builder) {
     $builder->connect('/pagamentos/detalhar/*', ['controller' => 'Payments', 'action' => 'view']);
     $builder->connect('/pagamentos/deletar/*', ['controller' => 'Payments', 'action' => 'delete']);
     
-    $builder->connect('/pessoas', ['controller' => 'Persons', 'action' => 'index']);
-    $builder->connect('/pessoas/listar/*', ['controller' => 'Persons', 'action' => 'list']);
-    $builder->connect('/pessoas/detalhar/*', ['controller' => 'Persons', 'action' => 'view']);
-    $builder->connect('/pessoas/cadastrar/*', ['controller' => 'Persons', 'action' => 'add']);
-    $builder->connect('/pessoas/editar/*', ['controller' => 'Persons', 'action' => 'add']);
-
     $builder->connect('/parcelas', ['controller' => 'Installments', 'action' => 'index']);
     $builder->connect('/parcelas/listar/*', ['controller' => 'Installments', 'action' => 'list']);
     $builder->connect('/parcelas/detalhar/*', ['controller' => 'Installments', 'action' => 'view']);
     $builder->connect('/parcelas/editar/*', ['controller' => 'Installments', 'action' => 'add']);
     $builder->connect('/parcelas/cadastrar/*', ['controller' => 'Installments', 'action' => 'add']);
     $builder->connect('/parcelas/deletar/*', ['controller' => 'Installments', 'action' => 'delete']);
+
+    $builder->connect('/pessoas', ['controller' => 'Persons', 'action' => 'index']);
+    $builder->connect('/pessoas/listar/*', ['controller' => 'Persons', 'action' => 'list']);
+    $builder->connect('/pessoas/detalhar/*', ['controller' => 'Persons', 'action' => 'view']);
+    $builder->connect('/pessoas/cadastrar/*', ['controller' => 'Persons', 'action' => 'add']);
+    $builder->connect('/pessoas/editar/*', ['controller' => 'Persons', 'action' => 'add']);
 
     $builder->connect('/tipo-pessoas', ['controller' => 'PersonCategories', 'action' => 'index']);
     $builder->connect('/tipo-pessoas/listar/*', ['controller' => 'PersonCategories', 'action' => 'list']);
@@ -107,6 +107,12 @@ $routes->scope('/', function (RouteBuilder $builder) {
     $builder->connect('/tipo-pessoas/cadastrar/*', ['controller' => 'PersonCategories', 'action' => 'add']);
     $builder->connect('/tipo-pessoas/deletar/*', ['controller' => 'PersonCategories', 'action' => 'delete']);
   
+    $builder->connect('/usuarios', ['controller' => 'Users', 'action' => 'index']);
+    $builder->connect('/usuarios/listar/*', ['controller' => 'Users', 'action' => 'list']);
+    $builder->connect('/usuarios/detalhar/*', ['controller' => 'Users', 'action' => 'view']);
+    $builder->connect('/usuarios/cadastrar/*', ['controller' => 'Users', 'action' => 'add']);
+    $builder->connect('/usuarios/editar/*', ['controller' => 'Users', 'action' => 'add']);
+    $builder->connect('/usuarios/deletar/*', ['controller' => 'Users', 'action' => 'delete']);
     /*
      * Connect catchall routes for all controllers.
      *
