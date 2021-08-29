@@ -55,6 +55,7 @@ class PagesControllerTest extends TestCase
      */
     public function testDisplay()
     {
+        Configure::write('debug', true);
         $this->get('/pages/home');
         $this->assertResponseOk();
         $this->assertResponseContains('CakePHP');

@@ -1,11 +1,16 @@
 <?php
 
 use Cake\Routing\Router;
-?><!-- Sidebar  -->
+?>
 <nav id="sidebar">
     <div>
         <button type="button" id="sidebarCollapse" class="btn btn-info btn-sm float-right">
             <i class="fas fa-align-left"></i>
+        </button>
+        <button type="button" id="sidebarCollapse" class="btn btn-info btn-sm float-left">
+             <a href = <?= Router::url(['controller' => 'users', 'action' => 'logout']); ?>>                    
+                 <i class="bi bi-box-arrow-in-left white"></i>
+             </a>
         </button>
     </div>
     <br>
@@ -18,7 +23,7 @@ use Cake\Routing\Router;
             </a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
                 <li>
-                    <a href="#">Home 3</a>
+                    <a href="#">Dashboard</a>
                 </li>
             </ul>
         </li>
