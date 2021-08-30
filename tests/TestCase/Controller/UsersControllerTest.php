@@ -8,7 +8,6 @@ use App\Controller\UsersController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
-
 class UsersControllerTest extends TestCase {
 
     use IntegrationTestTrait;
@@ -21,10 +20,13 @@ class UsersControllerTest extends TestCase {
     protected $fixtures = [
         'app.Users'
     ];
-    
+
     public function setUp(): void {
+        $this->cleanup();
         $this->session([
-            'Auth' => ['id' => 1]
+            'Auth' => [
+                'id' => 1
+            ]
         ]);
     }
 
@@ -37,7 +39,7 @@ class UsersControllerTest extends TestCase {
         $this->get('/usuarios/');
         $this->assertResponseOk();
     }
-    
+
     /**
      * Test listar method
      *
@@ -47,7 +49,7 @@ class UsersControllerTest extends TestCase {
         $this->get('/usuarios/listar');
         $this->assertResponseOk();
     }
-    
+
     /**
      * Test cadastrar method
      *
@@ -57,7 +59,7 @@ class UsersControllerTest extends TestCase {
         $this->get('/usuarios/cadastrar');
         $this->assertResponseOk();
     }
-    
+
     /**
      * Test cadastrar method
      *
@@ -70,19 +72,19 @@ class UsersControllerTest extends TestCase {
             'status' => '1',
             'created' => date('Y-m-d H:i:s'),
             'modified' => date('Y-m-d H:i:s')
-            ];
-        
+        ];
+
         $this->enableCsrfToken();
         $this->enableSecurityToken();
-        
+
         $this->post('/usuarios/cadastrar', $data);
         $this->assertResponseSuccess();
         $users = $this->getTableLocator()->get('Users');
         $query = $users->find()->where(['login' => $data['login'], 'status' => 1]);
         $this->assertEquals(1, $query->count());
     }
-    
-      /**
+
+    /**
      * Test editar method
      *
      * @return void
@@ -91,7 +93,7 @@ class UsersControllerTest extends TestCase {
         $this->get('/usuarios/editar/1');
         $this->assertResponseOk();
     }
-    
+
     /**
      * Test detalhar method
      *
@@ -110,6 +112,46 @@ class UsersControllerTest extends TestCase {
     public function testDelete(): void {
         $this->get('/usuarios/deletar/1');
         $this->assertResponseFailure();
+    }
+
+    public function testLoginOk(): void {
+        // @todo revisar este teste pois ha a forma correta de destruir a sessão.
+        unset($_SESSION);
+        $data = [
+            'login' => 'login2',
+            'password' => 'password2',
+        ];
+
+        $this->enableCsrfToken();
+        $this->enableSecurityToken();
+
+        $this->post('/users/login', $data);
+        $expected = [
+            'controller' => 'reports',
+            'action' => 'index'
+        ];
+        $this->assertRedirect($expected);
+    }
+
+    public function testLoginFailure() {
+        $this->enableCsrfToken();
+        $this->enableSecurityToken();
+
+        $this->post('/users/login', [
+            'login' => 'wrong-username',
+            'password' => 'wrong-password'
+        ]);
+        $this->assertNull($this->_requestSession->read('Auth'));
+    }
+
+    public function testLogout() {
+
+        $this->get('/users/logout');
+        $expected = [
+            'controller' => 'users',
+            'action' => 'login',
+        ];
+        $this->assertRedirect($expected);
     }
 
 }

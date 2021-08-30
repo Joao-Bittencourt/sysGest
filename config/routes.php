@@ -113,6 +113,8 @@ $routes->scope('/', function (RouteBuilder $builder) {
     $builder->connect('/usuarios/cadastrar/*', ['controller' => 'Users', 'action' => 'add']);
     $builder->connect('/usuarios/editar/*', ['controller' => 'Users', 'action' => 'add']);
     $builder->connect('/usuarios/deletar/*', ['controller' => 'Users', 'action' => 'delete']);
+    $builder->connect('/usuarios/login/*', ['controller' => 'Users', 'action' => 'login']);
+    $builder->connect('/usuarios/logout/*', ['controller' => 'Users', 'action' => 'logout']);
     /*
      * Connect catchall routes for all controllers.
      *

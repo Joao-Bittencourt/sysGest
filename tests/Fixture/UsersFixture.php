@@ -50,6 +50,14 @@ class UsersFixture extends TestFixture {
                 'modified' => '2021-01-17 22:21:01',
                 'status' => 1,
             ],
+            [
+                'id' => 2,
+                'login' => 'login2',
+                'password' => 'password2',
+                'created' => '2021-01-17 22:21:01',
+                'modified' => '2021-01-17 22:21:01',
+                'status' => 1,
+            ],
         ];
         parent::init();
     }

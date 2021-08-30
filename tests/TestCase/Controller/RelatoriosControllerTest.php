@@ -32,9 +32,5 @@ class RelatoriosControllerTest extends TestCase {
     public function testIndex(): void {
         $this->get('/relatorios/');
         $this->assertResponseOk();
-   
-    }
-
-    
-      
+    }   
 }
