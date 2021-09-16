@@ -1,22 +1,16 @@
 <?php
 
-//declare(strict_types=1);
+declare(strict_types=1);
 
 use Migrations\AbstractMigration;
 
-class CreateBancos extends AbstractMigration {
+class TipoPessoa extends AbstractMigration {
 
-    
     public function change() {
-        $table = $this->table('bancos');
-        $table->addColumn('nome', 'string', [
+        $table = $this->table('tipo_pessoas');
+        $table->addColumn('tipo', 'string', [
             'default' => null,
             'limit' => 255,
-            'null' => false,
-        ]);
-        $table->addColumn('codigo_banco', 'integer', [
-            'default' => null,
-            'limit' => 11,
             'null' => false,
         ]);
         $table->addColumn('created', 'datetime', [
@@ -32,9 +26,8 @@ class CreateBancos extends AbstractMigration {
             'default' => null,
             'null' => false,
         ]);
-        $table->addColumn('modified_by', 'integer', [
+        $table->addColumn('modified_by', 'datetime', [
             'default' => null,
-            'limit' => 11,
             'null' => true,
         ]);
         $table->addColumn('status', 'integer', [

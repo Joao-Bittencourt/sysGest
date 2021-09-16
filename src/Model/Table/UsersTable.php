@@ -57,7 +57,7 @@ class UsersTable extends Table {
             $entity->created_by =  1;
         }
     }
-    
+       
     /**
      * Default validation rules.
      *
