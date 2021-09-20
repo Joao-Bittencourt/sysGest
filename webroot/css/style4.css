@@ -133,7 +133,7 @@ span {
     padding: 10px;
     font-size: 1.1em;
     display: block;
-    color: #fafafa;
+    color: #fafafa;   
 }
 
 #sidebar ul li a:hover {
@@ -150,6 +150,10 @@ a[aria-expanded="true"] {
     color: #999;
     background: #47748b;
 }
+
+/*#sidebar ul > li.last:last-child {
+   
+}*/
 
 a[data-toggle="collapse"] {
     position: relative;

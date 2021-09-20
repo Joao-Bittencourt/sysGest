@@ -53,4 +53,63 @@ class PaymentsTable extends Table {
         return $validator;
     }
 
+    public function findDataEntrys($params = []) {
+
+        $payment = $this->find();
+        $payment->select(['sum_values' => $payment->func()->sum('vl_total')]);
+
+
+        $query = $this->find();
+        $query
+                ->select(['sum' => $query->func()->sum('Payments.vl_total')])
+                ->where([
+                    'Payments.tipo_pagamento_tipo' => 'C',
+                    'Payments.status' => 1
+                ])
+                ->toArray();
+
+
+        $coutn = $this->find('all')
+                ->where([
+            'Payments.tipo_pagamento_tipo' => 'C',
+            'Payments.status' => 1
+        ]);
+
+
+        $total = $query->toArray();
+        $results['sum'] = $total[0]->sum;
+        $results['count'] = $coutn->count();
+
+        return $results;
+    }
+
+    public function findDataOutputs($params = []) {
+        $payment = $this->find();
+        $payment->select(['sum_values' => $payment->func()->sum('vl_total')]);
+
+
+        $query = $this->find();
+        $query
+                ->select(['sum' => $query->func()->sum('Payments.vl_total')])
+                ->where([
+                    'Payments.tipo_pagamento_tipo' => 'D',
+                    'Payments.status' => 1
+                ])
+                ->toArray();
+
+
+        $coutn = $this->find('all')
+                ->where([
+            'Payments.tipo_pagamento_tipo' => 'D',
+            'Payments.status' => 1
+        ]);
+
+
+        $total = $query->toArray();
+        $results['sum'] = $total[0]->sum;
+        $results['count'] = $coutn->count();
+
+        return $results;
+    }
+
 }

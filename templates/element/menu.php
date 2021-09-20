@@ -23,7 +23,9 @@ use Cake\Routing\Router;
             </a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
                 <li>
-                    <a href="#">Dashboard</a>
+                    <a href=<?= Router::url(['controller' => 'Reports', 'action' => 'index']); ?>>
+                        Dashboard
+                    </a>
                 </li>
             </ul>
         </li>
@@ -35,6 +37,12 @@ use Cake\Routing\Router;
             </a>
             <ul class="collapse list-unstyled" id="pageSubmenuFinanceiro">
 
+                <li>
+                    <a href = <?= Router::url(['controller' => 'Pagamentos', 'action' => 'cadastrar']); ?>>                    
+                       <i class="fas fa-dollar-sign"></i> 
+                        Cadastrar Movimentação
+                    </a>
+                </li>
                 <li>
                     <a href = <?= Router::url(['controller' => 'PagamentoMovimentacoes', 'action' => 'listar_entradas']); ?>>                    
                        <i class="fas fa-dollar-sign"></i> 
@@ -51,7 +59,7 @@ use Cake\Routing\Router;
             </ul>
         </li>
         
-        <li>
+        <li class="last">
             <a href="#pageSubmenuConfiguracoes" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                 <i class="fas fa-cog"></i>
                 Configurações
@@ -77,5 +85,5 @@ use Cake\Routing\Router;
                 </li>
             </ul>
         </li>
-    </ul>
+    </ul>     
 </nav>

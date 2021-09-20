@@ -8,8 +8,11 @@ class ReportsController extends AppController {
 
     public function index() {
 
-        $dados = 'dashboard';
-        $this->set('dados', $dados);
+       $entrys = $this->Reports->Payments->findDataEntrys();
+       $outputs = $this->Reports->Payments->findDataOutputs();
+       
+       $this->set('entrys', $entrys);
+       $this->set('outputs', $outputs);
     }
 
 }
