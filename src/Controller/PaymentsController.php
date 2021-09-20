@@ -15,7 +15,28 @@ class PaymentsController extends AppController {
     }
 
     public function add($id = null) {
-          parent::add($id);
+        parent::add($id);
+
+        $persons = $this->Payments->Persons->find('list', [
+                    'keyField' => 'id',
+                    'valueField' => 'nome'
+                ])
+                ->toArray();
+
+        $accounts = $this->Payments->Accounts->find('list', [
+                    'keyField' => 'id',
+                    'valueField' => 'agencia'
+                ])
+                ->toArray();
+
+        $tipo_pagamento_tipos = [
+            'D' => 'D - debita',
+            'C' => 'C - credita'
+        ];
+
+        $this->set('recebedorPessoas', $persons);
+        $this->set('contas', $accounts);
+        $this->set('tipoPagamentoTipos', $tipo_pagamento_tipos);
     }
 
     public function delete($id = null) {

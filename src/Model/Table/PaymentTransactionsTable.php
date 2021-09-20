@@ -16,16 +16,21 @@ class PaymentTransactionsTable extends Table {
 
         $this->setTable('pagamento_movimentacoes');
         $this->setDisplayField('id');
-        $this->setPrimaryKey('id'); 
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->belongsTo('Pessoas', [
+            'foreignKey' => 'pessoa_id',
+        ]);
     }
 
     public function beforeSave($event, $entity, $options) {
         if (empty($entity->created_by)) {
-            $entity->created_by =  1;
+            $entity->created_by = 1;
         }
     }
+
     public function validationDefault(Validator $validator): Validator {
         $validator
                 ->integer('id')

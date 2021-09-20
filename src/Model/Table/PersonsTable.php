@@ -60,9 +60,10 @@ class PersonsTable extends Table {
 
     public function beforeSave($event, $entity, $options) {
         if (empty($entity->created_by)) {
-            $entity->created_by =  1;
+            $entity->created_by = 1;
         }
     }
+
     /**
      * Default validation rules.
      *

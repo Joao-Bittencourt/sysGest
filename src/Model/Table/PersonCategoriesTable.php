@@ -52,6 +52,12 @@ class PersonCategoriesTable extends Table {
         ]);
     }
 
+    public function beforeSave($event, $entity, $options) {
+        if (empty($entity->created_by)) {
+            $entity->created_by = 1;
+        }
+    }
+
     /**
      * Default validation rules.
      *
@@ -71,7 +77,7 @@ class PersonCategoriesTable extends Table {
 
         $validator
                 ->integer('status')
-                 ->maxLength('status', 1)
+                ->maxLength('status', 1)
                 ->notEmptyString('status');
 
         return $validator;

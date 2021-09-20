@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use Migrations\AbstractMigration;
@@ -7,6 +8,11 @@ class CreatePagamentoMovimentacoes extends AbstractMigration {
 
     public function change() {
         $table = $this->table('pagamento_movimentacoes');
+        $table->addColumn('conta_id', 'string', [
+            'default' => null,
+            'limit' => 255,
+            'null' => false,
+        ]);
         $table->addColumn('created', 'datetime', [
             'default' => null,
             'null' => false,

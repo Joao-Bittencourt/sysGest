@@ -23,9 +23,10 @@ class InstallmentsTable extends Table {
 
     public function beforeSave($event, $entity, $options) {
         if (empty($entity->created_by)) {
-            $entity->created_by =  1;
+            $entity->created_by = 1;
         }
     }
+
     public function validationDefault(Validator $validator): Validator {
         $validator
                 ->integer('id')

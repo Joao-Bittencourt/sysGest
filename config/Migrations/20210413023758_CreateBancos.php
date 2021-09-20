@@ -6,7 +6,6 @@ use Migrations\AbstractMigration;
 
 class CreateBancos extends AbstractMigration {
 
-    
     public function change() {
         $table = $this->table('bancos');
         $table->addColumn('nome', 'string', [

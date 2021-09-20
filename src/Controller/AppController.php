@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /**
@@ -53,7 +54,7 @@ class AppController extends Controller {
     }
 
     public function index() {
-        $entity = $this->{$this->getModelName()}->newEmptyEntity();  
+        $entity = $this->{$this->getModelName()}->newEmptyEntity();
         $this->set(compact('entity'));
 
         try {
@@ -63,13 +64,13 @@ class AppController extends Controller {
         }
     }
 
-    public function add($id= null) {
+    public function add($id = null) {
         $entity = $this->{$this->getModelName()}->newEmptyEntity();
-        
+
         if (!empty($id)) {
             $entity = $this->{$this->getModelName()}->get($id, []);
         }
-        
+
         if ($this->request->is('post')) {
             $entity = $this->{$this->getModelName()}->patchEntity($entity, $this->request->getData());
             if ($this->{$this->getModelName()}->save($entity)) {

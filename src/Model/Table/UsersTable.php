@@ -47,17 +47,17 @@ class UsersTable extends Table {
 
         $this->addBehavior('Timestamp');
 
-        $this->hasOne('Pessoas', [
-            'foreignKey' => 'user_id',
-        ]);
+//        $this->hasOne('Persons', [
+//            'foreignKey' => 'user_id',
+//        ]);
     }
 
     public function beforeSave($event, $entity, $options) {
         if (empty($entity->created_by)) {
-            $entity->created_by =  1;
+            $entity->created_by = 1;
         }
     }
-       
+
     /**
      * Default validation rules.
      *
@@ -90,7 +90,7 @@ class UsersTable extends Table {
     }
 
     public function buildRules(RulesChecker $rules): RulesChecker {
-       $rules->add($rules->isUnique(['login'], __('Login já existe')));
+        $rules->add($rules->isUnique(['login'], __('Login já existe')));
         return $rules;
     }
 

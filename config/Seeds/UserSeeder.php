@@ -8,7 +8,7 @@ class UserSeeder extends AbstractSeed {
         $data = [
             [
                 'login' => 'login',
-                'password' => 'password',
+                'password' => '$2y$10$PxpuB8DFkTK8MmI1jlvfseaH2mGF5VtEDENsFwc8E0ZBj8LGNCV/S',
                 'created' => date('Y-m-d H:i:s'),
                 'created_by' => 1,
                 'modified' => date('Y-m-d H:i:s'),
@@ -16,7 +16,7 @@ class UserSeeder extends AbstractSeed {
             ],
             [
                 'login' => 'login2',
-                'password' => 'password2',
+                'password' => '$2y$10$PxpuB8DFkTK8MmI1jlvfseaH2mGF5VtEDENsFwc8E0ZBj8LGNCV/S',
                 'created' => date('Y-m-d H:i:s'),
                 'created_by' => 1,
                 'modified' => date('Y-m-d H:i:s'),
@@ -24,7 +24,7 @@ class UserSeeder extends AbstractSeed {
             ],
             [
                 'login' => '123456',
-                'password' => '123456',
+                'password' => '$2y$10$PxpuB8DFkTK8MmI1jlvfseaH2mGF5VtEDENsFwc8E0ZBj8LGNCV/S',
                 'created' => date('Y-m-d H:i:s'),
                 'created_by' => 1,
                 'modified' => date('Y-m-d H:i:s'),

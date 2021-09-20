@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /**
@@ -14,7 +15,6 @@ declare(strict_types=1);
  * @since         0.10.8
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
-
 /*
  * Configure paths required to find CakePHP + general filepath constants
  */
@@ -45,7 +45,6 @@ use Cake\Routing\Router;
 use Cake\Utility\Security;
 use Cake\Database\TypeFactory;
 
-
 /*
  * See https://github.com/josegonzalez/php-dotenv for API details.
  *
@@ -59,7 +58,7 @@ use Cake\Database\TypeFactory;
  * If you use .env files, be careful to not commit them to source control to avoid
  * security risks. See https://github.com/josegonzalez/php-dotenv#general-security-information
  * for more information for recommended practices.
-*/
+ */
 // if (!env('APP_NAME') && file_exists(CONFIG . '.env')) {
 //     $dotenv = new \josegonzalez\Dotenv\Loader([CONFIG . '.env']);
 //     $dotenv->parse()
@@ -220,5 +219,5 @@ TypeFactory::build('decimal')->useLocaleParser();
 //Inflector::rules('plural', ['/^(inflect)or$/i' => '\1ables']);
 //Inflector::rules('irregular', ['red' => 'redlings']);
 //Inflector::rules('uninflected', ['dontinflectme']);
-define("URL",'/sysGest/');
-define("Folder",'/sysGest/');
+define("URL", '/sysGest/');
+define("Folder", '/sysGest/');

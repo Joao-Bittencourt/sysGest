@@ -7,8 +7,8 @@ namespace App\Controller;
 class ReportsController extends AppController {
 
     public function index() {
-        
-       $dados = 'dashboard';
+
+        $dados = 'dashboard';
         $this->set('dados', $dados);
     }
 

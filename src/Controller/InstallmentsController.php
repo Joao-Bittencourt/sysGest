@@ -9,6 +9,7 @@ class InstallmentsController extends AppController {
     public function index() {
         parent::index();
     }
+
     public function list() {
         parent::index();
     }
@@ -18,7 +19,7 @@ class InstallmentsController extends AppController {
     }
 
     public function add($id = null) {
-          parent::add($id);
+        parent::add($id);
     }
 
     public function delete($id = null) {

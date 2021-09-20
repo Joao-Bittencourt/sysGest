@@ -1,19 +1,14 @@
- <?php
+<?php
+
 //declare(strict_types=1);
 
 use Migrations\AbstractMigration;
 
 class CreatePagamentos extends AbstractMigration {
 
-   
     public function change() {
         $table = $this->table('pagamentos');
-        $table->addColumn('tipo_pagamento_id', 'integer', [
-            'default' => null,
-            'limit' => 11,
-            'null' => false,
-        ]);
-        $table->addColumn('pagador_pessoa_id', 'integer', [
+        $table->addColumn('recebedor_pessoa_id', 'integer', [
             'default' => null,
             'limit' => 11,
             'null' => false,
@@ -21,6 +16,11 @@ class CreatePagamentos extends AbstractMigration {
         $table->addColumn('conta_id', 'integer', [
             'default' => null,
             'limit' => 11,
+            'null' => false,
+        ]);
+        $table->addColumn('tipo_pagamento_tipo', 'string', [
+            'default' => null,
+            'limit' => 2,
             'null' => false,
         ]);
         $table->addColumn('n_total_parcelas', 'integer', [

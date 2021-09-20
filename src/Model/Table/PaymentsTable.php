@@ -19,18 +19,32 @@ class PaymentsTable extends Table {
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->hasOne('Persons', [
+            'className' => 'Persons',
+            'foreignKey' => 'recebedor_pessoa_id'
+        ]);
+        $this->hasOne('Accounts', [
+            'className' => 'Accounts',
+            'foreignKey' => 'contas_id'
+        ]);
     }
 
     public function beforeSave($event, $entity, $options) {
         if (empty($entity->created_by)) {
-            $entity->created_by =  1;
+            $entity->created_by = 1;
         }
     }
-    
+
     public function validationDefault(Validator $validator): Validator {
         $validator
                 ->integer('id')
                 ->allowEmptyString('id', null, 'create');
+        $validator
+                ->notBlank('vl_total', 'Informe um valor');
+        $validator
+                ->notBlank('tipo_pagamento_tipo', 'Informe o tipo de pagamento');
+
 
         $validator
                 ->integer('status')
