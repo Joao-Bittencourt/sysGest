@@ -260,5 +260,9 @@ a.article:hover {
     }
 }
 .white, .white a {
-  color: #fff;
+    color: #fff;
+}
+
+.error-message {
+    color:#dc3545!important
 }

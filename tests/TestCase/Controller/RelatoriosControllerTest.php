@@ -17,20 +17,24 @@ class RelatoriosControllerTest extends TestCase {
      *
      * @var array
      */
-    protected $fixtures = [];
+    protected $fixtures = [
+        'app.Pagamentos'
+    ];
 
     public function setUp(): void {
         $this->session([
             'Auth' => ['id' => 1]
         ]);
     }
+
     /**
      * Test index method
      *
      * @return void
-     */   
+     */
     public function testIndex(): void {
         $this->get('/relatorios/');
         $this->assertResponseOk();
-    }   
+    }
+
 }

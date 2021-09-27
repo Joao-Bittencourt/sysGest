@@ -27,6 +27,8 @@ class UsersController extends AppController {
 
     public function add($id = null) {
         parent::add($id);
+        
+        $this->viewBuilder()->setLayout('login');
     }
 
     public function delete($id = null) {

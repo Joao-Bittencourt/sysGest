@@ -24,32 +24,11 @@
 use Cake\Routing\Route\DashedRoute;
 use Cake\Routing\RouteBuilder;
 
-/*
- * The default class to use for all routes
- *
- * The following route classes are supplied with CakePHP and are appropriate
- * to set as the default:
- *
- * - Route
- * - InflectedRoute
- * - DashedRoute
- *
- * If no call is made to `Router::defaultRouteClass()`, the class used is
- * `Route` (`Cake\Routing\Route\Route`)
- *
- * Note that `Route` does not do any inflections on URLs which will result in
- * inconsistently cased URLs when used with `:plugin`, `:controller` and
- * `:action` markers.
- */
-/** @var \Cake\Routing\RouteBuilder $routes */
+
 $routes->setRouteClass(DashedRoute::class);
 
 $routes->scope('/', function (RouteBuilder $builder) {
-    /*
-     * Here, we are connecting '/' (base path) to a controller called 'Pages',
-     * its action called 'display', and we pass a param to select the view file
-     * to use (in this case, templates/Pages/home.php)...
-     */
+    
     $builder->connect('/', ['controller' => 'Reports', 'action' => 'index']);
     $builder->connect('/relatorios', ['controller' => 'Reports', 'action' => 'index']);
     
@@ -115,19 +94,7 @@ $routes->scope('/', function (RouteBuilder $builder) {
     $builder->connect('/usuarios/deletar/*', ['controller' => 'Users', 'action' => 'delete']);
     $builder->connect('/usuarios/login/*', ['controller' => 'Users', 'action' => 'login']);
     $builder->connect('/usuarios/logout/*', ['controller' => 'Users', 'action' => 'logout']);
-    /*
-     * Connect catchall routes for all controllers.
-     *
-     * The `fallbacks` method is a shortcut for
-     *
-     * ```
-     * $builder->connect('/:controller', ['action' => 'index']);
-     * $builder->connect('/:controller/:action/*', []);
-     * ```
-     *
-     * You can remove these routes once you've connected the
-     * routes you want in your application.
-     */
+ 
     $builder->fallbacks();
 });
 

@@ -11,7 +11,7 @@ use Cake\TestSuite\TestCase;
 class PaymentsControllerTest extends TestCase {
 
     use IntegrationTestTrait;
-    
+
     /**
      * Fixtures
      *
@@ -26,6 +26,7 @@ class PaymentsControllerTest extends TestCase {
             'Auth' => ['id' => 1]
         ]);
     }
+
     /**
      * Test index method
      *
@@ -35,7 +36,7 @@ class PaymentsControllerTest extends TestCase {
         $this->get('/pagamentos/');
         $this->assertResponseOk();
     }
-    
+
     /**
      * Test listar method
      *
@@ -45,7 +46,7 @@ class PaymentsControllerTest extends TestCase {
         $this->get('/pagamentos/listar');
         $this->assertResponseOk();
     }
-    
+
     /**
      * Test cadastrar method
      *
@@ -55,7 +56,7 @@ class PaymentsControllerTest extends TestCase {
         $this->get('/pagamentos/cadastrar');
         $this->assertResponseOk();
     }
-    
+
     /**
      * Test cadastrar method
      *
@@ -63,23 +64,29 @@ class PaymentsControllerTest extends TestCase {
      */
     public function testAdd(): void {
         $data = [
-            'created' => date('Y-m-d H:i:s'),
-            'modified' => date('Y-m-d H:i:s'),
+            'conta_id' => 1,
+            'recebedor_pessoa_id' => 1,
+            'tipo_pagamento_tipo' => 'C',
+            'n_total_parcelas' => 1,
+            'vl_total' => '1.25',
+            'created' => '2021-01-17 22:20:29',
+//            'created_by' => 1,
+            'modified' => '2021-01-17 22:20:29',
+            'modified_by' => null,
             'status' => 1,
-            ];
-        
+            
+        ];
+
         $this->enableCsrfToken();
         $this->enableSecurityToken();
-        
+
         $this->post('/pagamentos/cadastrar', $data);
         $this->assertResponseSuccess();
         $pagamentos = $this->getTableLocator()->get('Payments');
         $query = $pagamentos->find()->where(['id' => 2, 'status' => 1]);
         $this->assertEquals(1, $query->count());
     }
-    
-    
-    
+
     /**
      * Test detalhar method
      *
@@ -99,4 +106,5 @@ class PaymentsControllerTest extends TestCase {
         $this->get('/pagamentos/deletar/1');
         $this->assertResponseFailure();
     }
+
 }

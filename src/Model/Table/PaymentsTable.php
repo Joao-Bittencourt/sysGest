@@ -41,14 +41,19 @@ class PaymentsTable extends Table {
                 ->integer('id')
                 ->allowEmptyString('id', null, 'create');
         $validator
+                ->integer('conta_id')
+                ->notBlank('conta_id', 'Informe a conta');
+        $validator
+                ->integer('recebedor_pessoa_id')
+                ->notBlank('recebedor_pessoa_id', 'Informe o recebedor');
+        $validator
                 ->notBlank('vl_total', 'Informe um valor');
         $validator
                 ->notBlank('tipo_pagamento_tipo', 'Informe o tipo de pagamento');
-
-
         $validator
                 ->integer('status')
-                ->notEmptyString('status');
+                ->maxLength('status', 1)
+                ->notBlank('status');
 
         return $validator;
     }
