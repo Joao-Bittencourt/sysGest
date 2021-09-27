@@ -62,6 +62,8 @@ class Installer
 
         static::setFolderPermissions($rootDir, $io);
         static::setSecuritySalt($rootDir, $io);
+        
+        static::runMigrations($rootDir, $io);
 
         $class = 'Cake\Codeception\Console\Installer';
         if (class_exists($class)) {
@@ -181,6 +183,14 @@ class Installer
     {
         $newKey = hash('sha256', Security::randomBytes(64));
         static::setSecuritySaltInFile($dir, $io, $newKey, 'app_local.php');
+    }
+    
+   
+    public static function runMigrations($dir, $io)
+    {
+        $command = $dir . '/bin/cake migrations migrate';
+        shell_exec($command);
+        $io->write('runing migrations.');
     }
 
     /**
