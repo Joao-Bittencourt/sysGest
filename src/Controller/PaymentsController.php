@@ -11,7 +11,7 @@ class PaymentsController extends AppController {
     }
 
     public function view($id = null) {
-        throw new Exception('Not implemented yet');
+        parent::view($id);
     }
 
     public function add($id = null) {
@@ -43,4 +43,13 @@ class PaymentsController extends AppController {
         throw new Exception('Not implemented yet');
     }
 
+     public function listEntries() {
+        $entrys = $this->Payments->findListEntrys();
+        
+        $this->set('data', $entrys);
+    }
+
+    public function listOutputs() {
+        throw new Exception('Not implemented yet');
+    }
 }

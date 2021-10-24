@@ -98,7 +98,7 @@ class InstallmentsControllerTest extends TestCase {
      */
     public function testView(): void {
         $this->get('/parcelas/detalhar/1');
-        $this->assertResponseFailure();
+        $this->assertResponseOk();
     }
 
     /**

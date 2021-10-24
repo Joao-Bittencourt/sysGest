@@ -54,7 +54,7 @@ class PessoasControllerTest extends TestCase {
      */
     public function testDetalhar(): void {
         $this->get('/pessoas/detalhar/1');
-        $this->assertResponseFailure();
+        $this->assertResponseOk();
     }
 
     /**

@@ -117,4 +117,16 @@ class PaymentsTable extends Table {
         return $results;
     }
 
+    public function findListEntrys($params = []) {
+
+//        $paymentTransactions = $this->find()
+//                ->where([
+//            ''
+//        ]);
+
+
+        $results = [];
+        return $results;
+    }
+
 }
