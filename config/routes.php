@@ -51,13 +51,8 @@ $routes->scope('/', function (RouteBuilder $builder) {
     $builder->connect('/contas/editar/*', ['controller' => 'Accounts', 'action' => 'add']);
     $builder->connect('/contas/deletar/*', ['controller' => 'Accounts', 'action' => 'delete']);
 
-    $builder->connect('/pagamento-movimentacoes', ['controller' => 'PaymentTransactions', 'action' => 'index']);
-    $builder->connect('/pagamento-movimentacoes/listar-entradas', ['controller' => 'PaymentTransactions', 'action' => 'listEntries']);
-    $builder->connect('/pagamento-movimentacoes/listar-saidas', ['controller' => 'PaymentTransactions', 'action' => 'listOutputs']);
-    $builder->connect('/pagamento-movimentacoes/cadastrar', ['controller' => 'PaymentTransactions', 'action' => 'add']);
-    $builder->connect('/pagamento-movimentacoes/editar/*', ['controller' => 'PaymentTransactions', 'action' => 'add']);
-    $builder->connect('/pagamento-movimentacoes/detalhar/*', ['controller' => 'PaymentTransactions', 'action' => 'view']);
-    $builder->connect('/pagamento-movimentacoes/cancelar/*', ['controller' => 'PaymentTransactions', 'action' => 'cancel']);
+    $builder->connect('/pagamento-movimentacoes/listar-entradas', ['controller' => 'Payments', 'action' => 'listEntries']);
+    $builder->connect('/pagamento-movimentacoes/listar-saidas', ['controller' => 'Payments', 'action' => 'listOutputs']);
     
     $builder->connect('/pagamentos', ['controller' => 'Payments', 'action' => 'index']);
     $builder->connect('/pagamentos/listar', ['controller' => 'Payments', 'action' => 'list']);
@@ -65,7 +60,9 @@ $routes->scope('/', function (RouteBuilder $builder) {
     $builder->connect('/pagamentos/editar/*', ['controller' => 'Payments', 'action' => 'add']);
     $builder->connect('/pagamentos/detalhar/*', ['controller' => 'Payments', 'action' => 'view']);
     $builder->connect('/pagamentos/deletar/*', ['controller' => 'Payments', 'action' => 'delete']);
-    
+    $builder->connect('/pagamentos/listar-entradas', ['controller' => 'Payments', 'action' => 'listEntries']);
+    $builder->connect('/pagamentos/listar-saidas', ['controller' => 'Payments', 'action' => 'listOutputs']);
+     
     $builder->connect('/parcelas', ['controller' => 'Installments', 'action' => 'index']);
     $builder->connect('/parcelas/listar/*', ['controller' => 'Installments', 'action' => 'list']);
     $builder->connect('/parcelas/detalhar/*', ['controller' => 'Installments', 'action' => 'view']);

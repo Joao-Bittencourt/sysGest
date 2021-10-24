@@ -30,15 +30,7 @@ use Cake\Controller\Controller;
  */
 class AppController extends Controller {
 
-    /**
-     * Initialization hook method.
-     *
-     * Use this method to add common initialization code like loading components.
-     *
-     * e.g. `$this->loadComponent('FormProtection');`
-     *
-     * @return void
-     */
+
     public function initialize(): void {
         parent::initialize();
 
@@ -85,19 +77,11 @@ class AppController extends Controller {
     public function view($id = null) {
         $entity = $this->getEditEntity($id);
         $this->set(compact('entity'));
+        $this->render('../element/common/panel');
     }
 
     public function delete($id = null) {
         throw new Exception('Not implemented yet');
-//        $this->request->allowMethod(['post', 'delete']);
-//        $entity = $this->{$this->getModelName()}->get($id);
-//        if ($this->{$this->getModelName()}->excluir($id)) {
-//            $this->Flash->bootstrap(__('Excluído com sucesso!'), ['key' => 'warning']);
-//        } else {
-//            $this->Flash->bootstrap(__('Não foi possível excluir. Tente novamente!', ['key' => 'danger']));
-//        }
-//
-//        return $this->redirect(['action' => 'index']);
     }
 
     public function getControllerName() {
@@ -106,6 +90,13 @@ class AppController extends Controller {
 
     public function getModelName() {
         return $this->request->getParam('controller');
+    }
+
+    public function getEditEntity($id) {
+        $fields = [];
+        $contain = [];
+
+        return $this->{$this->getModelName()}->get($id, compact('fields', 'contain'));
     }
 
 }

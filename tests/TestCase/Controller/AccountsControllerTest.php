@@ -98,7 +98,7 @@ class AccountsControllerTest extends TestCase {
      */
     public function testView(): void {
         $this->get('/contas/detalhar/1');
-        $this->assertResponseFailure();
+        $this->assertResponseOk();
     }
 
     /**

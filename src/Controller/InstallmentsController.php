@@ -15,7 +15,7 @@ class InstallmentsController extends AppController {
     }
 
     public function view($id = null) {
-        throw new Exception('Not implemented yet');
+        parent::view($id);
     }
 
     public function add($id = null) {

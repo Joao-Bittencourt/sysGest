@@ -94,7 +94,7 @@ class PaymentsControllerTest extends TestCase {
      */
     public function testView(): void {
         $this->get('/pagamentos/detalhar/1');
-        $this->assertResponseFailure();
+        $this->assertResponseOk();
     }
 
     /**
@@ -107,4 +107,23 @@ class PaymentsControllerTest extends TestCase {
         $this->assertResponseFailure();
     }
 
+     /**
+     * Test listar-entradas method
+     *
+     * @return void
+     */
+    public function testListEntries(): void {
+        $this->get('/pagamentos/listar-entradas');
+        $this->assertResponseOk();
+    }
+    
+     /**
+     * Test listar-saidas method
+     *
+     * @return void
+     */
+    public function testlistOutputs(): void {
+        $this->get('/pagamentos/listar-saidas');
+        $this->assertResponseFailure();
+    }
 }

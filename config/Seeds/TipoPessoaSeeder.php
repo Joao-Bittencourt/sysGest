@@ -22,7 +22,7 @@ class TipoPessoaSeeder extends AbstractSeed {
             ],
         ];
 
-        $posts = $this->table('users');
+        $posts = $this->table('tipo_pessoas');
         $posts->insert($data)
                 ->saveData();
     }

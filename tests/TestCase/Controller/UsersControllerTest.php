@@ -101,7 +101,7 @@ class UsersControllerTest extends TestCase {
      */
     public function testView(): void {
         $this->get('/usuarios/detalhar/1');
-        $this->assertResponseFailure();
+        $this->assertResponseOk();
     }
 
     /**
