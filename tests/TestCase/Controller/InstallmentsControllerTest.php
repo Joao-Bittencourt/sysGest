@@ -18,7 +18,7 @@ class InstallmentsControllerTest extends TestCase {
      * @var array
      */
     protected $fixtures = [
-        'app.Parcelas'
+        'app.Installments'
     ];
  
     public function setUp(): void {
@@ -76,7 +76,7 @@ class InstallmentsControllerTest extends TestCase {
         
         $this->post('/parcelas/cadastrar', $data);
         $this->assertResponseSuccess();
-//        $parcelas = $this->getTableLocator()->get('Parcelas');
+//        $parcelas = $this->getTableLocator()->get('Installments');
 //        $query = $parcelas->find()->where(['pagamento_id' => $data['pagamento_id'], 'dt_vencimento' => $data['dt_vencimento']]);
 //        $this->assertEquals(1, $query->count()); 
      }

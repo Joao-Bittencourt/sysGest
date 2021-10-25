@@ -18,9 +18,9 @@ class AccountsControllerTest extends TestCase {
      * @var array
      */
     protected $fixtures = [
-        'app.Contas',
-        'app.Bancos',
-        'app.Pessoas'
+        'app.Accounts',
+        'app.Banks',
+        'app.Persons'
     ];
 
     /**
@@ -82,7 +82,7 @@ class AccountsControllerTest extends TestCase {
 
         $this->post('/contas/cadastrar', $data);
         $this->assertResponseSuccess();
-        $contas = $this->getTableLocator()->get('Contas');
+        $contas = $this->getTableLocator()->get('Accounts');
         $query = $contas->find()->where([
             'banco_id' => $data['banco_id'],
             'agencia' => $data['agencia'],

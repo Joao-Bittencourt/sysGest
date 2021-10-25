@@ -6,9 +6,9 @@ namespace App\Test\Fixture;
 
 use Cake\TestSuite\Fixture\TestFixture;
 
-class PagamentosFixture extends TestFixture {
+class PaymentsFixture extends TestFixture {
 
-//    public $import = ['table' => 'pagamentos'];;    
+//    public $import = ['table' => 'payments'];;    
     /**
      * Fields
      *

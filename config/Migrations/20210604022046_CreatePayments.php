@@ -4,10 +4,10 @@
 
 use Migrations\AbstractMigration;
 
-class CreatePagamentos extends AbstractMigration {
+class CreatePayments extends AbstractMigration {
 
     public function change() {
-        $table = $this->table('pagamentos');
+        $table = $this->table('payments');
         $table->addColumn('recebedor_pessoa_id', 'integer', [
             'default' => null,
             'limit' => 11,

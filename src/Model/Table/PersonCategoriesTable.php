@@ -41,7 +41,7 @@ class PersonCategoriesTable extends Table {
     public function initialize(array $config): void {
         parent::initialize($config);
 
-        $this->setTable('tipo_pessoas');
+        $this->setTable('person_categories');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 

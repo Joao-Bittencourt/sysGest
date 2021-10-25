@@ -4,10 +4,10 @@
 
 use Migrations\AbstractMigration;
 
-class CreateContas extends AbstractMigration {
+class CreateAccounts extends AbstractMigration {
 
     public function change() {
-        $table = $this->table('contas');
+        $table = $this->table('accounts');
         $table->addColumn('banco_id', 'integer', [
             'default' => null,
             'limit' => 11,

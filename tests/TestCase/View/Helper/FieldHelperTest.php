@@ -18,7 +18,7 @@ class FieldHelperTest extends TestCase {
         $config = [];
         $params = [];  
         
-        $this->Pessoas = $this->getTableLocator()->get('Pessoas', $config);
+        $this->Pessoas = $this->getTableLocator()->get('Persons', $config);
         $entity = $this->Pessoas->newEmptyEntity();  
         
         $result = $this->FieldHelper->formCreate($entity, $params);
@@ -31,7 +31,7 @@ class FieldHelperTest extends TestCase {
         $params = []; 
         $id = '1';
         
-        $this->Pessoas = $this->getTableLocator()->get('Pessoas', $config);
+        $this->Pessoas = $this->getTableLocator()->get('Persons', $config);
         $entity = $this->Pessoas->get($id, []);  
         
         $result = $this->FieldHelper->textFieldCreate($entity, $params);

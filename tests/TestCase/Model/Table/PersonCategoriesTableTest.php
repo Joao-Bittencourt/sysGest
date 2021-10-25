@@ -25,8 +25,8 @@ class PersonCategoriesTableTest extends TestCase {
      * @var array
      */
     protected $fixtures = [
-        'app.TipoPessoas',
-        'app.Pessoas',
+        'app.PersonCategories',
+        'app.Persons',
     ];
 
     /**

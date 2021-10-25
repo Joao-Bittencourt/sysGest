@@ -14,7 +14,7 @@ class PaymentsTable extends Table {
     public function initialize(array $config): void {
         parent::initialize($config);
 
-        $this->setTable('pagamentos');
+        $this->setTable('payments');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 

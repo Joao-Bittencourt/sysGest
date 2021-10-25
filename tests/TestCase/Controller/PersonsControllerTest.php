@@ -18,8 +18,8 @@ class PessoasControllerTest extends TestCase {
      * @var array
      */
     protected $fixtures = [
-        'app.Pessoas',
-        'app.TipoPessoas'
+        'app.Persons',
+        'app.PersonCategories'
     ];
   
     public function setUp(): void {
@@ -88,7 +88,7 @@ class PessoasControllerTest extends TestCase {
 
         $this->post('/pessoas/cadastrar', $data);
         $this->assertResponseSuccess();
-        $pessoas = $this->getTableLocator()->get('pessoas');
+        $pessoas = $this->getTableLocator()->get('Persons');
         $query = $pessoas->find()->where(['nome' => $data['nome'], 'email' => $data['email']]);
         $this->assertEquals(1, $query->count());
     }

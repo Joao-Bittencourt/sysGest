@@ -14,7 +14,7 @@ class BanksTable extends Table {
     public function initialize(array $config): void {
         parent::initialize($config);
 
-        $this->setTable('bancos');
+        $this->setTable('banks');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
