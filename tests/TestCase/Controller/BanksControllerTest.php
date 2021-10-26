@@ -19,7 +19,7 @@ class BanksControllerTest extends TestCase {
      * @var array
      */
     protected $fixtures = [
-        'app.Bancos'
+        'app.Banks'
     ];
     
     public function setUp(): void {

@@ -18,7 +18,7 @@ class PaymentsControllerTest extends TestCase {
      * @var array
      */
     protected $fixtures = [
-        'app.Pagamentos'
+        'app.Payments'
     ];
 
     public function setUp(): void {

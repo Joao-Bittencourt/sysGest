@@ -4,10 +4,10 @@
 
 use Migrations\AbstractMigration;
 
-class CreatePessoas extends AbstractMigration {
+class CreatePersons extends AbstractMigration {
 
     public function change() {
-        $table = $this->table('pessoas');
+        $table = $this->table('persons');
         $table->addColumn('tipo_pessoa_id', 'integer', [
             'default' => null,
             'limit' => 11,

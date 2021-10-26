@@ -17,9 +17,9 @@ class PaymentsTableTest extends TestCase {
      * @var array
      */
     protected $fixtures = [
-        'app.Contas',
-        'app.Pagamentos',
-        'app.Pessoas',
+        'app.Accounts',
+        'app.Payments',
+        'app.Persons',
     ];
 
     /**

@@ -9,7 +9,7 @@ use Cake\TestSuite\Fixture\TestFixture;
 /**
  * TipoPessoasFixture
  */
-class TipoPessoasFixture extends TestFixture {
+class PersonCategoriesFixture extends TestFixture {
 
     /**
      * Fields

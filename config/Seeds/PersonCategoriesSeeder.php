@@ -2,7 +2,7 @@
 
 use Phinx\Seed\AbstractSeed;
 
-class TipoPessoaSeeder extends AbstractSeed {
+class PersonCategoriesSeeder extends AbstractSeed {
 
     public function run() {
         $data = [
@@ -22,7 +22,7 @@ class TipoPessoaSeeder extends AbstractSeed {
             ],
         ];
 
-        $posts = $this->table('tipo_pessoas');
+        $posts = $this->table('person_categories');
         $posts->insert($data)
                 ->saveData();
     }

@@ -4,10 +4,10 @@
 
 use Migrations\AbstractMigration;
 
-class CreateParcelas extends AbstractMigration {
+class CreateInstallments extends AbstractMigration {
 
     public function change() {
-        $table = $this->table('parcelas');
+        $table = $this->table('installments');
         $table->addColumn('pagamento_id', 'integer', [
             'default' => null,
             'limit' => 11,

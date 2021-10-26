@@ -8,7 +8,7 @@ use App\Controller\ReportsController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
-class RelatoriosControllerTest extends TestCase {
+class ReportsControllerTest extends TestCase {
 
     use IntegrationTestTrait;
 
@@ -18,7 +18,7 @@ class RelatoriosControllerTest extends TestCase {
      * @var array
      */
     protected $fixtures = [
-        'app.Pagamentos'
+        'app.Payments'
     ];
 
     public function setUp(): void {

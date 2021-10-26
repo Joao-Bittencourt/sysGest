@@ -6,17 +6,13 @@ namespace App\Test\Fixture;
 
 use Cake\TestSuite\Fixture\TestFixture;
 
-class ContasFixture extends TestFixture {
+class BanksFixture extends TestFixture {
 
-//    public $import = ['table' => 'contas'];
+//    public $import = ['table' => 'bamks'];
     public $fields = [
         'id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
-        'pessoa_id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'precision' => null],
-        'banco_id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'precision' => null],
-        'agencia' => ['type' => 'string', 'length' => 5, 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null],
-        'agencia_dv' => ['type' => 'string', 'length' => 2, 'null' => true, 'default' => 0, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null],
-        'conta' => ['type' => 'string', 'length' => 12, 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null],
-        'conta_dv' => ['type' => 'string', 'length' => 2, 'null' => true, 'default' => 0, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null],
+        'nome' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null],
+        'codigo_banco' => ['type' => 'integer', 'length' => 3, 'unsigned' => false, 'null' => false, 'default' => null],
         'created' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => false, 'default' => null, 'comment' => ''],
         'created_by' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null],
         'modified' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => false, 'default' => null, 'comment' => ''],
@@ -39,16 +35,12 @@ class ContasFixture extends TestFixture {
         $this->records = [
             [
                 'id' => 1,
-                'banco_id' => 1,
-                'pessoa_id' => 1,
-                'agencia' => 12345,
-                'agencia_dv' => 1,
-                'conta' => 12345,
-                'conta_dv' => 1,
+                'nome' => 'Lorem ipsum dolor sit amet',
+                'codigo_banco' => 123,
                 'created' => '2021-01-17 22:20:29',
                 'created_by' => 1,
                 'modified' => '2021-01-17 22:20:29',
-                'modified_by' => 1,
+                'modified_by' => null,
                 'status' => 1,
                 
             ],

@@ -14,7 +14,7 @@ class InstallmentsTable extends Table {
     public function initialize(array $config): void {
         parent::initialize($config);
 
-        $this->setTable('parcelas');
+        $this->setTable('installments');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 

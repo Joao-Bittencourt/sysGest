@@ -2,7 +2,7 @@
 
 use Phinx\Seed\AbstractSeed;
 
-class BancoSeeder extends AbstractSeed {
+class BanksSeeder extends AbstractSeed {
 
     public function run() {
         $data = [
@@ -61,7 +61,7 @@ class BancoSeeder extends AbstractSeed {
                 'status' => 1,
             ],
         ];
-        $posts = $this->table('bancos');
+        $posts = $this->table('banks');
         $posts->insert($data)
                 ->saveData();
     }
