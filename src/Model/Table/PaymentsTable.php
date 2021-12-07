@@ -20,6 +20,11 @@ class PaymentsTable extends Table {
 
         $this->addBehavior('Timestamp');
 
+         $this->hasMany('Installments', [
+                'className' => 'Installments'
+            ])
+            ->setForeignKey('pagamento_id');
+                 
         $this->hasOne('Persons', [
             'className' => 'Persons',
             'foreignKey' => 'recebedor_pessoa_id'

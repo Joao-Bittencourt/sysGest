@@ -17,4 +17,11 @@ class Installment extends Entity {
         'status' => true,
     ];
 
+    public function initialize(array $config): void {
+
+        $this->belongsTo('Payments', [
+            'className' => 'Payments'
+        ]);
+    }
+
 }

@@ -19,6 +19,11 @@ class InstallmentsTable extends Table {
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->belongsTo('Payments', [
+            'foreignKey' => 'pagamento_id',
+            'joinType' => 'INNER',
+        ]);
     }
 
     public function beforeSave($event, $entity, $options) {
