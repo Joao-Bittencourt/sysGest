@@ -15,51 +15,34 @@ class PaymentsController extends AppController {
     }
 
     public function add($id = null) {
-//        parent::add($id);
 
+        $paramsToEntity = [
+            'Installments'
+        ];
 
-        $entity = $this->{$this->getModelName()}->newEntity($this->request->getData(), [
-            'associated' => [
-                'Installments'
-            ],
-            'validate' => false
-        ]);
-//        if ($this->request->is('ajax')) {
-//            $this->render('/element/common/imstallments_panel');
-//        }
+        $entity = $this->{$this->getModelName()}->newEntity($this->request->getData(), ['associated' => $paramsToEntity]);
+
         if ($this->request->is('get')) {
 
             if (!empty($id)) {
-                $entity = $this->{$this->getModelName()}->get($id, []);
+                $entity = $this->{$this->getModelName()}->get($id, $paramsToEntity);
             }
         }
         $this->set(compact('entity'));
 
         if ($this->request->is('post') && !$this->request->is('ajax')) {
 
-            $entity = $this->{$this->getModelName()}->patchEntity($entity, $this->request->getData(), [
-                'associated' => [
-                    'Installments'
-                ]
-            ]);
-            debug( $this->request->getData());
-            debug($entity);
-            return ;
-
-            $paramsToSave = [
-                'associated' => [
-                    'Installments'
-                ]
-            ];
-
-            if ($this->{$this->getModelName()}->save($entity, $paramsToSave)) {
+            if ($this->{$this->getModelName()}->save($entity)) {
                 $this->Flash->success(__('Dados salvos com sucesso!'));
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('Não foi possivel realizar a operaçao.'));
         }
 
-//        if ($this->request->is('get') && empty($this->request->getData())) {
+        if ($this->request->is('ajax')) {
+            $this->render('/element/common/installments_panel');
+        }
+
         $persons = $this->Payments->Persons->find('list', [
                     'keyField' => 'id',
                     'valueField' => 'nome'
@@ -85,7 +68,6 @@ class PaymentsController extends AppController {
         $this->set('recebedorPessoas', $persons);
         $this->set('contas', $accounts);
         $this->set('tipoPagamentoTipos', $tipo_pagamento_tipos);
-//        };
     }
 
     public function delete($id = null) {

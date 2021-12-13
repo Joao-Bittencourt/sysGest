@@ -36,31 +36,24 @@ $actionName = $this->request->getParam('action');
             </div>
 
         </div>
-    </div>
-    <hr>
-    <div class="card-body">
+        <hr>
         <div id="installmentQtd">
             <?php
-            $installmentQtd = $this->request->getData('n_total_parcela') ?? 1;
-            for ($installmentQtdKey = 0; $installmentQtdKey < $installmentQtd; $installmentQtdKey++) {
-                echo $this->Form->control("installments.0.n_parcela", ['label' => 'N', 'class' => 'form-control', 'empty' => ' - ']);
-//                echo $this->Form->control("installments.1.n_parcela", ['label' => 'N', 'class' => 'form-control', 'empty' => ' - ']);
-            };
+            echo $this->element('/common/installments_panel');
             ?>
-
         </div>
+
     </div>
     <div class="card-footer">
 
         <?php
-        echo $this->Form->button('Salvar', ['class' => "btn btn-primary"]);
+        echo $this->Form->button('Salvar', ['class' => "btn btn-primary", 'id' => 'submitFormId']);
         echo $this->Form->end();
         ?>
     </div>
 </div>
 
 <script>
-
     $('#n-total-parcela').on('change', function () {
         var form = $('form').serialize();
         ajax(form);
@@ -72,15 +65,10 @@ $actionName = $this->request->getParam('action');
             url: "<?php echo $this->Url->build(['controller' => 'payments', 'action' => 'add']); ?>",
             data: form,
 
-            success: function (response)
-            {
-//                        console.log(response);
-                $('#installmentQtd').html(response);;
-//                $('#content').html(response);
+            success: function (response) {
+                $('#installmentQtd').html(response);
             }
         });
-    }
-    ;
-
-//    });
+    };
+    
 </script>
