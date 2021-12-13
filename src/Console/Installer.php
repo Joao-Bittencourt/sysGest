@@ -189,7 +189,9 @@ class Installer
     public static function runMigrations($dir, $io)
     {
         $command = $dir . '/bin/cake migrations migrate';
-        shell_exec($command);
+//        shell_exec($command);
+
+        $this->dispatchShell($command);
         $io->write('runing migrations.');
     }
 
