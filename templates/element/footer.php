@@ -1,6 +1,6 @@
 <?php
 echo $this->Html->script([
-    'jquery.3.2.1.min',
+//    'jquery.3.2.1.min',
     'bootstrap.min',
     'popper.min',
     'solid',

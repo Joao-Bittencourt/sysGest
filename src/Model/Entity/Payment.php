@@ -20,6 +20,7 @@ class Payment extends Entity {
         'modified' => true,
         'modified_by' => true,
         'status' => true,
+        'installments' => true
     ];
 
 }
