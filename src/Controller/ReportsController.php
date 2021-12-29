@@ -10,9 +10,19 @@ class ReportsController extends AppController {
 
        $entrys = $this->Reports->Payments->findDataEntrys();
        $outputs = $this->Reports->Payments->findDataOutputs();
+       $payments = $this->Reports->Payments
+            ->find('all')
+            ->contain([
+                'Persons' => [
+                    'PersonCategories'
+                ],
+                'Accounts'
+            ]
+        );
        
        $this->set('entrys', $entrys);
        $this->set('outputs', $outputs);
+       $this->set('payments', $payments);
     }
 
 }

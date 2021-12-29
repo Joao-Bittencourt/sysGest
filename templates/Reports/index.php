@@ -43,4 +43,43 @@
         </div>
     </div>
 </div>
+<br>
+<div class="card">
+    <div class="card-header">
+        <?php echo 'EXTRATO';?>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <?php
+            $tableHeaders = [];
+            $tableHeaders[] = ['COD' => ["scope" => "col"]];
+            $tableHeaders[] = ['PESSOA' => ["scope" => "col"]];
+            $tableHeaders[] = ['TIPO' => ["scope" => "col"]];
+            $tableHeaders[] = ['VALOR' => ["scope" => "col"]];
+            $tableHeaders[] = ['AGENCIA' => ["scope" => "col"]];
+            $tableHeaders[] = ['CONTA' => ["scope" => "col"]];
+
+            $tableCells = [];
+            foreach ($payments as $payment) {
+                
+                $class = $payment->tipo_pagamento_tipo == 'C' ? 'text-success' : 'text-danger';
+
+                $dadoCell = [];
+                $dadoCell[] = $payment->id;
+                $dadoCell[] = $payment->person->nome;
+                $dadoCell[] = $payment->person->person_category->tipo;
+                $dadoCell[] = [number_format($payment->vl_total, 2, ',', '.'), ['class' => $class]];
+                $dadoCell[] = $payment->account->agencia;
+                $dadoCell[] = $payment->account->conta;
+
+                $tableCells[] = $dadoCell;
+            }
+
+            echo $this->Html->tableHeaders($tableHeaders);
+            echo $this->Html->tableCells($tableCells);;
+            ?>
+        </table>
+    </div>
+</div>
+
 

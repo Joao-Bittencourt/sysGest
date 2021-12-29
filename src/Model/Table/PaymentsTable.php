@@ -20,18 +20,18 @@ class PaymentsTable extends Table {
 
         $this->addBehavior('Timestamp');
 
-         $this->hasMany('Installments', [
-                'className' => 'Installments'
-            ])
-            ->setForeignKey('pagamento_id');
-                 
-        $this->hasOne('Persons', [
+        $this->hasMany('Installments', [
+                    'className' => 'Installments'
+                ])
+                ->setForeignKey('pagamento_id');
+
+        $this->belongsTo('Persons', [
             'className' => 'Persons',
             'foreignKey' => 'recebedor_pessoa_id'
         ]);
-        $this->hasOne('Accounts', [
+        $this->belongsTo('Accounts', [
             'className' => 'Accounts',
-            'foreignKey' => 'contas_id'
+            'foreignKey' => 'conta_id'
         ]);
     }
 
@@ -123,14 +123,36 @@ class PaymentsTable extends Table {
     }
 
     public function findListEntrys($params = []) {
+        $coutn = $this->find('all')
+            ->where([
+                'Payments.tipo_pagamento_tipo' => 'C',
+                'Payments.status' => 1
+            ])
+             ->contain([
+                 'Persons' => [
+                     'PersonCategories'
+                 ],
+                 'Accounts'
+            ]);
+        $results = $coutn->toArray();
+        return $results;
+    }
 
-//        $paymentTransactions = $this->find()
-//                ->where([
-//            ''
-//        ]);
+    public function findListOutputs($params = []) {
 
+        $coutn = $this->find('all')
+            ->where([
+                'Payments.tipo_pagamento_tipo' => 'D',
+                'Payments.status' => 1
+            ])
+             ->contain([
+                 'Persons' => [
+                     'PersonCategories'
+                 ],
+                 'Accounts'
+            ]);
 
-        $results = [];
+        $results = $coutn->toArray();
         return $results;
     }
 

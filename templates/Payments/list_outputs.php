@@ -5,7 +5,7 @@ use Cake\Routing\Router;
 
 <div class="card">
     <div class="card-header">
-        <?php echo 'Entradas ';?>
+        <?php echo 'SAIDAS';?>
         <a class="btn btn-info btn-sm float-right" href="<?= Router::url(['controller' => 'Contas', 'action' => 'cadastrar']); ?>">
             <i class="bi bi-clipboard-minus"></i>
         </a>
@@ -22,17 +22,17 @@ use Cake\Routing\Router;
             $tableHeaders[] = ['CONTA' => ["scope" => "col"]];
 
             $tableCells = [];
-            foreach ($entrys as $entry) {
+            foreach ($outputs as $output) {
                 
-                $class = $entry->tipo_pagamento_tipo == 'C' ? 'text-success' : 'text-danger';
+                $class = $output->tipo_pagamento_tipo == 'C' ? 'text-success' : 'text-danger';
 
                 $dadoCell = [];
-                $dadoCell[] = $entry->id;
-                $dadoCell[] = $entry->person->nome;
-                $dadoCell[] = $entry->person->person_category->tipo;
-                $dadoCell[] = [number_format($entry->vl_total, 2, ',', '.'), ['class' => $class]];
-                $dadoCell[] = $entry->account->agencia;
-                $dadoCell[] = $entry->account->conta;
+                $dadoCell[] = $output->id;
+                $dadoCell[] = $output->person->nome;
+                $dadoCell[] = $output->person->person_category->tipo;
+                $dadoCell[] = [number_format($output->vl_total, 2, ',', '.'), ['class' => $class]];
+                $dadoCell[] = $output->account->agencia;
+                $dadoCell[] = $output->account->conta;
 //
                 $tableCells[] = $dadoCell;
             }

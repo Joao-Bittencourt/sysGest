@@ -76,12 +76,13 @@ class PaymentsController extends AppController {
 
     public function listEntries() {
         $entrys = $this->Payments->findListEntrys();
-
-        $this->set('data', $entrys);
+        
+        $this->set('entrys', $entrys);
     }
 
     public function listOutputs() {
-        throw new Exception('Not implemented yet');
+        $outputs = $this->Payments->findListOutputs();       
+        $this->set('outputs', $outputs);
     }
 
 }
