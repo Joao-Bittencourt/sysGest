@@ -17,8 +17,6 @@ class SeederComponent extends Component {
         $arAcconstid = $entityTable->Accounts->find('list')->toArray();
         $arTipoPagamento = ['C' => 'C', 'D' => 'D'];
 
-
-
         $paymentsCount = 0;
         while( $paymentsCount < $qtd) {
             $dataPayment = [
