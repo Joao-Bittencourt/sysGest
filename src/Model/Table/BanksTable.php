@@ -19,6 +19,10 @@ class BanksTable extends Table {
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+        
+         $this->hasMany('Accounts', [
+            'foreignKey' => 'banco_id',
+        ]);
     }
 
     public function beforeSave($event, $entity, $options) {

@@ -73,6 +73,12 @@ class AppController extends Controller {
         }
         $this->set(compact('entity'));
     }
+    
+    public function edit($id = null) {
+        $this->add($id);
+                
+        $this->render('/element/common/edit');
+    }
 
     public function view($id = null) {
         $entity = $this->getEditEntity($id);

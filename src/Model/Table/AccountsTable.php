@@ -20,10 +20,10 @@ class AccountsTable extends Table {
 
         $this->addBehavior('Timestamp');
         
-        $this->hasOne('Banks', [
+        $this->belongsTo('Banks', [
             'foreignKey' => 'banco_id',
         ]);
-        $this->hasOne('Persons', [
+        $this->belongsTo('Persons', [
             'foreignKey' => 'pessoa_id',
         ]);
     }

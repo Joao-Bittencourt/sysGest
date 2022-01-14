@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title><?php ?></title>
-          <?= $this->element('header'); ?>
+        <?= $this->element('header'); ?>
     </head>
     <style>
         body{
@@ -14,11 +14,11 @@
         }
     </style>
     <body>
-        <?php 
-            echo $this->fetch('content');
-        ?>
-    
+
+        <div class="container">
+            <?php echo $this->fetch('content'); ?>
+        </div>
+
     </body>
 </html>
- 
-            
+

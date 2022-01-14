@@ -18,7 +18,9 @@ class PaymentsControllerTest extends TestCase {
      * @var array
      */
     protected $fixtures = [
-        'app.Payments'
+        'app.Payments',
+        'app.Persons',
+        'app.PersonCategories'
     ];
 
     public function setUp(): void {
@@ -124,6 +126,6 @@ class PaymentsControllerTest extends TestCase {
      */
     public function testlistOutputs(): void {
         $this->get('/pagamentos/listar-saidas');
-        $this->assertResponseFailure();
+        $this->assertResponseOk();
     }
 }

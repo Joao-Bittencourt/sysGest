@@ -1,51 +1,36 @@
 <?php
 
 use Phinx\Seed\AbstractSeed;
+use Faker\Factory;
 
 class PersonsSeeder extends AbstractSeed {
 
     public function run() {
-        $data = [
-            [
+
+        $faker = Factory::create('pt_BR');
+        $qtd = 0;
+        while ($qtd < 10) {
+            $data[] = [
                 'tipo_pessoa_id' => '1',
-                'nome' => 'Alícia Maitê Simone da Rosa',
-                'email' => 'aaliciamaitesimonedarosa@haldex.com',
-                'cpf' => '26097942079',
+                'nome' => $faker->name(),
+                'email' => $faker->email(),
+                'cpf' => $faker->cpf(false),
                 'dt_nascimento' => '1947-03-01',
-                'cep' => '82515392',
-                'uf' => 'PR',
+                'cep' => $faker->postcode(false),
+                'uf' => $faker->stateAbbr(),
                 'pais' => 'BRASIL',
-                'endereco' => 'Rua Eleanor Roosevelt',
-                'numero' => '528',
-                'cidade' => 'Curitiba',
-                'ddd' => '41',
-                'telefone' => '998247981',
+                'endereco' => $faker->address(),
+                'numero' => $faker->buildingNumber(),
+                'cidade' => $faker->city(),
+                'ddd' => $faker->areaCode(),
+                'telefone' => $faker->cellphone(false),
                 'created' => date('Y-m-d H:i:s'),
                 'created_by' => 1,
                 'modified' => date('Y-m-d H:i:s'),
                 'status' => 1,
-            ],
-            [
-                'tipo_pessoa_id' => '2',
-                'nome' => 'Sebastião Bryan Mendes',
-                'email' => 'ssebastiaobryanmendes@paraisopolis.com.br',
-                'cpf' => '23197418280',
-                'dt_nascimento' => '1953-07-05',
-                'cep' => '98804365',
-                'uf' => 'RS',
-                'pais' => 'BRASIL',
-                'endereco' => 'Rua Padre Cícero',
-                'numero' => '296',
-                'cidade' => 'Santo Ângelo',
-                'ddd' => '55',
-                'telefone' => '997935333',
-                'created' => date('Y-m-d H:i:s'),
-                'created_by' => 1,
-                'modified' => date('Y-m-d H:i:s'),
-                'status' => 1,
-            ],
-           
-        ];
+            ];
+            $qtd++;
+        }
 
         $posts = $this->table('persons');
         $posts->insert($data)

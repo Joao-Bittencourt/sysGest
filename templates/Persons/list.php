@@ -11,6 +11,7 @@ use Cake\Routing\Router;
     </div>
     <div class="card-body">
         <?php
+        echo $this->Field->elementPaginator($this->Paginator);
         include('_lista_pessoa.php');
         ?>
 

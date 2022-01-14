@@ -2,7 +2,7 @@
     echo $this->Flash->render();
 ?>
 
-<div class="row justify-content-center align-items-center">
+<div class="row justify-content-center">
     <div class="card">
         <div class="card-body">
             <div>SysGEST</div>
@@ -20,7 +20,7 @@
                         </label>
                     </div>
             <?php
-                echo $this->Form->button('Salvar', ['class' => "btn btn-primary"]);
+                echo $this->Form->button('Login', ['class' => "btn btn-primary col"]);
                 echo $this->Form->end();
             ?>     
         </div>
