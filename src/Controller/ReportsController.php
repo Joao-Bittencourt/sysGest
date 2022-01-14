@@ -22,7 +22,7 @@ class ReportsController extends AppController {
        
        $this->set('entrys', $entrys);
        $this->set('outputs', $outputs);
-       $this->set('payments', $payments);
+       $this->set('payments', $this->paginate($payments));
     }
 
 }
