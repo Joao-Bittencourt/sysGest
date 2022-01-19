@@ -4,7 +4,7 @@ namespace Cake\Controller\Component;
 
 use Cake\Controller\Component;
 use Cake\ORM\TableRegistry;
-
+use Cake\Http\Exception\NotFoundException;
 
 class SeederComponent extends Component {
 
@@ -18,7 +18,7 @@ class SeederComponent extends Component {
         $arTipoPagamento = ['C' => 'C', 'D' => 'D'];
 
         $paymentsCount = 0;
-        while( $paymentsCount < $qtd) {
+        while ($paymentsCount < $qtd) {
             $dataPayment = [
                 'recebedor_pessoa_id' => array_rand($arPersonsid),
                 'conta_id' => array_rand($arAcconstid),
@@ -32,7 +32,7 @@ class SeederComponent extends Component {
                 'status' => 1
             ];
             $paymentsCount++;
-            
+
             $installment = 0;
             while ($installment < $dataPayment['n_total_parcelas']) {
                 $installment++;
@@ -57,7 +57,7 @@ class SeederComponent extends Component {
                 ];
             }
             $dataPayment['installments'] = $dataInstalment;
-            
+
             $entityTable2 = TableRegistry::getTableLocator()->get($entitySeedName);
             $entity = $entityTable2->newEntity($dataPayment, ['associated' => 'Installments']);
 
@@ -67,6 +67,29 @@ class SeederComponent extends Component {
             unset($dataPayment);
             unset($dataInstalment);
         }
+    }
+
+    // @todo: remover esse metodo, ou corrigir a falha de segurança.
+    public function seederCall(string $entitySeedName): void {
+
+        $seederName = ucfirst($entitySeedName);
+        $possibilitiesSeeder = $this->possibilitiesSeeder();
+
+        if (in_array($seederName, $possibilitiesSeeder)) {
+            $command = ROOT . DS . 'bin' . DS . 'cake migrations seed --seed ' . $seederName;
+            shell_exec($command);
+        } else {
+            throw new NotFoundException("{$entitySeedName} Not Found.");
+        }
+    }
+
+    protected function possibilitiesSeeder(): array {
+        return [
+            'AccountsSeeder',
+            'BanksSeeder',
+            'PersonsCategoriesSeeder',
+            'PersonsSeeder',
+        ];
     }
 
 }

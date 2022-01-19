@@ -10,7 +10,7 @@ class FileLogsController extends AppController {
         parent::initialize();
         $this->loadComponent('Seeder');
     }
-    
+
     public function error() {
 
         echo '<pre>';
@@ -27,16 +27,20 @@ class FileLogsController extends AppController {
     }
 
     public function seeder($entitySeedName = '', $quantity = 1) {
-        
-        switch ($entitySeedName) {
-            case 'payments' :
-                $this->Seeder->$entitySeedName($entitySeedName, $quantity);
-                break;
-            default:
-                die('^_^');
+
+        try {
+            switch ($entitySeedName) {
+                case 'payments' :
+                    $this->Seeder->$entitySeedName($entitySeedName, $quantity);
+                    break;
+                default:
+                    $this->Seeder->seederCall($entitySeedName . 'Seeder');
+            }              
+        } catch (\Exception $e) {
+            exit($e->getMessage() . "\n");
         }
         
         print_r(__('Dados salvos com sucesso!'));
-        die();   
+        exit();
     }
 }

@@ -41,14 +41,14 @@ $routes->scope('/', function (RouteBuilder $builder) {
     $builder->connect('/bancos/cadastrar/*', ['controller' => 'banks', 'action' => 'add']);
     $builder->connect('/bancos/listar/*', ['controller' => 'banks', 'action' => 'list']);
     $builder->connect('/bancos/detalhar/*', ['controller' => 'banks', 'action' => 'view']);
-    $builder->connect('/bancos/editar/*', ['controller' => 'banks', 'action' => 'add']);
+    $builder->connect('/bancos/editar/*', ['controller' => 'banks', 'action' => 'edit']);
     $builder->connect('/bancos/deletar/*', ['controller' => 'banks', 'action' => 'delete']);
 
     $builder->connect('/contas', ['controller' => 'Accounts', 'action' => 'index']);
     $builder->connect('/contas/listar/*', ['controller' => 'Accounts', 'action' => 'list']);
     $builder->connect('/contas/detalhar/*', ['controller' => 'Accounts', 'action' => 'view']);
     $builder->connect('/contas/cadastrar/*', ['controller' => 'Accounts', 'action' => 'add']);
-    $builder->connect('/contas/editar/*', ['controller' => 'Accounts', 'action' => 'add']);
+    $builder->connect('/contas/editar/*', ['controller' => 'Accounts', 'action' => 'edit']);
     $builder->connect('/contas/deletar/*', ['controller' => 'Accounts', 'action' => 'delete']);
 
     $builder->connect('/pagamento-movimentacoes/listar-entradas', ['controller' => 'Payments', 'action' => 'listEntries']);
@@ -57,7 +57,7 @@ $routes->scope('/', function (RouteBuilder $builder) {
     $builder->connect('/pagamentos', ['controller' => 'Payments', 'action' => 'index']);
     $builder->connect('/pagamentos/listar', ['controller' => 'Payments', 'action' => 'list']);
     $builder->connect('/pagamentos/cadastrar/*', ['controller' => 'Payments', 'action' => 'add']);
-    $builder->connect('/pagamentos/editar/*', ['controller' => 'Payments', 'action' => 'add']);
+    $builder->connect('/pagamentos/editar/*', ['controller' => 'Payments', 'action' => 'edit']);
     $builder->connect('/pagamentos/detalhar/*', ['controller' => 'Payments', 'action' => 'view']);
     $builder->connect('/pagamentos/deletar/*', ['controller' => 'Payments', 'action' => 'delete']);
     $builder->connect('/pagamentos/listar-entradas', ['controller' => 'Payments', 'action' => 'listEntries']);
@@ -66,7 +66,7 @@ $routes->scope('/', function (RouteBuilder $builder) {
     $builder->connect('/parcelas', ['controller' => 'Installments', 'action' => 'index']);
     $builder->connect('/parcelas/listar/*', ['controller' => 'Installments', 'action' => 'list']);
     $builder->connect('/parcelas/detalhar/*', ['controller' => 'Installments', 'action' => 'view']);
-    $builder->connect('/parcelas/editar/*', ['controller' => 'Installments', 'action' => 'add']);
+    $builder->connect('/parcelas/editar/*', ['controller' => 'Installments', 'action' => 'edit']);
     $builder->connect('/parcelas/cadastrar/*', ['controller' => 'Installments', 'action' => 'add']);
     $builder->connect('/parcelas/deletar/*', ['controller' => 'Installments', 'action' => 'delete']);
 
@@ -74,12 +74,13 @@ $routes->scope('/', function (RouteBuilder $builder) {
     $builder->connect('/pessoas/listar/*', ['controller' => 'Persons', 'action' => 'list']);
     $builder->connect('/pessoas/detalhar/*', ['controller' => 'Persons', 'action' => 'view']);
     $builder->connect('/pessoas/cadastrar/*', ['controller' => 'Persons', 'action' => 'add']);
+    // @todo: refatorar para utilizar a action editar
     $builder->connect('/pessoas/editar/*', ['controller' => 'Persons', 'action' => 'add']);
 
     $builder->connect('/tipo-pessoas', ['controller' => 'PersonCategories', 'action' => 'index']);
     $builder->connect('/tipo-pessoas/listar/*', ['controller' => 'PersonCategories', 'action' => 'list']);
     $builder->connect('/tipo-pessoas/detalhar/*', ['controller' => 'PersonCategories', 'action' => 'view']);
-    $builder->connect('/tipo-pessoas/editar/*', ['controller' => 'PersonCategories', 'action' => 'add']);
+    $builder->connect('/tipo-pessoas/editar/*', ['controller' => 'PersonCategories', 'action' => 'edit']);
     $builder->connect('/tipo-pessoas/cadastrar/*', ['controller' => 'PersonCategories', 'action' => 'add']);
     $builder->connect('/tipo-pessoas/deletar/*', ['controller' => 'PersonCategories', 'action' => 'delete']);
   
@@ -87,7 +88,7 @@ $routes->scope('/', function (RouteBuilder $builder) {
     $builder->connect('/usuarios/listar/*', ['controller' => 'Users', 'action' => 'list']);
     $builder->connect('/usuarios/detalhar/*', ['controller' => 'Users', 'action' => 'view']);
     $builder->connect('/usuarios/cadastrar/*', ['controller' => 'Users', 'action' => 'add']);
-    $builder->connect('/usuarios/editar/*', ['controller' => 'Users', 'action' => 'add']);
+    $builder->connect('/usuarios/editar/*', ['controller' => 'Users', 'action' => 'edit']);
     $builder->connect('/usuarios/deletar/*', ['controller' => 'Users', 'action' => 'delete']);
     $builder->connect('/usuarios/login/*', ['controller' => 'Users', 'action' => 'login']);
     $builder->connect('/usuarios/logout/*', ['controller' => 'Users', 'action' => 'logout']);

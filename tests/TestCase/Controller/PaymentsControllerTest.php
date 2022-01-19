@@ -50,7 +50,7 @@ class PaymentsControllerTest extends TestCase {
     }
 
     /**
-     * Test cadastrar method
+     * Test GET cadastrar method
      *
      * @return void
      */
@@ -98,7 +98,17 @@ class PaymentsControllerTest extends TestCase {
         $this->get('/pagamentos/detalhar/1');
         $this->assertResponseOk();
     }
-
+    
+    /**
+     * Test editar method
+     *
+     * @return void
+     */
+    public function testEdit(): void {
+        $this->get('/pagamentos/editar/1');
+        $this->assertResponseOk();
+    }   
+    
     /**
      * Test deletar method
      *

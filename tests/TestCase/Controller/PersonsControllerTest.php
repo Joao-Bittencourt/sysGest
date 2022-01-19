@@ -104,7 +104,7 @@ class PessoasControllerTest extends TestCase {
     }
         
      /**
-     * Test get cadastrar method
+     * Test get editar method
      *
      * @return void
      */

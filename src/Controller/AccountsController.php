@@ -13,7 +13,7 @@ class AccountsController extends AppController {
     public function view($id = null) {
         parent::view($id);
     }
-
+    
     public function add($id = null) {
         parent::add($id);
 

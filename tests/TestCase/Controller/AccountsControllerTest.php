@@ -50,7 +50,7 @@ class AccountsControllerTest extends TestCase {
     }
 
     /**
-     * Test cadastrar method
+     * Test GET cadastrar method
      *
      * @return void
      */
