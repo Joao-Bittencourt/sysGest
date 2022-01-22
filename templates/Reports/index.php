@@ -1,4 +1,5 @@
 <?php $this->assign('title', 'Home'); ?>
+
 <div class='row'>
 
     <div class="col-md-6">
@@ -32,10 +33,10 @@
                             Saidas
                         </div>
                         <?php
-                            $value = number_format($outputs['sum'], 2, ',', '.');
+                        $value = number_format($outputs['sum'], 2, ',', '.');
 
-                            echo $outputs['count'];
-                            echo 'R$ ' . $value;
+                        echo $outputs['count'];
+                        echo 'R$ ' . $value;
                         ?>
                     </div>
                 </div>
@@ -46,7 +47,7 @@
 <br>
 <div class="card">
     <div class="card-header">
-        <?php echo 'EXTRATO';?>
+        <?php echo 'EXTRATO'; ?>
     </div>
     <div class="card-body">
         <table class="table table-striped">
@@ -62,31 +63,31 @@
 
             $tableCells = [];
             foreach ($payments as $payment) {
-                
+
                 $class = $payment->tipo_pagamento_tipo == 'C' ? 'text-success' : 'text-danger';
-                $editarButton = $this->Html->link(__('Editar'), 
+                $editarButton = $this->Html->link(__('Editar'),
                         [
                             'controller' => 'payments',
                             'action' => 'edit',
                             $payment->id
                         ],
                         [
-                            'class' => 'btn btn-outline-warning btn-sm m-1', 
+                            'class' => 'btn btn-outline-warning btn-sm m-1',
                             'update' => '#content'
                         ]
-                  );
-                $detalharButton = $this->Html->link(__('Detalhar'), 
+                );
+                $detalharButton = $this->Html->link(__('Detalhar'),
                         [
                             'controller' => 'payments',
                             'action' => 'view',
                             $payment->id
                         ],
                         [
-                            'class' => 'btn btn-outline-success btn-sm', 
+                            'class' => 'btn btn-outline-success btn-sm',
                             'update' => '#content'
                         ]
-                  );
-                
+                );
+
                 $dadoCell = [];
                 $dadoCell[] = $payment->id;
                 $dadoCell[] = $payment->person->nome;
@@ -106,4 +107,27 @@
     </div>
 </div>
 
+<!--<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', {'packages': ['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
 
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Year', 'Sales', 'Expenses'],
+            ['2013', 1000, 400],
+            ['2014', 1170, 460],
+            ['2015', 660, 1120],
+            ['2016', 1030, 540]
+        ]);
+
+        var options = {
+            title: 'Company Performance',
+            hAxis: {title: 'Year', titleTextStyle: {color: '#333'}},
+            vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('myChart'));
+        chart.draw(data, options);
+    }
+</script>-->

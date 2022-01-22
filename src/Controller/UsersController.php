@@ -13,26 +13,10 @@ class UsersController extends AppController {
         $this->Authentication->addUnauthenticatedActions(['login', 'add']);
     }
 
-    public function index() {
-        parent::index();
-    }
-
-    public function list() {
-        parent::index();
-    }
-
-    public function view($id = null) {
-        parent::view($id);
-    }
-
     public function add($id = null) {
         parent::add($id);
-        
-        $this->viewBuilder()->setLayout('login');
-    }
 
-    public function delete($id = null) {
-        parent::delete($id);
+        $this->viewBuilder()->setLayout('login');
     }
 
     public function login() {

@@ -6,14 +6,6 @@ namespace App\Controller;
 
 class AccountsController extends AppController {
 
-    public function list() {
-        parent::index();
-    }
-
-    public function view($id = null) {
-        parent::view($id);
-    }
-    
     public function add($id = null) {
         parent::add($id);
 
@@ -31,10 +23,6 @@ class AccountsController extends AppController {
 
         $this->set('pessoas',$persons);
         $this->set('bancos', $banks);
-    }
-
-    public function delete($id = null) {
-        parent::delete($id);
     }
 
 }

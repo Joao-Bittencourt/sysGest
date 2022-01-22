@@ -6,14 +6,6 @@ namespace App\Controller;
 
 class PaymentsController extends AppController {
 
-    public function list() {
-        parent::index();
-    }
-
-    public function view($id = null) {
-        parent::view($id);
-    }
-
     public function add($id = null) {
 
         $paramsToEntity = [
@@ -70,18 +62,14 @@ class PaymentsController extends AppController {
         $this->set('tipoPagamentoTipos', $tipo_pagamento_tipos);
     }
 
-    public function delete($id = null) {
-        throw new Exception('Not implemented yet');
-    }
-
     public function listEntries() {
         $entrys = $this->Payments->findListEntrys();
-        
+
         $this->set('entrys', $entrys);
     }
 
     public function listOutputs() {
-        $outputs = $this->Payments->findListOutputs();       
+        $outputs = $this->Payments->findListOutputs();
         $this->set('outputs', $outputs);
     }
 

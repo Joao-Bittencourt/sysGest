@@ -6,18 +6,6 @@ namespace App\Controller;
 
 class PersonsController extends AppController {
 
-    public function index() {
-        parent::index();
-    }
-
-    public function list() {
-        parent::index();
-    }
-
-    public function view($id = null) {
-        parent::view($id);
-    }
-
     public function add($id = null) {
         $pessoas = $this->Persons->newEmptyEntity();
         $tipoPessoas = $this->Persons->PersonCategories->find('list', [

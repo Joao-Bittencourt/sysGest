@@ -56,6 +56,10 @@ class AppController extends Controller {
         }
     }
 
+    public function list() {
+        $this->index();
+    }
+    
     public function add($id = null) {
         $entity = $this->{$this->getModelName()}->newEmptyEntity();
 
