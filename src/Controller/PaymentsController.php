@@ -41,11 +41,7 @@ class PaymentsController extends AppController {
                 ])
                 ->toArray();
 
-        $accounts = $this->Payments->Accounts->find('list', [
-                    'keyField' => 'id',
-                    'valueField' => 'conta'
-                ])
-                ->toArray();
+        $accounts = $this->Payments->Accounts->findListAccount();
 
         $tipo_pagamento_tipos = [
             'D' => 'D - debita',

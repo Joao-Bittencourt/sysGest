@@ -10,6 +10,7 @@ use Cake\Routing\Router;
         </a>
     </div>
     <div class="card-body">
+        <?php echo $this->Field->elementPaginator($this->Paginator); ?>
         <table class="table table-striped">
             <?php
             $tableHeaders = [];

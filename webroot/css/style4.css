@@ -266,3 +266,7 @@ a.article:hover {
 .error-message {
     color:#dc3545!important
 }
+
+.icon-color-white {
+    color: white!important
+}

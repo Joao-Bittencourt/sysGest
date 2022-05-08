@@ -2,10 +2,10 @@
 <table class="table table-bordered">
     <?php
         $tableHeaders = [];
-        $tableHeaders[] = ['COD' => ["scope" => "col"]];
-        $tableHeaders[] = ['NOME' => ["scope" => "col"]];
-        $tableHeaders[] = ['EMAIL' => ["scope" => "col"]];
-        $tableHeaders[] = ['DATA NASCIMENTO' => ["scope" => "col"]];
+        $tableHeaders[] = [$this->Paginator->sort('id', ['title' => 'COD']), ["scope" => "col"]];
+        $tableHeaders[] = [$this->Paginator->sort('nome', ['title' => 'NOME']), ["scope" => "col"]];
+        $tableHeaders[] = [$this->Paginator->sort('email', ['title' => 'EMAIL']), ["scope" => "col"]];
+        $tableHeaders[] = [$this->Paginator->sort('dt_nascimento', ['title' => 'DATA NASCIMENTO']), ["scope" => "col"]];
 
         $tableCells = [];
         foreach ($persons as $pessoa) {

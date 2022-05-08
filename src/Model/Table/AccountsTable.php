@@ -19,7 +19,7 @@ class AccountsTable extends Table {
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
-        
+
         $this->belongsTo('Banks', [
             'foreignKey' => 'banco_id',
         ]);
@@ -27,10 +27,10 @@ class AccountsTable extends Table {
             'foreignKey' => 'pessoa_id',
         ]);
     }
-    
+
     public function beforeSave($event, $entity, $options) {
         if (empty($entity->created_by)) {
-            $entity->created_by =  1;
+            $entity->created_by = 1;
         }
     }
 
@@ -61,4 +61,25 @@ class AccountsTable extends Table {
         return $validator;
     }
 
+    public function findListAccount(): array {
+
+        $query = $this
+            ->find('list', [
+                'keyField' => 'id',
+                'valueField' => 'conta'
+            ])
+            ->contain(['Persons']);
+
+        $query
+            ->select([
+                'id',
+                'conta' => $query->func()->concat([
+                    'conta' => 'identifier',
+                    ' - ',
+                    'nome' => 'identifier'
+                ])
+        ]);
+
+        return $query->toArray();
+    }
 }

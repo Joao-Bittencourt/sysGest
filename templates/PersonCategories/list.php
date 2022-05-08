@@ -1,33 +1,59 @@
-<?php
-?>
-
-<div class="table-responsive">
-        <table>
-            <thead>
-                <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('tipo') ?></th>
-                    <th><?= $this->Paginator->sort('created') ?></th>
-                    <th><?= $this->Paginator->sort('modified') ?></th>
-                    <th><?= $this->Paginator->sort('status') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($person_categories as $tipoPessoa): ?>
-                <tr>
-                    <td><?= $this->Number->format($tipoPessoa->id) ?></td>
-                    <td><?= h($tipoPessoa->tipo) ?></td>
-                    <td><?= h($tipoPessoa->created) ?></td>
-                    <td><?= h($tipoPessoa->modified) ?></td>
-                    <td><?= $this->Number->format($tipoPessoa->status) ?></td>
-                    <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $tipoPessoa->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $tipoPessoa->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $tipoPessoa->id], ['confirm' => __('Are you sure you want to delete # {0}?', $tipoPessoa->id)]) ?>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+<div class="card">
+    <div class="card-header">
+        <?php echo 'TIPO DE PESSOA'; ?>
+        <a class="btn btn-info btn-sm float-right" href="cadastrar">
+            <i class="bi bi-clipboard-minus"></i>
+        </a>
     </div>
+    <div class="card-body">
+        <?php echo $this->Field->elementPaginator($this->Paginator); ?>
+        <table class="table table-striped">
+            <?php
+                $tableHeaders = [];
+                $tableHeaders[] = [$this->Paginator->sort('id', ['title' => 'COD']) , ["scope" => "col"]];
+                $tableHeaders[] = [$this->Paginator->sort('tipo', ['title' => 'TIPO']), ["scope" => "col"]];
+                $tableHeaders[] = [$this->Paginator->sort('created', ['title' => 'CADASTRADO']), ["scope" => "col"]];
+                $tableHeaders[] = [$this->Paginator->sort('status', ['title' => 'SITUAÇÃO']), ["scope" => "col"]];
+                $tableHeaders[] = ['' => ["scope" => "col"]];
+
+                $tableCells = [];
+                foreach ($person_categories as $personCategory) {
+
+                    $dado = [];
+                    $dado[] = $personCategory->id;
+                    $dado[] = $personCategory->tipo;
+                    $dado[] = $personCategory->created;
+                    $dado[] = $personCategory->status == '1' ? 'ativo' : 'inativo';
+
+                    $editarButton = $this->Html->link(__('Editar'),
+                            [
+                                'action' => 'edit',
+                                $personCategory->id
+                            ],
+                            [
+                                'class' => 'btn btn-outline-warning btn-sm m-1',
+                                'update' => '#content'
+                            ]
+                    );
+                    $detalharButton = $this->Html->link(__('Detalhar'),
+                            [
+                                'action' => 'view',
+                                $personCategory->id
+                            ],
+                            [
+                                'class' => 'btn btn-outline-success btn-sm',
+                                'update' => '#content'
+                            ]
+                    );
+
+                    $dado[] = $editarButton . $detalharButton;
+
+                    $tableCells[] = $dado;
+                }
+
+                echo $this->Html->tableHeaders($tableHeaders);
+                echo $this->Html->tableCells($tableCells);
+            ?>
+        </table>         
+    </div>
+</div>

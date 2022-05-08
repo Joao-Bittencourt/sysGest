@@ -83,6 +83,12 @@ use Cake\Routing\Router;
                         Pessoas
                     </a>
                 </li>
+                 <li>
+                    <a href = <?= Router::url(['controller' => 'PersonCategories', 'action' => 'list']); ?>>                    
+                       <i class="bi bi-person-lines-fill icon-color-white"></i>
+                        Tipo pessoa
+                    </a>
+                </li>
             </ul>
         </li>
     </ul>     
