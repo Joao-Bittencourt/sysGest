@@ -41,7 +41,7 @@ class AccountsTable extends Table {
 
         $validator
                 ->integer('pessoa_id')
-                ->notBlank('status', 'Selecione a Pessoa');
+                ->notBlank('pessoa_id', 'Selecione a Pessoa');
         $validator
                 ->integer('banco_id')
                 ->notBlank('banco_id', 'Selecione o Banco');
@@ -52,10 +52,8 @@ class AccountsTable extends Table {
                 ->integer('conta')
                 ->notBlank('conta', 'Selecione a Conta');
         $validator
-                ->integer('banco_id')
-                ->notBlank('banco_id', 'Selecione o Banco');
-        $validator
                 ->integer('status')
+                 ->maxLength('status', 1)
                 ->notEmptyString('status');
 
         return $validator;
