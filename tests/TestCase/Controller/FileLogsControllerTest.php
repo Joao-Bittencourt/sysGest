@@ -49,7 +49,9 @@ class FileLogsControllerTest extends TestCase {
      * @return void
      */
     public function testSeeder() {
-        $this->markTestIncomplete();
+        $this->get('/file-logs/seeder/abcd/1');
+//        $this->expectException(\Cake\Http\Exception\NotFoundException::class);
+        $this->assertResponseError();
     }
 
 }

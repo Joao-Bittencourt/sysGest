@@ -33,11 +33,4 @@ class PersonsController extends AppController {
         $this->set(compact('tipoPessoas'));
     }
 
-//    public function teste() {
-//        $this->viewBuilder()->setLayout('vue');
-//        $pessoas = $this->paginate($this->Pessoas);
-//
-//        $this->set(compact('pessoas'));
-//        $this->layout = 'vue';
-//    }
 }

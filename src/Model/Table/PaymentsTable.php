@@ -94,9 +94,6 @@ class PaymentsTable extends Table {
     }
 
     public function findDataOutputs($params = []) {
-//        $payment = $this->find();
-//        $payment->select(['sum_values' => $payment->func()->sum('vl_total')]);
-
 
         $query = $this->find();
         $query

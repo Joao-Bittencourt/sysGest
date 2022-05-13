@@ -28,7 +28,7 @@ class FileLogsController extends AppController {
 
     public function seeder($entitySeedName = '', $quantity = 1) {
 
-        try {
+//        try {
             switch ($entitySeedName) {
                 case 'payments' :
                     $this->Seeder->$entitySeedName($entitySeedName, $quantity);
@@ -36,11 +36,11 @@ class FileLogsController extends AppController {
                 default:
                     $this->Seeder->seederCall($entitySeedName . 'Seeder');
             }              
-        } catch (\Exception $e) {
-            exit($e->getMessage() . "\n");
-        }
-        
-        print_r(__('Dados salvos com sucesso!'));
-        exit();
+//        } catch (\Exception $e) {
+//            print_r($e->getMessage() . "\n");
+//        }
+//        
+//        print_r(__('Dados salvos com sucesso!'));
+//        exit();
     }
 }
